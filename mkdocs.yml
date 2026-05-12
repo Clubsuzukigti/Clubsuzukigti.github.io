@@ -26,8 +26,8 @@ theme:
   name: material
   custom_dir: overrides
   language: es
-  logo: assets/img/logo-azul-original.jpg
-  favicon: assets/img/logo-azul-small.jpg
+  logo: assets/img/logo-transparente.png
+  favicon: assets/img/favicon.png
   icon:
     repo: fontawesome/brands/github
     edit: material/pencil
