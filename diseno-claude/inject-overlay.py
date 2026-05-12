@@ -439,12 +439,17 @@ def build_injection(locale):
     }}
 
     function playTic() {{
+      console.log('[GTi audio] tic called, muted=', muted);
       if (muted) return;
       var ctx = initContext();
+      console.log('[GTi audio] ctx=', ctx, 'state=', ctx && ctx.state);
       if (!ctx) return;
       if (ctx.state === 'suspended') {{
         var p = ctx.resume();
-        if (p && p.then) p.then(function() {{ _scheduleTic(ctx); }});
+        if (p && p.then) p.then(function() {{
+          console.log('[GTi audio] ctx resumed, scheduling tic');
+          _scheduleTic(ctx);
+        }});
         else _scheduleTic(ctx);
       }} else {{
         _scheduleTic(ctx);
@@ -452,18 +457,22 @@ def build_injection(locale):
     }}
 
     function playOpen() {{
+      console.log('[GTi audio] open called, muted=', muted, 'already=', openPlayed);
       if (muted || openPlayed) return;
       preloadShutters();
       var p = openSnd.play();
-      if (p && p.catch) p.catch(function(){{}});
+      if (p && p.then) p.then(function() {{ console.log('[GTi audio] open PLAYING'); }})
+                       .catch(function(err) {{ console.warn('[GTi audio] open FAILED:', err.name, err.message); }});
       openPlayed = true;
     }}
 
     function playClose() {{
+      console.log('[GTi audio] close called, muted=', muted, 'already=', closePlayed);
       if (muted || closePlayed) return;
       preloadShutters();
       var p = closeSnd.play();
-      if (p && p.catch) p.catch(function(){{}});
+      if (p && p.then) p.then(function() {{ console.log('[GTi audio] close PLAYING'); }})
+                       .catch(function(err) {{ console.warn('[GTi audio] close FAILED:', err.name, err.message); }});
       closePlayed = true;
     }}
 
@@ -569,7 +578,11 @@ def build_injection(locale):
       mute.addEventListener('click', function(ev) {{
         ev.preventDefault();
         GTiAudio.toggleMuted();
-        GTiAudio.onFirstInteraction();
+        /* tic explicito al boton para feedback inmediato */
+        if (!GTiAudio.isMuted()) {{
+          GTiAudio.tic();
+          GTiAudio.onFirstInteraction();
+        }}
       }});
     }}
 
