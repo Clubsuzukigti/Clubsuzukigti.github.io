@@ -1,8 +1,28 @@
+---
+title: Historia del Suzuki Swift GTi
+description: 1989-2003 · El hot hatch japonés que se vendió bajo 14 nombres distintos en 24 países
+---
+
 # Historia del Suzuki Swift GTi
 
-El Suzuki Swift GTi nació en 1989 como la versión deportiva de un humilde subcompacto japonés y se convirtió en uno de los hot hatches más respetados de su generación. Esta sección documenta la historia completa del modelo en todas sus variantes mundiales.
+<div class="gti-quote" markdown>
+Nació en 1989 como la versión deportiva de un humilde subcompacto japonés. Se convirtió en uno de los hot hatches más respetados de su generación. Hoy queda menos del 30% de la producción original rodando.
 
-## Generaciones y mercados
+<cite>— ARCHIVO HISTÓRICO · CLUB SUZUKI GTi</cite>
+</div>
+
+<hr class="gti-rule">
+
+## El GTi en números globales {#cifras}
+
+<div class="gti-stat"><span class="num">14</span><span class="lbl">NOMBRES COMERCIALES</span></div>
+<div class="gti-stat"><span class="num">24</span><span class="lbl">PAÍSES</span></div>
+<div class="gti-stat"><span class="num">33</span><span class="lbl">AÑOS · 1983-2016 PRODUCCIÓN</span></div>
+<div class="gti-stat"><span class="num">680</span><span class="lbl">KG · PESO MÍNIMO CURB</span></div>
+
+<hr class="gti-rule">
+
+## Generaciones y mercados {#mercados}
 
 El mismo auto se vendió bajo **14 nombres diferentes** alrededor del mundo entre 1983 y 2016:
 
@@ -20,17 +40,19 @@ El mismo auto se vendió bajo **14 nombres diferentes** alrededor del mundo entr
 | 🇮🇳 India | **Maruti 1000 / Esteem** | 1990-2008 |
 | Y más… | Khyber, Forsa Amenity, Sprint Metro, Chevrolet Swift, Holden Barina, Subaru Justy | varios |
 
-## Páginas en esta sección
+<hr class="gti-rule">
 
-- [Suzuki Swift GTi (MK2 1989-1994)](swift-gti-mk2.md)
-- [Cultus GTi JDM — versiones japonesas](cultus-gti-jdm.md)
-- [Cultus GT-i 4WD (AF34S) — la rareza](cultus-4wd-af34s.md)
-- [Forsa GTi / Swift GT — variantes mundiales](variantes-mundiales.md)
-- [Convertibles G13B — el unicornio](convertibles.md)
+## Páginas en esta sección {#subpaginas}
 
----
+- [**Suzuki Swift GTi (MK2 1989-1994)**](swift-gti-mk2.md) — la variante global más conocida
+- [**Cultus GTi JDM**](cultus-gti-jdm.md) — versiones japonesas
+- [**Cultus GT-i 4WD (AF34S)**](cultus-4wd-af34s.md) — la rareza absoluta
+- [**Forsa GTi / Swift GT**](variantes-mundiales.md) — variantes regionales
+- [**Convertibles G13B**](convertibles.md) — el unicornio
 
-## Línea temporal completa
+<hr class="gti-rule">
+
+## Línea temporal completa {#timeline}
 
 ```
 1983 ┃ Lanzamiento Suzuki Cultus (Mk1 SA413) en Japón
@@ -52,7 +74,12 @@ El mismo auto se vendió bajo **14 nombres diferentes** alrededor del mundo entr
 2016 ┃ Fin total producción Cultus en Pakistán (33 años total)
 ```
 
-## Por qué se está perdiendo
+<hr class="gti-rule">
+
+## Por qué se está perdiendo {#por-que-perdiendo}
+
+!!! warning "Especie en peligro"
+    Producción terminada hace dos décadas en casi todos los mercados. Repuestos OEM agotándose. Mecánicos especialistas en G13B retirándose. Carrocerías oxidándose desde dentro. Cada año que pasa, menos unidades.
 
 - **Producción ya terminó hace décadas** — ningún auto nuevo desde 2003 fuera de Pakistán
 - **Repuestos OEM se agotan** — Suzuki dejó de fabricar muchos componentes
@@ -60,4 +87,8 @@ El mismo auto se vendió bajo **14 nombres diferentes** alrededor del mundo entr
 - **Conocimiento técnico se pierde** — mecánicos especialistas se jubilan
 - **Canibalización** — muchos autos terminan como donantes de partes
 
-Este sitio existe para que **no desaparezca el conocimiento técnico** acumulado, aunque algún día queden pocos autos rodando.
+<div class="gti-quote" markdown>
+Este sitio existe para que no desaparezca el conocimiento técnico acumulado — aunque algún día queden pocos autos rodando.
+
+<cite>— MANIFIESTO DEL ARCHIVO</cite>
+</div>
