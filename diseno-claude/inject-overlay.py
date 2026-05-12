@@ -296,6 +296,26 @@ def build_injection(locale):
     '@media (max-width: 720px) {{',
     '  html body .gti-s-logo {{ width: 16px !important; height: 16px !important; opacity: 0.55 !important; }}',
     '  html body .gti-s-logo.pos-3 {{ display: none !important; }}',
+    '}}',
+    /* === Sobreescribe la "S" cursiva del brand-box con el logo antiguo === */
+    'html body .gti-brand-s-override {{',
+    '  position: fixed !important;',
+    '  top: 38px !important; left: 38px !important;',
+    '  width: 56px !important; height: 56px !important;',
+    '  z-index: 9999 !important;',
+    '  pointer-events: none !important;',
+    '  background-color: #FFFFFF !important;',
+    '  -webkit-mask-image: url("/assets/img/siluetas/suzuki-s-logo.svg") !important;',
+    '  mask-image: url("/assets/img/siluetas/suzuki-s-logo.svg") !important;',
+    '  -webkit-mask-size: contain !important;',
+    '  mask-size: contain !important;',
+    '  -webkit-mask-repeat: no-repeat !important;',
+    '  mask-repeat: no-repeat !important;',
+    '  -webkit-mask-position: center !important;',
+    '  mask-position: center !important;',
+    '}}',
+    '@media (max-width: 720px) {{',
+    '  html body .gti-brand-s-override {{ top: 24px !important; left: 24px !important; width: 42px !important; height: 42px !important; }}',
     '}}'
   ].join('\\n');
 
@@ -334,6 +354,7 @@ def build_injection(locale):
                    '<div class="gti-s-logo pos-2" aria-hidden="true"></div>' +
                    '<div class="gti-s-logo pos-3" aria-hidden="true"></div>' +
                    '<div class="gti-s-logo pos-4" aria-hidden="true"></div>';
+  var brandOverrideHTML = '<div class="gti-brand-s-override" id="gtiBrandSOverride" aria-hidden="true"></div>';
 
   function attachListeners() {{
     var nav = document.getElementById('deepNav');
@@ -397,6 +418,13 @@ def build_injection(locale):
     return true;
   }}
 
+  function injectBrandSOverride() {{
+    if (document.getElementById('gtiBrandSOverride')) return true;
+    if (!document.body) return false;
+    document.body.insertAdjacentHTML('afterbegin', brandOverrideHTML);
+    return true;
+  }}
+
   function ensure() {{
     if (!document.body) return false;
     var hasContent = document.querySelector('[id="archivo"], [id="motor"], [id="garage"], section');
@@ -418,6 +446,8 @@ def build_injection(locale):
     injectHeroBg();
     // 4b. Logos Suzuki "S" antiguos (4 instancias en el hero)
     injectSLogos();
+    // 4c. Overlay sobre la "S" cursiva del brand box (esquina superior izquierda)
+    injectBrandSOverride();
     // 5. Section CTAs
     Object.keys(CTAS).forEach(function(k) {{
       injectSectionCTA(k, CTAS[k].label, CTAS[k].href);

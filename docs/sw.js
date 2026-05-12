@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.4.1';  /* logos S pequeños rojos GTi con flotacion sutil, repartidos como marcadores del bundle */
+const VERSION = 'v1.4.2';  /* override de la S cursiva del brand box con logo Suzuki antiguo */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 
