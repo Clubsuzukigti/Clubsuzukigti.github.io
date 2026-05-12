@@ -105,6 +105,13 @@ plugins:
             Comunidad: Community
             Blog: Blog
             Contacto: Contact
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: timeago
+      fallback_to_build_date: true
+      enabled: true
+      strict: false
+      locale: es
   - glightbox:
       touchNavigation: true
       loop: false
