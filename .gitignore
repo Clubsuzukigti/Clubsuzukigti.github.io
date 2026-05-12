@@ -26,3 +26,6 @@ desktop.ini
 # Temporary
 *.tmp
 *.bak
+
+# Preview screenshots locales (no van al repo)
+preview-shots/
