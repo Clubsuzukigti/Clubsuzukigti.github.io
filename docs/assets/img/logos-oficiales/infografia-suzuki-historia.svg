@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1800" width="1200" height="1800" font-family="'Helvetica Neue', Arial, sans-serif">
+  <!-- Background -->
+  <rect width="1200" height="1800" fill="#0F2547"/>
+  <rect x="0" y="0" width="1200" height="8" fill="#E20A17"/>
+
+  <!-- Title -->
+  <text x="600" y="80" fill="#FFFFFF" font-size="44" font-weight="900" text-anchor="middle" letter-spacing="2">SUZUKI · BRAND HERITAGE</text>
+  <text x="600" y="115" fill="#00A4D7" font-size="20" font-weight="300" text-anchor="middle" letter-spacing="6">SWIFT GTi 1989-1994 · OFFICIAL IDENTITY</text>
+  <line x1="400" y1="140" x2="800" y2="140" stroke="#E20A17" stroke-width="2"/>
+
+  <!-- ============ SECTION 1: LOGO TIMELINE ============ -->
+  <text x="80" y="200" fill="#FFFFFF" font-size="28" font-weight="700">1 · EVOLUCIÓN DEL LOGOTIPO</text>
+  <line x1="80" y1="215" x2="1120" y2="215" stroke="#FFFFFF" stroke-opacity="0.2"/>
+
+  <!-- Timeline 1909 -->
+  <rect x="80" y="250" width="240" height="180" fill="#FFFFFF" rx="6"/>
+  <text x="200" y="285" fill="#0F2547" font-size="22" font-weight="900" text-anchor="middle">1909</text>
+  <text x="200" y="305" fill="#E20A17" font-size="11" font-weight="700" text-anchor="middle">PRIMERA IDENTIDAD</text>
+  <!-- Mirrored birds suggestion -->
+  <path d="M 160 360 L 200 340 L 240 360 L 220 380 L 200 365 L 180 380 Z" fill="#0F2547"/>
+  <path d="M 160 400 L 200 420 L 240 400 L 220 385 L 200 395 L 180 385 Z" fill="#0F2547"/>
+  <text x="200" y="425" fill="#0F2547" font-size="10" text-anchor="middle">Aves espejadas formando "S"</text>
+
+  <!-- Timeline 1958 -->
+  <rect x="340" y="250" width="240" height="180" fill="#FFFFFF" rx="6"/>
+  <text x="460" y="285" fill="#0F2547" font-size="22" font-weight="900" text-anchor="middle">1958</text>
+  <text x="460" y="305" fill="#E20A17" font-size="11" font-weight="700" text-anchor="middle">MONOGRAMA "S"</text>
+  <!-- S shape geometric -->
+  <text x="460" y="395" fill="#E20A17" font-size="90" font-weight="900" font-style="italic" text-anchor="middle">S</text>
+  <text x="460" y="420" fill="#0F2547" font-size="9" text-anchor="middle">Masamichi Tezeni · Tokyo Univ. of Arts</text>
+
+  <!-- Timeline 1990 -->
+  <rect x="600" y="250" width="240" height="180" fill="#E20A17" rx="6"/>
+  <text x="720" y="285" fill="#FFFFFF" font-size="22" font-weight="900" text-anchor="middle">1990</text>
+  <text x="720" y="305" fill="#FFFFFF" font-size="11" font-weight="700" text-anchor="middle">ERA SWIFT GTi</text>
+  <text x="720" y="385" fill="#FFFFFF" font-size="80" font-weight="900" font-style="italic" text-anchor="middle">S</text>
+  <text x="720" y="410" fill="#FFFFFF" font-size="14" font-weight="900" text-anchor="middle" letter-spacing="3">SUZUKI</text>
+
+  <!-- Timeline today -->
+  <rect x="860" y="250" width="240" height="180" fill="#FFFFFF" rx="6"/>
+  <text x="980" y="285" fill="#0F2547" font-size="22" font-weight="900" text-anchor="middle">HOY</text>
+  <text x="980" y="305" fill="#E20A17" font-size="11" font-weight="700" text-anchor="middle">REFINAMIENTO</text>
+  <text x="980" y="380" fill="#E20A17" font-size="70" font-weight="900" font-style="italic" text-anchor="middle">S</text>
+  <text x="980" y="408" fill="#0F2547" font-size="12" font-weight="900" text-anchor="middle" letter-spacing="3">SUZUKI</text>
+
+  <!-- Story box -->
+  <rect x="80" y="460" width="1040" height="120" fill="#FFFFFF" fill-opacity="0.05" stroke="#00A4D7" stroke-width="1" rx="4"/>
+  <text x="100" y="490" fill="#00A4D7" font-size="13" font-weight="700" letter-spacing="2">HISTORIA</text>
+  <text x="100" y="515" fill="#FFFFFF" font-size="14">El monograma fue creado en 1958 por Masamichi Tezeni, estudiante en la Tokyo University of the Arts.</text>
+  <text x="100" y="535" fill="#FFFFFF" font-size="14">Tezeni se convirtió en uno de los principales diseñadores industriales de Japón — diseñó parte del Shinkansen serie 300.</text>
+  <text x="100" y="555" fill="#FFFFFF" font-size="14">El "S" estilizado fusiona herencia samurái (líneas geométricas) con velocidad y poder. Vigente desde 1958 sin cambios estructurales.</text>
+
+  <!-- ============ SECTION 2: COLORS ============ -->
+  <text x="80" y="650" fill="#FFFFFF" font-size="28" font-weight="700">2 · COLORES REGISTRADOS</text>
+  <line x1="80" y1="665" x2="1120" y2="665" stroke="#FFFFFF" stroke-opacity="0.2"/>
+
+  <!-- Red swatch -->
+  <rect x="80" y="700" width="500" height="200" fill="#E20A17" rx="6"/>
+  <text x="105" y="740" fill="#FFFFFF" font-size="14" font-weight="700" letter-spacing="3">SUZUKI MAXIMUM RED</text>
+  <text x="105" y="800" fill="#FFFFFF" font-size="48" font-weight="900">#E20A17</text>
+  <text x="105" y="830" fill="#FFFFFF" font-size="13" font-weight="300">RGB · 226 · 10 · 23</text>
+  <text x="105" y="850" fill="#FFFFFF" font-size="13" font-weight="300">CMYK · 0 · 96 · 90 · 11</text>
+  <text x="105" y="870" fill="#FFFFFF" font-size="13" font-weight="700">PANTONE · PMS Bright Red C / 485 C</text>
+
+  <!-- Blue swatch -->
+  <rect x="620" y="700" width="500" height="200" fill="#003399" rx="6"/>
+  <text x="645" y="740" fill="#FFFFFF" font-size="14" font-weight="700" letter-spacing="3">SUZUKI DARK POWDER BLUE</text>
+  <text x="645" y="800" fill="#FFFFFF" font-size="48" font-weight="900">#003399</text>
+  <text x="645" y="830" fill="#FFFFFF" font-size="13" font-weight="300">RGB · 0 · 51 · 153</text>
+  <text x="645" y="850" fill="#FFFFFF" font-size="13" font-weight="300">CMYK · 100 · 67 · 0 · 40</text>
+  <text x="645" y="870" fill="#FFFFFF" font-size="13" font-weight="700">PANTONE · PMS 286 C</text>
+
+  <!-- Accent colors -->
+  <rect x="80" y="930" width="245" height="80" fill="#00A4D7" rx="6"/>
+  <text x="100" y="960" fill="#FFFFFF" font-size="11" font-weight="700">CYAN RALLY 90s</text>
+  <text x="100" y="990" fill="#FFFFFF" font-size="20" font-weight="900">#00A4D7</text>
+
+  <rect x="340" y="930" width="245" height="80" fill="#1A3A6B" rx="6"/>
+  <text x="360" y="960" fill="#FFFFFF" font-size="11" font-weight="700">SPORT DARK BLUE</text>
+  <text x="360" y="990" fill="#FFFFFF" font-size="20" font-weight="900">#1A3A6B</text>
+
+  <rect x="600" y="930" width="245" height="80" fill="#FFFFFF" rx="6"/>
+  <text x="620" y="960" fill="#0F2547" font-size="11" font-weight="700">PURE WHITE</text>
+  <text x="620" y="990" fill="#0F2547" font-size="20" font-weight="900">#FFFFFF</text>
+
+  <rect x="860" y="930" width="240" height="80" fill="#000000" stroke="#FFFFFF" stroke-width="1" rx="6"/>
+  <text x="880" y="960" fill="#FFFFFF" font-size="11" font-weight="700">JET BLACK</text>
+  <text x="880" y="990" fill="#FFFFFF" font-size="20" font-weight="900">#000000</text>
+
+  <!-- ============ SECTION 3: SWIFT GTI DECALS ============ -->
+  <text x="80" y="1080" fill="#FFFFFF" font-size="28" font-weight="700">3 · DECALS Y EMBLEMAS ORIGINALES SWIFT GTi</text>
+  <line x1="80" y1="1095" x2="1120" y2="1095" stroke="#FFFFFF" stroke-opacity="0.2"/>
+
+  <!-- GTi lateral decal -->
+  <rect x="80" y="1130" width="500" height="160" fill="#FFFFFF" rx="6"/>
+  <text x="100" y="1160" fill="#0F2547" font-size="12" font-weight="700" letter-spacing="2">LATERAL · PUERTAS</text>
+  <text x="100" y="1230" fill="#E20A17" font-size="62" font-weight="900" font-style="italic" letter-spacing="-2">GTi</text>
+  <text x="100" y="1265" fill="#0F2547" font-size="11">Italic bold sans-serif · "i" con punto cuadrado · rojo #E20A17</text>
+
+  <!-- DOHC 16 VALVE badge -->
+  <rect x="620" y="1130" width="500" height="160" fill="#1A1A1A" rx="6"/>
+  <text x="640" y="1160" fill="#00A4D7" font-size="12" font-weight="700" letter-spacing="2">TAILGATE · BAÚL</text>
+  <text x="640" y="1215" fill="#C0C0C0" font-size="28" font-weight="900" letter-spacing="2">TWIN CAM</text>
+  <text x="640" y="1255" fill="#C0C0C0" font-size="28" font-weight="900" letter-spacing="2">16 VALVE</text>
+  <text x="640" y="1280" fill="#FFFFFF" font-size="11" font-weight="300">Cromado plateado · grabado relieve · sobre tailgate</text>
+
+  <!-- Chrome S badge -->
+  <rect x="80" y="1310" width="500" height="160" fill="#E8E8E8" rx="6"/>
+  <text x="100" y="1340" fill="#0F2547" font-size="12" font-weight="700" letter-spacing="2">REAR GRILL · S CHROME</text>
+  <text x="100" y="1430" fill="#666666" font-size="80" font-weight="900" font-style="italic">S</text>
+  <text x="240" y="1395" fill="#0F2547" font-size="11">Part # 77811-63J</text>
+  <text x="240" y="1415" fill="#0F2547" font-size="11">Cromado 3D · centro tailgate</text>
+  <text x="240" y="1435" fill="#0F2547" font-size="11">Aún en producción genuina (Sims Suzuki UK)</text>
+
+  <!-- Cultus 4WD decal -->
+  <rect x="620" y="1310" width="500" height="160" fill="#0F2547" stroke="#E20A17" stroke-width="2" rx="6"/>
+  <text x="640" y="1340" fill="#E20A17" font-size="12" font-weight="700" letter-spacing="2">CULTUS GTi 4WD JDM · LATERAL</text>
+  <text x="640" y="1395" fill="#FFFFFF" font-size="34" font-weight="900" font-style="italic">GTi</text>
+  <text x="720" y="1395" fill="#E20A17" font-size="34" font-weight="900" font-style="italic">4WD</text>
+  <text x="640" y="1420" fill="#00A4D7" font-size="14" font-weight="700" letter-spacing="3">TWIN CAM 16 VALVE</text>
+  <text x="640" y="1450" fill="#FFFFFF" font-size="10" font-weight="300">Variante AF34S · JDM exclusivo · stickers blanco + rojo</text>
+
+  <!-- ============ SECTION 4: SOURCES ============ -->
+  <rect x="80" y="1510" width="1040" height="220" fill="#FFFFFF" fill-opacity="0.05" stroke="#00A4D7" stroke-width="1" rx="4"/>
+  <text x="100" y="1545" fill="#00A4D7" font-size="14" font-weight="700" letter-spacing="2">REPRODUCCIONES OEM VERIFICADAS</text>
+  <text x="100" y="1575" fill="#FFFFFF" font-size="13">• VM's Reproduction Decals (FB: vmsuzukistuff) — set completo medidas OEM</text>
+  <text x="100" y="1600" fill="#FFFFFF" font-size="13">• Zen Graphics UK — replica decal set "Twin Cam 16 Valve"</text>
+  <text x="100" y="1625" fill="#FFFFFF" font-size="13">• Legion Part Store — emblem set front + rear completo</text>
+  <text x="100" y="1650" fill="#FFFFFF" font-size="13">• Sims Suzuki Parts UK — chrome S badge 77811-63J genuino</text>
+  <text x="100" y="1675" fill="#FFFFFF" font-size="13">• eBay 235750338925 / 173254616650 / 176184618436 — sets verificados</text>
+  <text x="100" y="1705" fill="#FFFFFF" font-size="11" font-style="italic" fill-opacity="0.7">Investigación: 2026-05-11 · clubsuzukigti.github.io</text>
+
+  <!-- Footer line -->
+  <rect x="0" y="1780" width="1200" height="20" fill="#E20A17"/>
+  <text x="600" y="1795" fill="#FFFFFF" font-size="11" text-anchor="middle" font-weight="700" letter-spacing="3">SUZUKI GTi CAR CLUB · PRESERVANDO EL LEGADO</text>
+</svg>
