@@ -694,6 +694,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 
 
+
 <!-- gti-overlay-injected -->
 <!-- Styles inyectados via JS porque el bundle hace document.documentElement.replaceWith() y borra el head original -->
 <script>
@@ -844,7 +845,101 @@ document.addEventListener('DOMContentLoaded', async function() {
     '  margin-left: 6px !important;',
     '  transition: transform .3s !important;',
     '}',
-    'html body a.gti-section-cta:hover::after { transform: translateX(8px) !important; }'
+    'html body a.gti-section-cta:hover::after { transform: translateX(8px) !important; }',
+    /* === SILUETAS DEL GTi — identidad visual sutil === */
+    /* Watermark hero: sol naciente JDM gigante fijo, opacity bajísima */
+    'html body .gti-watermark-hero {',
+    '  position: fixed !important;',
+    '  top: 50% !important; right: -8% !important;',
+    '  transform: translateY(-50%) !important;',
+    '  width: 92vmin !important; height: 92vmin !important;',
+    '  max-width: 980px !important; max-height: 980px !important;',
+    '  pointer-events: none !important;',
+    '  z-index: 0 !important;',
+    '  opacity: 0.055 !important;',
+    '  mix-blend-mode: screen !important;',
+    '  background-image: url("/assets/img/siluetas/gti-rising-sun.svg") !important;',
+    '  background-size: contain !important;',
+    '  background-repeat: no-repeat !important;',
+    '  background-position: center !important;',
+    '  filter: blur(0.6px) !important;',
+    '  transition: opacity 1.4s ease !important;',
+    '}',
+    '@media (max-width: 720px) {',
+    '  html body .gti-watermark-hero { right: -22% !important; width: 130vmin !important; height: 130vmin !important; opacity: 0.045 !important; }',
+    '}',
+    /* Sección dividers — silueta lateral pequeña entre bloques */
+    'html body .gti-divider {',
+    '  display: flex !important; align-items: center !important; justify-content: center !important;',
+    '  gap: 22px !important;',
+    '  margin: 4em auto 3em !important;',
+    '  max-width: 720px !important;',
+    '  opacity: 0.55 !important;',
+    '  pointer-events: none !important;',
+    '}',
+    'html body .gti-divider::before, html body .gti-divider::after {',
+    '  content: "" !important;',
+    '  flex: 1 !important;',
+    '  height: 1px !important;',
+    '  background: linear-gradient(90deg, transparent, rgba(255,179,71,0.35), transparent) !important;',
+    '}',
+    'html body .gti-divider svg {',
+    '  width: 120px !important; height: auto !important;',
+    '  color: #FFB347 !important;',
+    '  opacity: 0.85 !important;',
+    '  flex-shrink: 0 !important;',
+    '}',
+    /* Footer mark — silueta trasera "alejándose" */
+    'html body .gti-footer-mark {',
+    '  display: flex !important; flex-direction: column !important;',
+    '  align-items: center !important; gap: 12px !important;',
+    '  margin: 4em auto 2em !important;',
+    '  padding: 0 24px !important;',
+    '  max-width: 360px !important;',
+    '  pointer-events: none !important;',
+    '  opacity: 0.45 !important;',
+    '  transition: opacity .6s ease !important;',
+    '}',
+    'html body .gti-footer-mark:hover { opacity: 0.85 !important; }',
+    'html body .gti-footer-mark svg {',
+    '  width: 100% !important; height: auto !important;',
+    '  color: #F5EFE0 !important;',
+    '  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5)) !important;',
+    '}',
+    'html body .gti-footer-mark .gti-footer-mark-caption {',
+    "  font-family: 'Inter Tight','Inter',sans-serif !important;",
+    '  font-size: 10px !important;',
+    '  font-weight: 500 !important;',
+    '  letter-spacing: 3px !important;',
+    '  text-transform: uppercase !important;',
+    '  color: rgba(245,239,224,0.55) !important;',
+    '}',
+    /* Deep-nav: silueta lateral micro reemplazando el dot */
+    'html body div.deep-nav .gti-nav-silhouette {',
+    '  width: 28px !important; height: 11px !important;',
+    '  margin-right: 6px !important;',
+    '  color: #FFB347 !important;',
+    '  flex-shrink: 0 !important;',
+    '  opacity: 0.9 !important;',
+    '  filter: drop-shadow(0 0 4px rgba(255,179,71,0.5)) !important;',
+    '}',
+    '@media (max-width: 480px) {',
+    '  html body div.deep-nav .gti-nav-silhouette { display: none !important; }',
+    '}',
+    /* Section accents — silueta frontal/trasera flotante como ornamento */
+    'html body .gti-section-accent {',
+    '  position: absolute !important;',
+    '  width: 180px !important; height: auto !important;',
+    '  opacity: 0.07 !important;',
+    '  pointer-events: none !important;',
+    '  color: #FFB347 !important;',
+    '  z-index: 1 !important;',
+    '}',
+    'html body .gti-section-accent.left { left: 4% !important; top: 18% !important; transform: rotate(-6deg) !important; }',
+    'html body .gti-section-accent.right { right: 4% !important; bottom: 12% !important; transform: rotate(4deg) !important; }',
+    '@media (max-width: 900px) {',
+    '  html body .gti-section-accent { width: 120px !important; opacity: 0.05 !important; }',
+    '}'
   ].join('\n');
 
   /* Inyecta los estilos en el <head> ACTUAL (re-llamable cada vez que documentElement cambia) */
@@ -869,14 +964,64 @@ document.addEventListener('DOMContentLoaded', async function() {
   var CTAS = {"archivo":{label:"Explore the full archive",href:"/en/manuales/"},"motor":{label:"Full G13B technical specifications",href:"/en/reparaciones/motor-g13b/"},"garage":{label:"See the full club garage",href:"/en/garage/"},"comunidad":{label:"Join the community",href:"/en/comunidad/"},"colab":{label:"Discover the technical archive",href:"/en/manuales/"}};
   var BACK_LABEL = "Back to top";
 
+  /* Silueta lateral en formato inline para deep-nav (no requiere fetch externo) */
+  var SIL_SIDE_MINI = '<svg class="gti-nav-silhouette" viewBox="0 0 540 200" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<path d="M 38 148 L 38 138 Q 42 122 62 118 L 110 110 Q 130 70 168 58 L 230 50 L 340 50 Q 372 52 392 70 L 414 96 L 470 104 Q 498 108 504 126 L 504 148"/>' +
+    '<path d="M 168 58 L 192 96 M 260 50 L 260 96 M 340 50 L 326 96"/>' +
+    '<circle cx="132" cy="160" r="26"/>' +
+    '<circle cx="425" cy="160" r="26"/>' +
+    '</svg>';
+
   var navHTML = '<div id="deepNav" class="deep-nav">' +
-    '<span class="dot"></span>' +
+    SIL_SIDE_MINI +
     '<a href="/en/historia/">History</a><a href="/en/manuales/">Manuals</a><a href="/en/reparaciones/">Repairs</a><a href="/en/modificaciones/">Modifications</a><a href="/en/repuestos/">Parts</a><a href="/en/garage/">Garage</a><a href="/en/comunidad/">Community</a><a href="/en/blog/">Blog</a><a href="/en/contacto/">Contact</a>' +
     '<a href="/" class="lang">ES</a>' +
     '</div>';
 
   var progressHTML = '<div class="gti-progress" id="gtiProgress"></div>';
   var backTopHTML = '<button class="gti-back-top" id="gtiBackTop" aria-label="' + BACK_LABEL + '">↑</button>';
+  var watermarkHTML = '<div class="gti-watermark-hero" id="gtiWatermarkHero" aria-hidden="true"></div>';
+
+  /* Footer mark con silueta trasera "alejándose" + caption */
+  var footerMarkHTML = '<div class="gti-footer-mark" aria-hidden="true">' +
+    '<svg viewBox="0 0 320 220" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">' +
+    '<path d="M 92 28 L 228 28 Q 250 32 254 50 L 262 84"/>' +
+    '<path d="M 58 84 L 66 50 Q 70 32 92 28"/>' +
+    '<path d="M 66 84 L 254 84" stroke-width="1.8" opacity="0.7"/>' +
+    '<rect x="124" y="22" width="72" height="6" rx="2" stroke-width="1.8"/>' +
+    '<path d="M 58 84 L 42 100 L 42 138 L 278 138 L 278 100 L 262 84"/>' +
+    '<rect x="50" y="104" width="62" height="26" rx="3" stroke-width="2.2"/>' +
+    '<rect x="208" y="104" width="62" height="26" rx="3" stroke-width="2.2"/>' +
+    '<rect x="138" y="112" width="44" height="10" rx="1.5" stroke-width="1.4" opacity="0.6"/>' +
+    '<path d="M 42 138 L 30 168 L 30 184 Q 30 196 44 198 L 276 198 Q 290 196 290 184 L 290 168 L 278 138"/>' +
+    '<path d="M 56 158 L 264 158" stroke-width="1.4" opacity="0.5"/>' +
+    '<rect x="124" y="166" width="72" height="20" rx="1.5" stroke-width="1.6" opacity="0.7"/>' +
+    '<ellipse cx="244" cy="200" rx="14" ry="6" stroke-width="2"/>' +
+    '</svg>' +
+    '<span class="gti-footer-mark-caption">Hasta la próxima vuelta</span>' +
+    '</div>';
+
+  /* Divider con silueta lateral */
+  var dividerHTML = '<div class="gti-divider" aria-hidden="true">' +
+    '<svg viewBox="0 0 540 200" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">' +
+    '<path d="M 38 148 L 38 138 Q 42 122 62 118 L 110 110 Q 130 70 168 58 L 230 50 L 340 50 Q 372 52 392 70 L 414 96 L 470 104 Q 498 108 504 126 L 504 148"/>' +
+    '<path d="M 168 58 L 192 96 M 260 50 L 260 96 M 340 50 L 326 96"/>' +
+    '<circle cx="132" cy="160" r="26" stroke-width="3"/>' +
+    '<circle cx="425" cy="160" r="26" stroke-width="3"/>' +
+    '</svg>' +
+    '</div>';
+
+  /* Accent ornamental — silueta frontal o trasera flotante para secciones específicas */
+  function makeAccent(kind, side) {
+    var paths = kind === 'front'
+      ? '<path d="M 90 30 L 230 30 Q 252 32 256 46 L 264 78"/><path d="M 56 78 L 64 46 Q 68 32 90 30"/><path d="M 56 78 L 40 96 L 40 130 L 280 130 L 280 96 L 264 78"/><rect x="52" y="100" width="62" height="22" rx="3"/><rect x="206" y="100" width="62" height="22" rx="3"/><rect x="124" y="108" width="72" height="14" rx="1.5"/><path d="M 40 130 L 30 160 L 30 178 Q 30 190 44 192 L 276 192 Q 290 190 290 178 L 290 160 L 280 130"/>'
+      : '<path d="M 92 28 L 228 28 Q 250 32 254 50 L 262 84"/><path d="M 58 84 L 66 50 Q 70 32 92 28"/><rect x="124" y="22" width="72" height="6" rx="2"/><path d="M 58 84 L 42 100 L 42 138 L 278 138 L 278 100 L 262 84"/><rect x="50" y="104" width="62" height="26" rx="3"/><rect x="208" y="104" width="62" height="26" rx="3"/><path d="M 42 138 L 30 168 L 30 184 Q 30 196 44 198 L 276 198 Q 290 196 290 184 L 290 168 L 278 138"/>';
+    var vb = kind === 'front' ? '0 0 320 220' : '0 0 320 220';
+    return '<div class="gti-section-accent ' + side + '" aria-hidden="true">' +
+      '<svg viewBox="' + vb + '" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">' +
+      paths +
+      '</svg></div>';
+  }
 
   function attachListeners() {
     var nav = document.getElementById('deepNav');
@@ -918,6 +1063,24 @@ document.addEventListener('DOMContentLoaded', async function() {
     return true;
   }
 
+  function injectAccent(sectionId, kind, side) {
+    var sec = document.getElementById(sectionId);
+    if (!sec) return false;
+    if (sec.querySelector('.gti-section-accent')) return true;
+    var cs = window.getComputedStyle(sec);
+    if (cs.position === 'static') sec.style.position = 'relative';
+    sec.insertAdjacentHTML('afterbegin', makeAccent(kind, side));
+    return true;
+  }
+
+  function injectDividerBefore(sectionId) {
+    var sec = document.getElementById(sectionId);
+    if (!sec) return false;
+    if (sec.previousElementSibling && sec.previousElementSibling.classList && sec.previousElementSibling.classList.contains('gti-divider')) return true;
+    sec.insertAdjacentHTML('beforebegin', dividerHTML);
+    return true;
+  }
+
   function ensure() {
     if (!document.body) return false;
     var hasContent = document.querySelector('[id="archivo"], [id="motor"], [id="garage"], section');
@@ -935,10 +1098,32 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (!document.getElementById('gtiBackTop')) {
       document.body.insertAdjacentHTML('beforeend', backTopHTML);
     }
-    // 4. Section CTAs
+    // 4. Hero watermark (sol naciente JDM, opacity ultra-baja)
+    if (!document.getElementById('gtiWatermarkHero')) {
+      document.body.insertAdjacentHTML('afterbegin', watermarkHTML);
+    }
+    // 5. Section CTAs
     Object.keys(CTAS).forEach(function(k) {
       injectSectionCTA(k, CTAS[k].label, CTAS[k].href);
     });
+    // 6. Section accents (siluetas frontal/trasera flotantes en secciones temáticas)
+    injectAccent('motor', 'front', 'right');
+    injectAccent('garage', 'rear', 'left');
+    injectAccent('comunidad', 'front', 'left');
+    // 7. Dividers entre secciones principales
+    injectDividerBefore('motor');
+    injectDividerBefore('garage');
+    injectDividerBefore('comunidad');
+    injectDividerBefore('colab');
+    // 8. Footer mark (silueta trasera + caption "Hasta la próxima vuelta")
+    if (!document.querySelector('.gti-footer-mark')) {
+      var lastSection = document.querySelector('[id="colab"]') || document.querySelector('section:last-of-type');
+      if (lastSection && lastSection.parentNode) {
+        lastSection.insertAdjacentHTML('afterend', footerMarkHTML);
+      } else {
+        document.body.insertAdjacentHTML('beforeend', footerMarkHTML);
+      }
+    }
 
     attachListeners();
     return true;

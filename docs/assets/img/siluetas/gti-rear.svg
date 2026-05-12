@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 220" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-label="Suzuki Swift GTi rear view">
+  <!-- Roof + rear hatch glass -->
+  <path d="M 92 28 L 228 28 Q 250 32 254 50 L 262 84"/>
+  <path d="M 58 84 L 66 50 Q 70 32 92 28"/>
+  <!-- Rear glass bottom -->
+  <path d="M 66 84 L 254 84" stroke-width="1.8" opacity="0.7"/>
+  <!-- Spoiler -->
+  <rect x="124" y="22" width="72" height="6" rx="2" stroke-width="1.8"/>
+  <!-- Body sides -->
+  <path d="M 58 84 L 42 100 L 42 138 L 278 138 L 278 100 L 262 84"/>
+  <!-- Tail lights -->
+  <rect x="50" y="104" width="62" height="26" rx="3" stroke-width="2.2"/>
+  <line x1="50" y1="118" x2="112" y2="118" stroke-width="1.2" opacity="0.55"/>
+  <rect x="208" y="104" width="62" height="26" rx="3" stroke-width="2.2"/>
+  <line x1="208" y1="118" x2="270" y2="118" stroke-width="1.2" opacity="0.55"/>
+  <!-- Hatch handle / emblem area -->
+  <rect x="138" y="112" width="44" height="10" rx="1.5" stroke-width="1.4" opacity="0.6"/>
+  <!-- Bumper -->
+  <path d="M 42 138 L 30 168 L 30 184 Q 30 196 44 198 L 276 198 Q 290 196 290 184 L 290 168 L 278 138"/>
+  <!-- Reflector strip -->
+  <path d="M 56 158 L 264 158" stroke-width="1.4" opacity="0.5"/>
+  <!-- License plate -->
+  <rect x="124" y="166" width="72" height="20" rx="1.5" stroke-width="1.6" opacity="0.7"/>
+  <!-- Exhaust tip -->
+  <ellipse cx="244" cy="200" rx="14" ry="6" stroke-width="2"/>
+  <circle cx="244" cy="200" r="3" fill="currentColor" opacity="0.4"/>
+</svg>
