@@ -297,6 +297,28 @@ def build_injection(locale):
     '  html body .gti-s-logo {{ width: 16px !important; height: 16px !important; opacity: 0.55 !important; }}',
     '  html body .gti-s-logo.pos-3 {{ display: none !important; }}',
     '}}',
+    /* === Ilustracion swift-front-half en seccion archivo (zona crema) === */
+    'html body .gti-archivo-illust {{',
+    '  position: absolute !important;',
+    '  top: -120px !important; left: 8% !important;',
+    '  width: 260px !important; height: 260px !important;',
+    '  z-index: 2 !important;',
+    '  pointer-events: none !important;',
+    '  background-color: #2C1810 !important;',
+    '  -webkit-mask-image: url("/assets/img/siluetas/swift-front-half.svg") !important;',
+    '  mask-image: url("/assets/img/siluetas/swift-front-half.svg") !important;',
+    '  -webkit-mask-size: contain !important;',
+    '  mask-size: contain !important;',
+    '  -webkit-mask-repeat: no-repeat !important;',
+    '  mask-repeat: no-repeat !important;',
+    '  -webkit-mask-position: center !important;',
+    '  mask-position: center !important;',
+    '  opacity: 0.62 !important;',
+    '  transform: rotate(-3deg) !important;',
+    '}}',
+    '@media (max-width: 720px) {{',
+    '  html body .gti-archivo-illust {{ width: 160px !important; height: 160px !important; top: -80px !important; left: 50% !important; transform: translateX(-50%) rotate(-3deg) !important; opacity: 0.5 !important; }}',
+    '}}',
     /* === Reemplazo del contenido del element del S brand (inyectado por JS) === */
     'html body .gti-brand-s-fill {{',
     '  display: block !important;',
@@ -481,6 +503,13 @@ def build_injection(locale):
     injectSLogos();
     // 4c. Reemplazo del S cursivo del brand box (busqueda DOM real)
     replaceBrandS();
+    // 4d. Ilustracion swift-front-half en seccion archivo
+    var arch = document.getElementById('archivo');
+    if (arch && !arch.querySelector('.gti-archivo-illust')) {{
+      var cs = window.getComputedStyle(arch);
+      if (cs.position === 'static') arch.style.position = 'relative';
+      arch.insertAdjacentHTML('afterbegin', '<div class="gti-archivo-illust" aria-hidden="true"></div>');
+    }}
     // 5. Section CTAs
     Object.keys(CTAS).forEach(function(k) {{
       injectSectionCTA(k, CTAS[k].label, CTAS[k].href);

@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.5.4';  /* fix: restauracion real del SVG original sin redondeo (13493B) */
+const VERSION = 'v1.6.0';  /* agrega swift-front-half SVG en el espacio sobre seccion archivo */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 
