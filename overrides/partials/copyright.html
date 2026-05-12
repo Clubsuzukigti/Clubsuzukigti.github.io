@@ -1,0 +1,16 @@
+{#-
+  Custom copyright/footer partial — Suzuki GTi Car Club
+  Sustituye el block de Material para inyectar firma Automatiza.ia
+  con punto ámbar bombilla, según Regla 16 global.
+-#}
+<div class="md-copyright">
+  {% if config.copyright %}
+    <div class="md-copyright__highlight">
+      {{ config.copyright }}
+    </div>
+  {% endif %}
+  <div class="md-copyright__attribution" style="margin-top:0.4em;font-family:'JetBrains Mono',monospace;font-size:0.68rem;letter-spacing:0.8px;color:rgba(245,239,224,0.45);">
+    Sitio creado por <a href="https://automatiza.ia" target="_blank" rel="noopener" style="color:#F5EFE0;border-bottom:1px dotted rgba(255,179,71,0.4);">Automatiza.ia</a>
+    <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#FFB347;box-shadow:0 0 8px rgba(255,179,71,0.6);margin-left:6px;vertical-align:middle;animation:bulb-flicker 7s ease-in-out infinite;"></span>
+  </div>
+</div>

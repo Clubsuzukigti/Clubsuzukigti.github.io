@@ -466,23 +466,7 @@ body, .md-typeset {
   border-bottom: none;
 }
 
-/* Inyectar firma Automatiza.ia tras copyright */
-.md-footer-copyright::after {
-  content: ' · Sitio creado por ';
-  color: rgba(245,239,224,0.4);
-}
-.md-footer-copyright:has(+ *)::after { content: ''; }
-
-/* Firma como link tras el meta */
-.md-footer-meta__inner::after {
-  content: 'Automatiza.ia •';
-  display: inline-block;
-  margin-left: 6px;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 1px;
-  color: rgba(245,239,224,0.55);
-}
+/* Firma Automatiza.ia ahora gestionada por overrides/partials/copyright.html */
 
 /* Social icons */
 .md-footer-social {
@@ -574,6 +558,65 @@ body, .md-typeset {
   font-family: var(--font-hand);
   font-size: 1.15rem;
   color: var(--gti-amber);
+}
+
+/* ============================================================
+   FLOATING "BACK TO PORTAL" — solo en páginas internas
+   ============================================================ */
+
+.back-to-portal {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(10,9,8,0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,179,71,0.25);
+  border-radius: 28px;
+  color: var(--gti-cream);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .4s, transform .4s, border-color .25s, color .25s;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+.back-to-portal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back-to-portal:hover {
+  color: var(--gti-amber);
+  border-color: var(--gti-amber);
+  box-shadow: 0 8px 24px rgba(255,179,71,0.2);
+}
+
+.back-to-portal::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--gti-amber);
+  box-shadow: 0 0 10px var(--gti-amber);
+  flex-shrink: 0;
+}
+
+@media (max-width: 720px) {
+  .back-to-portal {
+    bottom: 16px; left: 16px;
+    padding: 8px 12px;
+    font-size: 0.62rem;
+  }
 }
 
 /* Pegboard texture container */
