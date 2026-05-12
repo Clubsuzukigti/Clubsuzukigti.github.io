@@ -87,7 +87,13 @@ def build_injection(locale):
 
     return f"""
 {INJECT_MARKER}
-<style>
+<script>
+/* Styles inyectados al <head> via JS — sobreviven al body.replaceWith() del bundler */
+(function() {{
+  if (document.getElementById('gti-overlay-styles')) return;
+  var s = document.createElement('style');
+  s.id = 'gti-overlay-styles';
+  s.textContent = `
   /* Scroll progress bar */
   .gti-progress {{
     position: fixed; top: 0; left: 0;
@@ -191,7 +197,10 @@ def build_injection(locale):
   @media (max-width: 720px) {{
     .gti-back-top {{ bottom: 16px; right: 16px; width: 38px; height: 38px; }}
   }}
-</style>
+  `;
+  document.head.appendChild(s);
+}})();
+</script>
 
 <script>
 (function() {{
