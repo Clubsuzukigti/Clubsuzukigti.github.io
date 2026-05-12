@@ -45,4 +45,4 @@ El **Suzuki Cultus Convertible** es la variante más rara y deseada del modelo. 
 [Enviar aporte por Telegram →](../comunidad/telegram.md){ .md-button .md-button--primary }
 [Escribir al equipo →](../contacto.md){ .md-button }
 
-[← Volver](../historia/)
+[← Volver](index.md)

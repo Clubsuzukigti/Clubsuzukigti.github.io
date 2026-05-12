@@ -48,4 +48,4 @@ description: CNC Innovations Malaysia · Dansts UK · Suzukird · RacingDiffs ·
 [Enviar aporte por Telegram →](../comunidad/telegram.md){ .md-button .md-button--primary }
 [Escribir al equipo →](../contacto.md){ .md-button }
 
-[← Volver](../repuestos/)
+[← Volver](index.md)

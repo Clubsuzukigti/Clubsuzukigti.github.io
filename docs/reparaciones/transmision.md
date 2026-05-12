@@ -47,4 +47,4 @@ La transmisión manual del Swift GTi (5-velocidades) tiene **un punto débil doc
 [Enviar aporte por Telegram →](../comunidad/telegram.md){ .md-button .md-button--primary }
 [Escribir al equipo →](../contacto.md){ .md-button }
 
-[← Volver](../reparaciones/)
+[← Volver](index.md)

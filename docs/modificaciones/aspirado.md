@@ -45,4 +45,4 @@ La ruta aspirada (Naturally Aspirated) del G13B llega hasta **165 hp documentado
 [Enviar aporte por Telegram →](../comunidad/telegram.md){ .md-button .md-button--primary }
 [Escribir al equipo →](../contacto.md){ .md-button }
 
-[← Volver](../modificaciones/)
+[← Volver](index.md)

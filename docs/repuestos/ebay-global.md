@@ -47,4 +47,4 @@ eBay tiene **el inventario más grande mundial** de repuestos Swift GTi, pero lo
 [Enviar aporte por Telegram →](../comunidad/telegram.md){ .md-button .md-button--primary }
 [Escribir al equipo →](../contacto.md){ .md-button }
 
-[← Volver](../repuestos/)
+[← Volver](index.md)

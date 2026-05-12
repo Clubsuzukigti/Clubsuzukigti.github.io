@@ -45,4 +45,4 @@ description: 14 foros activos · Geo Metro Forum hub USA · foroswift.com.ar · 
 [Enviar aporte por Telegram →](../comunidad/telegram.md){ .md-button .md-button--primary }
 [Escribir al equipo →](../contacto.md){ .md-button }
 
-[← Volver](../comunidad/)
+[← Volver](index.md)

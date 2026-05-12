@@ -46,4 +46,4 @@ Los manuales suplementarios son las publicaciones oficiales de Suzuki que docume
 [Enviar aporte por Telegram →](../comunidad/telegram.md){ .md-button .md-button--primary }
 [Escribir al equipo →](../contacto.md){ .md-button }
 
-[← Volver](../manuales/)
+[← Volver](index.md)

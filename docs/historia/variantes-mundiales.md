@@ -49,4 +49,4 @@ El Swift GTi se vendió bajo **14 nombres distintos** alrededor del mundo entre 
 [Enviar aporte por Telegram →](../comunidad/telegram.md){ .md-button .md-button--primary }
 [Escribir al equipo →](../contacto.md){ .md-button }
 
-[← Volver](../historia/)
+[← Volver](index.md)

@@ -44,4 +44,4 @@ Inventario completo de los **40+ grupos Facebook** verificados con member-count 
 [Enviar aporte por Telegram →](../comunidad/telegram.md){ .md-button .md-button--primary }
 [Escribir al equipo →](../contacto.md){ .md-button }
 
-[← Volver](../comunidad/)
+[← Volver](index.md)

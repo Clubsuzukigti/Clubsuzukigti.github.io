@@ -48,4 +48,4 @@ El sistema eléctrico del SF413 es relativamente simple — multi-port FI con EC
 [Enviar aporte por Telegram →](../comunidad/telegram.md){ .md-button .md-button--primary }
 [Escribir al equipo →](../contacto.md){ .md-button }
 
-[← Volver](../reparaciones/)
+[← Volver](index.md)

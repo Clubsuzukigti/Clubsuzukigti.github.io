@@ -147,7 +147,7 @@ CR 8.5:1 forjada · TD04/T2871 · 10-25 psi · ECU standalone
 ### 💬 Telegram
 Chat en tiempo real, fotos del taller, compra-venta urgente, SOS reparaciones.
 
-[Solicitar acceso →](comunidad/telegram/){ .md-button .md-button--primary }
+[Solicitar acceso →](comunidad/telegram.md){ .md-button .md-button--primary }
 </div>
 
 <div class="card" markdown>
@@ -169,7 +169,7 @@ Página principal con noticias, eventos y posts de la comunidad latinoamericana.
 ---
 
 !!! info "Sitio en construcción colaborativa"
-    Este archivo nació en 2026 y crecerá con aportes de la comunidad. Si tienes manuales, fotos, tutoriales de reparación o información de repuestos — [comparte tu conocimiento](contacto/) para que sobreviva otros 30 años.
+    Este archivo nació en 2026 y crecerá con aportes de la comunidad. Si tienes manuales, fotos, tutoriales de reparación o información de repuestos — [comparte tu conocimiento](contacto.md) para que sobreviva otros 30 años.
 
-[Conoce el proyecto](historia/){ .md-button .md-button--primary }
+[Conoce el proyecto](historia/index.md){ .md-button .md-button--primary }
 [Ver código fuente](https://github.com/Clubsuzukigti/Clubsuzukigti.github.io){ .md-button }

@@ -45,4 +45,4 @@ description: 30+ canales · Zukidream Italia rebuild G13B · Mighty Car Mods · 
 [Enviar aporte por Telegram →](../comunidad/telegram.md){ .md-button .md-button--primary }
 [Escribir al equipo →](../contacto.md){ .md-button }
 
-[← Volver](../comunidad/)
+[← Volver](index.md)

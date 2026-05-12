@@ -46,4 +46,4 @@ La carrocería del SF413 tiene **cavidades de diseño** que atrapan humedad y ac
 [Enviar aporte por Telegram →](../comunidad/telegram.md){ .md-button .md-button--primary }
 [Escribir al equipo →](../contacto.md){ .md-button }
 
-[← Volver](../reparaciones/)
+[← Volver](index.md)

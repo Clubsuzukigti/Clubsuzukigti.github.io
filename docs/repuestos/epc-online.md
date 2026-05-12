@@ -47,4 +47,4 @@ Los **EPC (Electronic Parts Catalogs)** son los catálogos electrónicos oficial
 [Enviar aporte por Telegram →](../comunidad/telegram.md){ .md-button .md-button--primary }
 [Escribir al equipo →](../contacto.md){ .md-button }
 
-[← Volver](../repuestos/)
+[← Volver](index.md)

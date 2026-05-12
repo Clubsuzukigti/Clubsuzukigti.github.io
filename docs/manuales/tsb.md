@@ -45,4 +45,4 @@ Los **Technical Service Bulletins** son los documentos oficiales que Suzuki publ
 [Enviar aporte por Telegram →](../comunidad/telegram.md){ .md-button .md-button--primary }
 [Escribir al equipo →](../contacto.md){ .md-button }
 
-[← Volver](../manuales/)
+[← Volver](index.md)

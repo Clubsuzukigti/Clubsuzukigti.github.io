@@ -46,4 +46,4 @@ En el mercado japonés el modelo se vendió como **Cultus GTi** con tres código
 [Enviar aporte por Telegram →](../comunidad/telegram.md){ .md-button .md-button--primary }
 [Escribir al equipo →](../contacto.md){ .md-button }
 
-[← Volver](../historia/)
+[← Volver](index.md)

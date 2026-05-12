@@ -47,4 +47,4 @@ En Latinoamérica el Swift GTi se vendió como **Forsa GTi** (Ecuador, Colombia,
 [Enviar aporte por Telegram →](../comunidad/telegram.md){ .md-button .md-button--primary }
 [Escribir al equipo →](../contacto.md){ .md-button }
 
-[← Volver](../repuestos/)
+[← Volver](index.md)

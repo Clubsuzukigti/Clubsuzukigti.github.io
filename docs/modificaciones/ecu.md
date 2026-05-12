@@ -47,4 +47,4 @@ Una vez que sales del territorio bolt-on, la ECU stock del Swift GTi limita el p
 [Enviar aporte por Telegram →](../comunidad/telegram.md){ .md-button .md-button--primary }
 [Escribir al equipo →](../contacto.md){ .md-button }
 
-[← Volver](../modificaciones/)
+[← Volver](index.md)
