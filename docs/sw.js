@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.8.5';  /* tic en todos los botones/links nativos + cleanup logger heights */
+const VERSION = 'v1.8.6';  /* warmup AudioContext + auto-reload al detectar SW nueva (fix SW stale) */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 

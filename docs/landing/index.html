@@ -726,6 +726,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 
 
+
 <!-- gti-overlay-injected -->
 <!-- Styles inyectados via JS porque el bundle hace document.documentElement.replaceWith() y borra el head original -->
 <script>
@@ -1142,8 +1143,30 @@ document.addEventListener('DOMContentLoaded', async function() {
       }
     }
 
+    function _warmupCtx(ctx) {
+      /* Pre-calienta el AudioContext con un buffer silencioso (evita glitches en primer tic) */
+      try {
+        var buf = ctx.createBuffer(1, 1, 22050);
+        var src = ctx.createBufferSource();
+        src.buffer = buf;
+        src.connect(ctx.destination);
+        src.start(0);
+      } catch(e) {}
+    }
+
     function markGesture() {
+      var first = !userGestureSeen;
       userGestureSeen = true;
+      if (first) {
+        var ctx = initContext();
+        if (ctx && ctx.state === 'suspended') {
+          var p = ctx.resume();
+          if (p && p.then) p.then(function() { _warmupCtx(ctx); });
+          else _warmupCtx(ctx);
+        } else if (ctx) {
+          _warmupCtx(ctx);
+        }
+      }
       playOpen();
       if (pendingClose) { pendingClose = false; playClose(); }
     }
@@ -1382,10 +1405,30 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (ensure() || tries > 100) clearInterval(iv);
   }, 200);
 
-  // PWA Service Worker registration (offline-first support)
+  // PWA Service Worker registration con auto-reload al detectar version nueva
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
       navigator.serviceWorker.register('/sw.js', { scope: '/' })
+        .then(function(reg) {
+          /* Si hay una nueva SW esperando, forzar activacion y recargar */
+          reg.addEventListener('updatefound', function() {
+            var newSW = reg.installing;
+            if (!newSW) return;
+            newSW.addEventListener('statechange', function() {
+              if (newSW.state === 'installed' && navigator.serviceWorker.controller) {
+                console.log('[GTi SW] new version available, reloading');
+                newSW.postMessage({ type: 'SKIP_WAITING' });
+              }
+            });
+          });
+          /* Reload una vez cuando el controller cambia */
+          var reloading = false;
+          navigator.serviceWorker.addEventListener('controllerchange', function() {
+            if (reloading) return;
+            reloading = true;
+            window.location.reload();
+          });
+        })
         .catch(function(err) { console.warn('[GTi] SW registration:', err); });
     });
   }
