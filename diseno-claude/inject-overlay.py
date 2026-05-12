@@ -540,6 +540,17 @@ def build_injection(locale):
       if (ccs.overflow === 'visible') colab.style.overflow = 'hidden';
       colab.insertAdjacentHTML('afterbegin', '<div class="gti-colab-illust" aria-hidden="true"></div>');
     }}
+    // 4z. TEMP — log heights de todas las secciones a console
+    if (!window.__gtiHeightsLogged) {{
+      window.__gtiHeightsLogged = true;
+      setTimeout(function() {{
+        var rows = [];
+        document.querySelectorAll('section').forEach(function(s, i) {{
+          rows.push((i+1) + ' | id=' + (s.id || '(sin id)').padEnd(12) + ' | alt=' + s.offsetHeight + 'px | top=' + Math.round(s.getBoundingClientRect().top + window.scrollY) + 'px');
+        }});
+        console.log('%c[GTi Sections]', 'background:#E20A17;color:white;padding:2px 6px;font-weight:bold;border-radius:3px;', '\\n' + rows.join('\\n'));
+      }}, 1500);
+    }}
     // 5. Section CTAs
     Object.keys(CTAS).forEach(function(k) {{
       injectSectionCTA(k, CTAS[k].label, CTAS[k].href);

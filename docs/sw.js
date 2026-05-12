@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.7.0';  /* agrega swift-rear-detail en zona libre seccion colab (espejo, 425px) */
+const VERSION = 'v1.7.1';  /* TEMP logger de heights/ids de todas las secciones a consola */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 
