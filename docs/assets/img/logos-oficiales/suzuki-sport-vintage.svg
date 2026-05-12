@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 160" width="600" height="160">
+  <!-- Suzuki Sport vintage 90s — reconstrucción estilo Tajima rally -->
+  <!-- Banda azul oscuro superior -->
+  <rect x="0" y="0" width="600" height="92" fill="#1A3A6B"/>
+  <!-- Banda cian inferior (acento rally) -->
+  <rect x="0" y="92" width="600" height="20" fill="#00A4D7"/>
+  <!-- Banda roja delgada (acento Suzuki) -->
+  <rect x="0" y="112" width="600" height="6" fill="#E20A17"/>
+
+  <!-- Texto SUZUKI italic blanco -->
+  <text x="30" y="68"
+        font-family="Impact, 'Arial Black', sans-serif"
+        font-size="64"
+        font-style="italic"
+        font-weight="900"
+        fill="#FFFFFF"
+        letter-spacing="2">SUZUKI</text>
+
+  <!-- Texto SPORT italic cian -->
+  <text x="300" y="68"
+        font-family="Impact, 'Arial Black', sans-serif"
+        font-size="64"
+        font-style="italic"
+        font-weight="900"
+        fill="#00A4D7"
+        letter-spacing="4">SPORT</text>
+
+  <!-- Línea diagonal velocidad (signature Tajima) -->
+  <polygon points="540,15 580,15 560,80 520,80" fill="#E20A17" opacity="0.9"/>
+</svg>
