@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.5.3';  /* abort: restaurado sol naciente rectangular - representa bandera JDM */
+const VERSION = 'v1.5.4';  /* fix: restauracion real del SVG original sin redondeo (13493B) */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 
