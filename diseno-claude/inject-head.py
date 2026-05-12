@@ -43,7 +43,9 @@ def build_head(t):
   <link rel="canonical" href="{t['url']}">
   <link rel="manifest" href="/manifest.json">
   <link rel="apple-touch-icon" href="/assets/img/logo-final.png">
-  <link rel="icon" type="image/png" href="/assets/img/logo-final.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+  <link rel="shortcut icon" href="/assets/img/favicon.ico">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">

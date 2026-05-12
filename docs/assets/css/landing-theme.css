@@ -561,6 +561,68 @@ body, .md-typeset {
 }
 
 /* ============================================================
+   META BAR — read time + section indicator (encima del article)
+   ============================================================ */
+
+.gti-meta-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 1.2em 0 0.6em;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: rgba(245,239,224,0.42);
+  margin-bottom: -0.6em;
+}
+.gti-meta-bar .dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gti-amber);
+  margin-right: 8px;
+  vertical-align: middle;
+  box-shadow: 0 0 6px var(--gti-amber-glow);
+}
+.gti-meta-bar .gti-meta-sep { color: rgba(255,179,71,0.3); }
+.gti-meta-bar .gti-meta-section { color: var(--gti-amber); }
+.gti-meta-bar .gti-meta-read { color: rgba(245,239,224,0.55); }
+
+/* Heading anchor links (hover-reveal) */
+.md-typeset .headerlink {
+  color: rgba(255,179,71,0.25) !important;
+  margin-left: 0.4em;
+  opacity: 0;
+  transition: opacity .2s, color .2s;
+  font-weight: 300;
+}
+.md-typeset h1:hover .headerlink,
+.md-typeset h2:hover .headerlink,
+.md-typeset h3:hover .headerlink,
+.md-typeset h4:hover .headerlink {
+  opacity: 1;
+}
+.md-typeset .headerlink:hover {
+  color: var(--gti-amber) !important;
+}
+
+/* Last-updated mini-stamp en footer del article */
+.gti-footer-stamp {
+  margin-top: 4em;
+  padding-top: 2em;
+  border-top: 1px solid rgba(255,179,71,0.1);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: rgba(245,239,224,0.4);
+  letter-spacing: 0.5px;
+}
+.gti-footer-stamp::before {
+  content: '— ';
+  color: var(--gti-amber);
+}
+
+/* ============================================================
    FLOATING "BACK TO PORTAL" — solo en páginas internas
    ============================================================ */
 

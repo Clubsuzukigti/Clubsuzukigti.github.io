@@ -7,17 +7,36 @@
 {% extends "base.html" %}
 
 {% block content %}
-  {{ super() }}
   {%- set is_home = page and page.is_homepage -%}
   {%- set is_404 = page and page.url.startswith('404') -%}
   {%- if not is_home and not is_404 -%}
-  <a href="/" class="back-to-portal" id="backToPortal" aria-label="Volver al portal">
+  <div class="gti-meta-bar" id="gtiMetaBar" aria-hidden="true">
+    <span class="gti-meta-read"><span class="dot"></span><span id="gtiReadTime">—</span></span>
+    <span class="gti-meta-sep">·</span>
+    <span class="gti-meta-section">{% if page.parent %}{{ page.parent.title|upper }}{% else %}{{ page.title|upper }}{% endif %}</span>
+  </div>
+  {%- endif -%}
+  {{ super() }}
+  {%- if not is_home and not is_404 -%}
+  <a href="/" class="back-to-portal" id="backToPortal" aria-label="{% if config.theme.language == 'en' %}Back to portal{% else %}Volver al portal{% endif %}">
     <span>{% if config.theme.language == 'en' %}Back to portal{% else %}Volver al portal{% endif %}</span>
   </a>
   <script>
     (function(){
       var btn = document.getElementById('backToPortal');
-      if(!btn) return;
+      var rt = document.getElementById('gtiReadTime');
+      // Compute reading time
+      if (rt) {
+        var article = document.querySelector('article.md-content__inner');
+        if (article) {
+          var text = article.innerText || article.textContent || '';
+          var words = text.trim().split(/\s+/).length;
+          var mins = Math.max(1, Math.round(words / 220));
+          var label = '{% if config.theme.language == "en" %}min read{% else %}min de lectura{% endif %}';
+          rt.textContent = mins + ' ' + label;
+        }
+      }
+      if (!btn) return;
       function tick(){
         if(window.scrollY > 400) btn.classList.add('show');
         else btn.classList.remove('show');

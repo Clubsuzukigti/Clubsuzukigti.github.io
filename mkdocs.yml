@@ -27,7 +27,7 @@ theme:
   custom_dir: overrides
   language: es
   logo: assets/img/logo-final.png
-  favicon: assets/img/favicon.png
+  favicon: assets/img/favicon.svg
   icon:
     repo: fontawesome/brands/github
     edit: material/pencil
