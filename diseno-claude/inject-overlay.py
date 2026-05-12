@@ -341,6 +341,29 @@ def build_injection(locale):
     '@media (max-width: 720px) {{',
     '  html body .gti-colab-illust {{ width: 250px !important; height: 250px !important; top: auto !important; bottom: 8% !important; right: 50% !important; transform: translateX(50%) scaleX(-1) rotate(2deg) !important; opacity: 0.32 !important; }}',
     '}}',
+    /* === Mute toggle (sistema de audio) === */
+    'html body .gti-mute-toggle {{',
+    '  position: fixed !important;',
+    '  bottom: 24px !important; left: 24px !important;',
+    '  z-index: 9997 !important;',
+    '  width: 44px !important; height: 44px !important;',
+    '  border-radius: 50% !important;',
+    '  background: rgba(10,9,8,0.85) !important;',
+    '  backdrop-filter: blur(8px) !important;',
+    '  border: 1px solid rgba(255,179,71,0.3) !important;',
+    '  color: #FFB347 !important;',
+    '  cursor: pointer !important;',
+    '  display: flex !important; align-items: center !important; justify-content: center !important;',
+    '  font-size: 18px !important;',
+    '  box-shadow: 0 6px 20px rgba(0,0,0,0.5) !important;',
+    '  transition: all .25s ease !important;',
+    '  font-family: -apple-system,BlinkMacSystemFont,sans-serif !important;',
+    '}}',
+    'html body .gti-mute-toggle:hover {{ border-color: #FFB347 !important; transform: scale(1.05) !important; }}',
+    'html body .gti-mute-toggle.muted {{ color: rgba(255,179,71,0.4) !important; border-color: rgba(255,179,71,0.15) !important; }}',
+    '@media (max-width: 720px) {{',
+    '  html body .gti-mute-toggle {{ bottom: 16px !important; left: 16px !important; width: 38px !important; height: 38px !important; font-size: 15px !important; }}',
+    '}}',
     /* === Reemplazo del contenido del element del S brand (inyectado por JS) === */
     'html body .gti-brand-s-fill {{',
     '  display: block !important;',
@@ -379,6 +402,97 @@ def build_injection(locale):
   }});
   headObs.observe(document, {{ childList: true, subtree: true }});
 
+  /* === Sistema de audio: tic en pills (Web Audio sintetizado) + persiana metalica en open/close === */
+  var GTiAudio = (function() {{
+    var muted = localStorage.getItem('gti-audio-muted') === '1';
+    var audioCtx = null;
+    var openSnd = null, closeSnd = null;
+    var openPlayed = false, closePlayed = false;
+    var firstInteractionDone = false;
+
+    function initContext() {{
+      if (audioCtx) return audioCtx;
+      try {{
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }} catch(e) {{ console.warn('[GTi audio] no AudioContext', e); }}
+      return audioCtx;
+    }}
+
+    function preloadShutters() {{
+      if (!openSnd) {{ openSnd = new Audio('/assets/sound/garage-open.mp3'); openSnd.preload = 'auto'; openSnd.volume = 0.32; }}
+      if (!closeSnd) {{ closeSnd = new Audio('/assets/sound/garage-close.mp3'); closeSnd.preload = 'auto'; closeSnd.volume = 0.32; }}
+    }}
+
+    function playTic() {{
+      if (muted) return;
+      var ctx = initContext();
+      if (!ctx) return;
+      if (ctx.state === 'suspended') ctx.resume();
+      /* tic sintetizado: oscilador con envolvente corta */
+      var t = ctx.currentTime;
+      var osc = ctx.createOscillator();
+      var gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(2400, t);
+      osc.frequency.exponentialRampToValueAtTime(1100, t + 0.04);
+      gain.gain.setValueAtTime(0.0001, t);
+      gain.gain.exponentialRampToValueAtTime(0.22, t + 0.005);
+      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.06);
+      osc.connect(gain).connect(ctx.destination);
+      osc.start(t);
+      osc.stop(t + 0.08);
+    }}
+
+    function playOpen() {{
+      if (muted || openPlayed) return;
+      preloadShutters();
+      var p = openSnd.play();
+      if (p && p.catch) p.catch(function(){{}});
+      openPlayed = true;
+    }}
+
+    function playClose() {{
+      if (muted || closePlayed) return;
+      preloadShutters();
+      var p = closeSnd.play();
+      if (p && p.catch) p.catch(function(){{}});
+      closePlayed = true;
+    }}
+
+    function setMuted(v) {{
+      muted = !!v;
+      localStorage.setItem('gti-audio-muted', muted ? '1' : '0');
+      var btn = document.getElementById('gtiMuteToggle');
+      if (btn) {{
+        btn.classList.toggle('muted', muted);
+        btn.textContent = muted ? '🔇' : '🔊';
+        btn.setAttribute('aria-label', muted ? 'Activar sonidos' : 'Silenciar sonidos');
+      }}
+      if (muted) {{
+        if (openSnd) openSnd.pause();
+        if (closeSnd) closeSnd.pause();
+      }}
+    }}
+
+    function markInteracted() {{
+      if (firstInteractionDone) return;
+      firstInteractionDone = true;
+      /* primer scroll/click: dispara el sonido de "abrir garage" */
+      setTimeout(playOpen, 80);
+    }}
+
+    return {{
+      preload: preloadShutters,
+      tic: playTic,
+      open: playOpen,
+      close: playClose,
+      isMuted: function() {{ return muted; }},
+      setMuted: setMuted,
+      toggleMuted: function() {{ setMuted(!muted); }},
+      onFirstInteraction: markInteracted
+    }};
+  }})();
+
   var CTAS = {ctas_js};
   var BACK_LABEL = "{back_to_top}";
 
@@ -391,6 +505,7 @@ def build_injection(locale):
   var progressHTML = '<div class="gti-progress" id="gtiProgress"></div>';
   var backTopHTML = '<button class="gti-back-top" id="gtiBackTop" aria-label="' + BACK_LABEL + '">↑</button>';
   var heroBgHTML = '<div class="gti-hero-bg" id="gtiHeroBg" aria-hidden="true"></div>';
+  var muteBtnHTML = '<button class="gti-mute-toggle" id="gtiMuteToggle" aria-label="Silenciar sonidos">🔊</button>';
   var sLogosHTML = '<div class="gti-s-logo pos-1" aria-hidden="true"></div>' +
                    '<div class="gti-s-logo pos-2" aria-hidden="true"></div>' +
                    '<div class="gti-s-logo pos-3" aria-hidden="true"></div>' +
@@ -421,6 +536,10 @@ def build_injection(locale):
         heroBg.classList.toggle('hidden', hide);
         document.querySelectorAll('.gti-s-logo').forEach(function(el) {{ el.classList.toggle('hidden', hide); }});
       }}
+      /* Audio: dispara cierre de persiana cuando llega al final */
+      if (pct > 96) GTiAudio.close();
+      /* primera interaccion: scroll cuenta */
+      GTiAudio.onFirstInteraction();
     }}
     window.addEventListener('scroll', onScroll, {{ passive: true }});
     onScroll();
@@ -429,6 +548,29 @@ def build_injection(locale):
       back.addEventListener('click', function() {{
         window.scrollTo({{ top: 0, behavior: 'smooth' }});
       }});
+    }}
+
+    /* Mute toggle */
+    var mute = document.getElementById('gtiMuteToggle');
+    if (mute && !mute.__gtiWired) {{
+      mute.__gtiWired = true;
+      /* sync visual inicial */
+      GTiAudio.setMuted(GTiAudio.isMuted());
+      mute.addEventListener('click', function(ev) {{
+        ev.preventDefault();
+        GTiAudio.toggleMuted();
+        GTiAudio.onFirstInteraction();
+      }});
+    }}
+
+    /* Tic en clicks: pills de deep-nav + section CTAs + back-to-top */
+    if (!document.body.__gtiTicWired) {{
+      document.body.__gtiTicWired = true;
+      document.addEventListener('click', function(ev) {{
+        var t = ev.target.closest('.deep-nav a, .gti-section-cta, .gti-back-top');
+        if (t) GTiAudio.tic();
+        GTiAudio.onFirstInteraction();
+      }}, true);
     }}
   }}
 
@@ -518,6 +660,11 @@ def build_injection(locale):
     // 3. Back-to-top button
     if (!document.getElementById('gtiBackTop')) {{
       document.body.insertAdjacentHTML('beforeend', backTopHTML);
+    }}
+    // 3b. Mute toggle (audio)
+    if (!document.getElementById('gtiMuteToggle')) {{
+      document.body.insertAdjacentHTML('beforeend', muteBtnHTML);
+      GTiAudio.preload();
     }}
     // 4. Hero background (sol naciente — SOLO dentro del header/hero, no fixed)
     injectHeroBg();
