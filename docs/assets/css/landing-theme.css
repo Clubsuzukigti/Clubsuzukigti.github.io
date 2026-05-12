@@ -631,13 +631,136 @@ body, .md-typeset {
 }
 
 /* ============================================================
-   RESPONSIVE & POLISH
+   RESPONSIVE & POLISH — mobile-first deep care
    ============================================================ */
 
+/* Table responsive wrapper — evita overflow horizontal */
+.md-typeset table:not([class]) {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,179,71,0.3) transparent;
+}
+.md-typeset table:not([class])::-webkit-scrollbar { height: 6px; }
+.md-typeset table:not([class])::-webkit-scrollbar-thumb { background: rgba(255,179,71,0.3); border-radius: 3px; }
+
+/* Cuando el viewport es ancho, tabla en flex normal sin wrap */
+@media (min-width: 1024px) {
+  .md-typeset table:not([class]) {
+    display: table;
+    white-space: normal;
+  }
+}
+
+/* Stats: stack en mobile, mejor jerarquia visual */
+@media (max-width: 600px) {
+  .gti-stat {
+    display: flex;
+    flex-direction: column;
+    margin: 0.4em 0;
+    padding: 0.8em 1em;
+    width: 100%;
+    border-left: 2px solid var(--gti-amber);
+  }
+  .gti-stat .num { font-size: 1.9rem; }
+  .gti-stat .lbl { font-size: 0.6rem; letter-spacing: 1.5px; }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .gti-stat { display: inline-block; width: calc(50% - 1em); }
+}
+
+/* Bombilla decorativa: ajustada en mobile */
 @media (max-width: 768px) {
-  .md-typeset h1 { font-size: 2rem; }
-  .md-typeset h2 { font-size: 1.4rem; }
-  .md-content article.md-content__inner::before { right: 12px; top: 4px; }
+  .md-typeset h1 { font-size: clamp(1.7rem, 7vw, 2.2rem); margin-top: 0.8em; }
+  .md-typeset h2 { font-size: clamp(1.25rem, 5.5vw, 1.6rem); }
+  .md-typeset h3 { font-size: 1.1rem; }
+  .md-content article.md-content__inner::before { right: 12px; top: 4px; width: 10px; height: 10px; }
+  .md-content article.md-content__inner::after { top: -60px; height: 60px; right: 16px; }
+  .gti-quote { font-size: 1.15rem; padding-left: 0.9em; }
+  .gti-quote cite { font-size: 0.6rem; }
+  .gti-pegboard { padding: 1.2em; background-size: 24px 24px; }
+}
+
+/* Touch targets minimum 44px (Apple HIG / WCAG 2.5.5) */
+@media (max-width: 768px) {
+  .md-typeset .md-button {
+    min-height: 44px;
+    padding: 12px 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .md-typeset a {
+    /* Solo links en bloques de texto necesitan padding extra, no inline */
+    padding-top: 1px;
+    padding-bottom: 1px;
+  }
+  .md-nav__link {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+/* Code blocks: scroll horizontal limpio en mobile */
+.md-typeset pre {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Pegboard: smaller dots en mobile para mejor renderizado */
+@media (max-width: 480px) {
+  .gti-pegboard {
+    padding: 1em;
+    background:
+      radial-gradient(circle 1px at 12px 12px, rgba(255,179,71,0.1) 1px, transparent 1.5px);
+    background-size: 24px 24px;
+    background-color: var(--gti-bg-soft);
+  }
+}
+
+/* Header: nav links wrap cleaner en mobile */
+@media (max-width: 768px) {
+  .md-tabs__link {
+    font-size: 0.7rem;
+    letter-spacing: 1.4px;
+    padding: 0 0.4em;
+  }
+  .md-header__title {
+    font-size: 0.95rem;
+  }
+}
+
+/* Smooth scroll universal — solo en desktop por preferencia accesibilidad */
+@media (min-width: 769px) and (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+/* Reduce motion respeto */
+@media (prefers-reduced-motion: reduce) {
+  .md-content article.md-content__inner::before { animation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles — para imprimir manuales/torques etc */
+@media print {
+  .deep-nav, .back-to-portal, .gti-progress, .gti-back-top,
+  .md-header, .md-tabs, .md-sidebar, .md-footer { display: none !important; }
+  body, .md-typeset {
+    background: white !important;
+    color: black !important;
+  }
+  .md-content article.md-content__inner::before,
+  .md-content article.md-content__inner::after { display: none; }
+  .md-typeset a { color: black; border-bottom: 1px dotted #666; }
+  .gti-quote { border-left-color: #000; color: #000; }
+  .gti-stat { border-left-color: #000; }
+  .gti-stat .num, .md-typeset h1, .md-typeset h2, .md-typeset h3 { color: #000 !important; }
 }
 
 /* Scrollbar dark */
