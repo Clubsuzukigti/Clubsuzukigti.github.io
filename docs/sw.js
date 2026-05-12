@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.3.3';  /* hero-bg fixed con fade por scroll - visible solo en primer viewport */
+const VERSION = 'v1.4.0';  /* 4 logos Suzuki S antiguo agregados al hero junto al sol naciente */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 

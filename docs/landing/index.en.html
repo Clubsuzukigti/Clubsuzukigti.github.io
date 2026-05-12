@@ -702,6 +702,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 
 
+
 <!-- gti-overlay-injected -->
 <!-- Styles inyectados via JS porque el bundle hace document.documentElement.replaceWith() y borra el head original -->
 <script>
@@ -875,6 +876,34 @@ document.addEventListener('DOMContentLoaded', async function() {
     'html body .gti-hero-bg.hidden { opacity: 0 !important; }',
     '@media (max-width: 720px) {',
     '  html body .gti-hero-bg { -webkit-mask-position: center center !important; mask-position: center center !important; -webkit-mask-size: 92% auto !important; mask-size: 92% auto !important; opacity: 0.32 !important; }',
+    '}',
+    /* === 4 logos Suzuki "S" antiguo flotantes en el hero === */
+    'html body .gti-s-logo {',
+    '  position: fixed !important;',
+    '  z-index: 1 !important;',
+    '  pointer-events: none !important;',
+    '  background-color: #FFB347 !important;',
+    '  -webkit-mask-image: url("/assets/img/siluetas/suzuki-s-logo.svg") !important;',
+    '  mask-image: url("/assets/img/siluetas/suzuki-s-logo.svg") !important;',
+    '  -webkit-mask-size: contain !important;',
+    '  mask-size: contain !important;',
+    '  -webkit-mask-repeat: no-repeat !important;',
+    '  mask-repeat: no-repeat !important;',
+    '  -webkit-mask-position: center !important;',
+    '  mask-position: center !important;',
+    '  transition: opacity .4s ease, transform .8s ease !important;',
+    '}',
+    'html body .gti-s-logo.hidden { opacity: 0 !important; }',
+    /* 4 posiciones: superior-izq, medio-izq, superior-der (cerca sol), inferior-der */
+    'html body .gti-s-logo.pos-1 { top: 8% !important; left: 6% !important; width: 68px !important; height: 68px !important; opacity: 0.32 !important; transform: rotate(-8deg) !important; }',
+    'html body .gti-s-logo.pos-2 { top: 38% !important; left: 3% !important; width: 44px !important; height: 44px !important; opacity: 0.22 !important; transform: rotate(6deg) !important; }',
+    'html body .gti-s-logo.pos-3 { top: 14% !important; right: 8% !important; width: 56px !important; height: 56px !important; opacity: 0.28 !important; transform: rotate(4deg) !important; }',
+    'html body .gti-s-logo.pos-4 { bottom: 14% !important; right: 5% !important; width: 88px !important; height: 88px !important; opacity: 0.38 !important; transform: rotate(-3deg) !important; }',
+    '@media (max-width: 720px) {',
+    '  html body .gti-s-logo.pos-1 { width: 44px !important; height: 44px !important; opacity: 0.25 !important; }',
+    '  html body .gti-s-logo.pos-2 { display: none !important; }',
+    '  html body .gti-s-logo.pos-3 { width: 36px !important; height: 36px !important; opacity: 0.22 !important; }',
+    '  html body .gti-s-logo.pos-4 { width: 56px !important; height: 56px !important; bottom: 22% !important; right: 6% !important; opacity: 0.3 !important; }',
     '}'
   ].join('\n');
 
@@ -909,6 +938,10 @@ document.addEventListener('DOMContentLoaded', async function() {
   var progressHTML = '<div class="gti-progress" id="gtiProgress"></div>';
   var backTopHTML = '<button class="gti-back-top" id="gtiBackTop" aria-label="' + BACK_LABEL + '">↑</button>';
   var heroBgHTML = '<div class="gti-hero-bg" id="gtiHeroBg" aria-hidden="true"></div>';
+  var sLogosHTML = '<div class="gti-s-logo pos-1" aria-hidden="true"></div>' +
+                   '<div class="gti-s-logo pos-2" aria-hidden="true"></div>' +
+                   '<div class="gti-s-logo pos-3" aria-hidden="true"></div>' +
+                   '<div class="gti-s-logo pos-4" aria-hidden="true"></div>';
 
   function attachListeners() {
     var nav = document.getElementById('deepNav');
@@ -930,8 +963,9 @@ document.addEventListener('DOMContentLoaded', async function() {
       }
       if (heroBg) {
         /* fade out al pasar 80% del primer viewport */
-        if (scrolled > window.innerHeight * 0.8) heroBg.classList.add('hidden');
-        else heroBg.classList.remove('hidden');
+        var hide = scrolled > window.innerHeight * 0.8;
+        heroBg.classList.toggle('hidden', hide);
+        document.querySelectorAll('.gti-s-logo').forEach(function(el) { el.classList.toggle('hidden', hide); });
       }
     }
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -964,6 +998,13 @@ document.addEventListener('DOMContentLoaded', async function() {
     return true;
   }
 
+  function injectSLogos() {
+    if (document.querySelector('.gti-s-logo')) return true;
+    if (!document.body) return false;
+    document.body.insertAdjacentHTML('afterbegin', sLogosHTML);
+    return true;
+  }
+
   function ensure() {
     if (!document.body) return false;
     var hasContent = document.querySelector('[id="archivo"], [id="motor"], [id="garage"], section');
@@ -983,6 +1024,8 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
     // 4. Hero background (sol naciente — SOLO dentro del header/hero, no fixed)
     injectHeroBg();
+    // 4b. Logos Suzuki "S" antiguos (4 instancias en el hero)
+    injectSLogos();
     // 5. Section CTAs
     Object.keys(CTAS).forEach(function(k) {
       injectSectionCTA(k, CTAS[k].label, CTAS[k].href);
