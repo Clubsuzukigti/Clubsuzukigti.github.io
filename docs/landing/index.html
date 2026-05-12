@@ -692,12 +692,132 @@ document.addEventListener('DOMContentLoaded', async function() {
   
 
 
+
 <!-- gti-overlay-injected -->
-<!-- Styles ahora viven en <head> via inject-head.py -->
+<!-- Styles inyectados via JS porque el bundle hace document.documentElement.replaceWith() y borra el head original -->
 <script>
 (function() {
   if (window.__gtiOverlayInit) return;
   window.__gtiOverlayInit = true;
+
+  /* CSS as plain string (no template literal) — funciona en cualquier navegador */
+  var OVERLAY_CSS_TEXT = [
+    'html body div.deep-nav {',
+    '  position: fixed !important;',
+    '  top: 0 !important; left: 0 !important; right: 0 !important;',
+    '  z-index: 9998 !important;',
+    '  background: rgba(10,9,8,0.92) !important;',
+    '  backdrop-filter: blur(14px) saturate(140%) !important;',
+    '  -webkit-backdrop-filter: blur(14px) saturate(140%) !important;',
+    '  padding: 12px 24px !important;',
+    '  display: flex !important; gap: 10px !important;',
+    '  align-items: center !important; justify-content: center !important;',
+    '  flex-wrap: wrap !important;',
+    "  font-family: 'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,sans-serif !important;",
+    '  border-bottom: 1px solid rgba(255,179,71,0.22) !important;',
+    '  opacity: 0; transform: translateY(-100%);',
+    '  transition: opacity .55s ease, transform .55s ease !important;',
+    '  pointer-events: none;',
+    '  box-shadow: 0 4px 20px rgba(0,0,0,0.4) !important;',
+    '  margin: 0 !important;',
+    '}',
+    'html body div.deep-nav.visible { opacity: 1 !important; transform: translateY(0) !important; pointer-events: auto !important; }',
+    'html body div.deep-nav a {',
+    '  display: inline-flex !important; align-items: center !important;',
+    '  padding: 7px 14px !important;',
+    '  border-radius: 22px !important;',
+    '  background: rgba(255,255,255,0.025) !important;',
+    '  border: 1px solid rgba(255,179,71,0.18) !important;',
+    '  color: #F5EFE0 !important;',
+    '  text-decoration: none !important;',
+    '  font-size: 10.5px !important; font-weight: 600 !important;',
+    '  letter-spacing: 1.8px !important; text-transform: uppercase !important;',
+    '  transition: all .25s ease !important;',
+    '  white-space: nowrap !important; line-height: 1 !important;',
+    "  font-family: 'Inter Tight','Inter',-apple-system,sans-serif !important;",
+    '  margin: 0 !important;',
+    '}',
+    'html body div.deep-nav a:hover {',
+    '  color: #FFB347 !important;',
+    '  background: rgba(255,179,71,0.1) !important;',
+    '  border-color: rgba(255,179,71,0.55) !important;',
+    '  transform: translateY(-1px) !important;',
+    '  box-shadow: 0 4px 10px rgba(255,179,71,0.18) !important;',
+    '}',
+    'html body div.deep-nav a.lang {',
+    '  margin-left: 6px !important;',
+    '  background: rgba(226,10,23,0.18) !important;',
+    '  border-color: rgba(226,10,23,0.5) !important;',
+    '  color: #F5EFE0 !important; font-weight: 700 !important;',
+    '  letter-spacing: 2.2px !important;',
+    '}',
+    'html body div.deep-nav a.lang:hover {',
+    '  background: #E20A17 !important; border-color: #E20A17 !important;',
+    '  color: #FFFFFF !important;',
+    '  box-shadow: 0 4px 12px rgba(226,10,23,0.4) !important;',
+    '}',
+    'html body div.deep-nav .dot {',
+    '  width: 8px !important; height: 8px !important;',
+    '  border-radius: 50% !important;',
+    '  background: #FFB347 !important;',
+    '  box-shadow: 0 0 10px #FFB347, 0 0 4px rgba(255,179,71,0.6) !important;',
+    '  flex-shrink: 0 !important; margin-right: 4px !important;',
+    '  animation: gti-bulb-pulse 4s ease-in-out infinite !important;',
+    '}',
+    '@keyframes gti-bulb-pulse { 0%,100% { opacity: 0.85; } 50% { opacity: 0.45; } }',
+    'html body .gti-progress {',
+    '  position: fixed !important; top: 0 !important; left: 0 !important;',
+    '  height: 2px !important; width: 0%;',
+    '  background: linear-gradient(90deg, #E20A17 0%, #FFB347 100%) !important;',
+    '  z-index: 10000 !important; pointer-events: none !important;',
+    '  transition: width .15s ease-out !important;',
+    '  box-shadow: 0 0 8px rgba(255,179,71,0.6) !important;',
+    '}',
+    'html body .gti-back-top {',
+    '  position: fixed !important; bottom: 24px !important; right: 24px !important;',
+    '  z-index: 9997 !important;',
+    '  width: 44px !important; height: 44px !important;',
+    '  border-radius: 50% !important;',
+    '  background: rgba(10,9,8,0.85) !important;',
+    '  backdrop-filter: blur(8px) !important;',
+    '  border: 1px solid rgba(255,179,71,0.3) !important;',
+    '  color: #FFB347 !important; cursor: pointer !important;',
+    '  opacity: 0; transform: translateY(20px);',
+    '  transition: opacity .4s, transform .4s, border-color .25s !important;',
+    '  display: flex !important; align-items: center !important; justify-content: center !important;',
+    '  font-size: 18px !important; box-shadow: 0 6px 20px rgba(0,0,0,0.5) !important;',
+    '}',
+    'html body .gti-back-top.show { opacity: 1 !important; transform: translateY(0) !important; }',
+    '@media (max-width: 900px) {',
+    '  html body div.deep-nav { padding: 10px 12px !important; gap: 6px !important; }',
+    '  html body div.deep-nav a { padding: 6px 10px !important; font-size: 9.5px !important; letter-spacing: 1.4px !important; }',
+    '  html body div.deep-nav a.lang { margin-left: 2px !important; }',
+    '}',
+    '@media (max-width: 480px) {',
+    '  html body div.deep-nav { padding: 8px !important; gap: 5px !important; }',
+    '  html body div.deep-nav a { padding: 5px 8px !important; font-size: 9px !important; letter-spacing: 1px !important; border-radius: 16px !important; }',
+    '  html body div.deep-nav .dot { display: none !important; }',
+    '}'
+  ].join('\n');
+
+  /* Inyecta los estilos en el <head> ACTUAL (re-llamable cada vez que documentElement cambia) */
+  function ensureStyles() {
+    if (!document.head) return false;
+    if (document.head.querySelector('#gti-overlay-styles')) return true;
+    var styleEl = document.createElement('style');
+    styleEl.id = 'gti-overlay-styles';
+    styleEl.appendChild(document.createTextNode(OVERLAY_CSS_TEXT));
+    document.head.appendChild(styleEl);
+    return true;
+  }
+
+  /* Llama inmediatamente y registra observer para re-aplicar tras replaceWith */
+  ensureStyles();
+  var headObs = new MutationObserver(function() {
+    /* Si el bundle reemplaza documentElement, head es nuevo. Re-inyectar. */
+    ensureStyles();
+  });
+  headObs.observe(document, { childList: true, subtree: true });
 
   var CTAS = {"archivo":{label:"Explorar archivo completo",href:"/manuales/"},"motor":{label:"Especificaciones técnicas G13B completas",href:"/reparaciones/motor-g13b/"},"garage":{label:"Ver garage completo del club",href:"/garage/"},"comunidad":{label:"Unirse a la comunidad",href:"/comunidad/"},"colab":{label:"Conocer el archivo técnico",href:"/manuales/"}};
   var BACK_LABEL = "Volver al inicio";

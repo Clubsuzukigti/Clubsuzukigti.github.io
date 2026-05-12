@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.0.7';  /* bumped: deep-nav styles now in <head>, survives bundle replaceWith */
+const VERSION = 'v1.0.8';  /* bumped: deep-nav styles now in <head>, survives bundle replaceWith */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 
