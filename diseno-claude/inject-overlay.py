@@ -300,8 +300,8 @@ def build_injection(locale):
     /* === Ilustracion swift-front-half en seccion archivo (zona crema) === */
     'html body .gti-archivo-illust {{',
     '  position: absolute !important;',
-    '  top: -440px !important; left: 5% !important;',
-    '  width: 340px !important; height: 340px !important;',
+    '  top: -540px !important; left: 3% !important;',
+    '  width: 425px !important; height: 425px !important;',
     '  z-index: 2 !important;',
     '  pointer-events: none !important;',
     '  background-color: #2C1810 !important;',
@@ -314,10 +314,10 @@ def build_injection(locale):
     '  -webkit-mask-position: center !important;',
     '  mask-position: center !important;',
     '  opacity: 0.68 !important;',
-    '  transform: rotate(-2deg) !important;',
+    '  transform: scaleX(-1) rotate(2deg) !important;',
     '}}',
     '@media (max-width: 720px) {{',
-    '  html body .gti-archivo-illust {{ width: 200px !important; height: 200px !important; top: -260px !important; left: 50% !important; transform: translateX(-50%) rotate(-2deg) !important; opacity: 0.55 !important; }}',
+    '  html body .gti-archivo-illust {{ width: 250px !important; height: 250px !important; top: -325px !important; left: 50% !important; transform: translateX(-50%) scaleX(-1) rotate(2deg) !important; opacity: 0.55 !important; }}',
     '}}',
     /* === Reemplazo del contenido del element del S brand (inyectado por JS) === */
     'html body .gti-brand-s-fill {{',

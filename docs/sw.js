@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.6.1';  /* archivo-illust mas grande (340px) y subida (-440px) para centrar en zona crema */
+const VERSION = 'v1.6.2';  /* archivo-illust +25% (425px) y espejo horizontal (scaleX -1) */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 
