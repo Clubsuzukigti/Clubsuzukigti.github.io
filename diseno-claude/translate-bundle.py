@@ -96,10 +96,15 @@ T = [
     ("FOTO · SUKI · OPEN HOOD", "PHOTO · SUKI · OPEN HOOD"),
 
     # === COLABORAR ===
+    # NOTA: NO traducir "que" → "that" suelto: rompe querySelector → thatrySelector
+    # Hacer match en frase completa
+    ("¿Tienes algo\\nque\\nsume?\\nSúbelo.", "Got something\\nthat\\nadds up?\\nUpload it."),
+    ("¿Tienes algo que sume? Súbelo.", "Got something that adds up? Upload it."),
+    ("¿Tienes algo que sume?", "Got something that adds up?"),
     ("¿Tienes algo", "Got something"),
-    ("que", "that"),
-    ("sume", "adds"),
-    ("? Súbelo.", "? Upload it."),
+    ("Súbelo.", "Upload it."),
+    ("? Súbelo", "? Upload it"),
+    ("sume?", "adds up?"),
     ("Manuales escaneados, fotos de tu auto, un torque-spec garabateado en",
      "Scanned manuals, photos of your car, a torque spec scribbled on"),
     ("una servilleta, un screenshot del EPC, un emblema en la mano antes de",
