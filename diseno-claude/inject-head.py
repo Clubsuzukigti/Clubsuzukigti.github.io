@@ -32,6 +32,160 @@ TARGETS = {
 
 INJECT_MARKER = '<!-- gti-head-injected -->'
 
+# Static CSS for deep-nav overlay — outside f-string para evitar escape de {} CSS
+OVERLAY_CSS = """
+  <style id="gti-overlay-styles">
+    .gti-progress {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: linear-gradient(90deg, #E20A17 0%, #FFB347 100%);
+      z-index: 10000;
+      transition: width .15s ease-out;
+      pointer-events: none;
+      box-shadow: 0 0 8px rgba(255,179,71,0.6);
+    }
+    .deep-nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 9998;
+      background: rgba(10,9,8,0.92);
+      backdrop-filter: blur(14px) saturate(140%);
+      -webkit-backdrop-filter: blur(14px) saturate(140%);
+      padding: 12px 24px;
+      display: flex; gap: 10px; align-items: center; justify-content: center;
+      flex-wrap: wrap;
+      font-family: 'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+      border-bottom: 1px solid rgba(255,179,71,0.22);
+      opacity: 0; transform: translateY(-100%);
+      transition: opacity .55s ease, transform .55s ease;
+      pointer-events: none;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .deep-nav.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .deep-nav a {
+      display: inline-flex; align-items: center;
+      padding: 7px 14px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,179,71,0.18);
+      color: #F5EFE0;
+      text-decoration: none;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      transition: all .25s ease;
+      white-space: nowrap;
+      line-height: 1;
+    }
+    .deep-nav a:hover {
+      color: #FFB347;
+      background: rgba(255,179,71,0.1);
+      border-color: rgba(255,179,71,0.55);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(255,179,71,0.18);
+    }
+    .deep-nav a.lang {
+      margin-left: 6px;
+      background: rgba(226,10,23,0.18);
+      border-color: rgba(226,10,23,0.5);
+      color: #F5EFE0;
+      font-weight: 700;
+      letter-spacing: 2.2px;
+    }
+    .deep-nav a.lang:hover {
+      background: #E20A17;
+      border-color: #E20A17;
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(226,10,23,0.4);
+    }
+    .deep-nav .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #FFB347;
+      box-shadow: 0 0 10px #FFB347, 0 0 4px rgba(255,179,71,0.6);
+      flex-shrink: 0;
+      margin-right: 4px;
+      animation: gti-bulb-pulse 4s ease-in-out infinite;
+    }
+    @keyframes gti-bulb-pulse {
+      0%,100% { opacity: 0.85; }
+      50% { opacity: 0.45; }
+    }
+    .gti-section-cta {
+      display: block;
+      margin: 3em auto 1em;
+      max-width: 580px;
+      padding: 1.2em 1.8em;
+      background: rgba(255,179,71,0.04);
+      border: 1px solid rgba(255,179,71,0.28);
+      border-radius: 4px;
+      color: #FFB347;
+      text-decoration: none;
+      font-family: 'Inter Tight',sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-align: center;
+      transition: all .3s cubic-bezier(.34,1.56,.64,1);
+      position: relative;
+      overflow: hidden;
+    }
+    .gti-section-cta::before {
+      content: ''; position: absolute; left: -100%; top: 0; height: 100%; width: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,179,71,0.12), transparent);
+      transition: left .6s;
+    }
+    .gti-section-cta:hover::before { left: 100%; }
+    .gti-section-cta:hover {
+      background: rgba(255,179,71,0.1);
+      border-color: #FFB347;
+      color: #FFD580;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255,179,71,0.18);
+    }
+    .gti-section-cta::after {
+      content: '  \\2192';
+      display: inline-block;
+      margin-left: 4px;
+      transition: transform .3s;
+    }
+    .gti-section-cta:hover::after { transform: translateX(6px); }
+    .gti-back-top {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      z-index: 9997;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(10,9,8,0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,179,71,0.3);
+      color: #FFB347;
+      cursor: pointer;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity .4s, transform .4s, border-color .25s;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    }
+    .gti-back-top.show { opacity: 1; transform: translateY(0); }
+    .gti-back-top:hover { border-color: #FFB347; color: #FFD580; }
+    @media (max-width: 900px) {
+      .deep-nav { padding: 10px 12px; gap: 6px; }
+      .deep-nav a { padding: 6px 10px; font-size: 9.5px; letter-spacing: 1.4px; }
+      .deep-nav a.lang { margin-left: 2px; }
+    }
+    @media (max-width: 720px) {
+      .gti-back-top { bottom: 16px; right: 16px; width: 38px; height: 38px; }
+    }
+    @media (max-width: 480px) {
+      .deep-nav { padding: 8px; gap: 5px; }
+      .deep-nav a { padding: 5px 8px; font-size: 9px; letter-spacing: 1px; border-radius: 16px; }
+      .deep-nav .dot { display: none; }
+    }
+  </style>
+"""
+
 
 def build_head(t):
     return f"""  {INJECT_MARKER}
@@ -68,6 +222,162 @@ def build_head(t):
   <link rel="alternate" hreflang="es" href="https://clubsuzukigti.github.io/landing/">
   <link rel="alternate" hreflang="en" href="https://clubsuzukigti.github.io/en/landing/">
   <link rel="alternate" hreflang="x-default" href="https://clubsuzukigti.github.io/landing/">
+""" + OVERLAY_CSS
+
+
+def _unused_dupe_block():
+    """Removed — CSS now lives in OVERLAY_CSS above"""
+    return """
+  <style id="gti-overlay-styles-dupe">
+    .gti-progress {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: linear-gradient(90deg, #E20A17 0%, #FFB347 100%);
+      z-index: 10000;
+      transition: width .15s ease-out;
+      pointer-events: none;
+      box-shadow: 0 0 8px rgba(255,179,71,0.6);
+    }
+    .deep-nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 9998;
+      background: rgba(10,9,8,0.92);
+      backdrop-filter: blur(14px) saturate(140%);
+      -webkit-backdrop-filter: blur(14px) saturate(140%);
+      padding: 12px 24px;
+      display: flex; gap: 10px; align-items: center; justify-content: center;
+      flex-wrap: wrap;
+      font-family: 'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+      border-bottom: 1px solid rgba(255,179,71,0.22);
+      opacity: 0; transform: translateY(-100%);
+      transition: opacity .55s ease, transform .55s ease;
+      pointer-events: none;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .deep-nav.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .deep-nav a {
+      display: inline-flex; align-items: center;
+      padding: 7px 14px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,179,71,0.18);
+      color: #F5EFE0;
+      text-decoration: none;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      transition: all .25s ease;
+      white-space: nowrap;
+      line-height: 1;
+    }
+    .deep-nav a:hover {
+      color: #FFB347;
+      background: rgba(255,179,71,0.1);
+      border-color: rgba(255,179,71,0.55);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(255,179,71,0.18);
+    }
+    .deep-nav a.lang {
+      margin-left: 6px;
+      background: rgba(226,10,23,0.18);
+      border-color: rgba(226,10,23,0.5);
+      color: #F5EFE0;
+      font-weight: 700;
+      letter-spacing: 2.2px;
+    }
+    .deep-nav a.lang:hover {
+      background: #E20A17;
+      border-color: #E20A17;
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(226,10,23,0.4);
+    }
+    .deep-nav .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #FFB347;
+      box-shadow: 0 0 10px #FFB347, 0 0 4px rgba(255,179,71,0.6);
+      flex-shrink: 0;
+      margin-right: 4px;
+      animation: gti-bulb-pulse 4s ease-in-out infinite;
+    }
+    @keyframes gti-bulb-pulse {
+      0%,100% { opacity: 0.85; }
+      50% { opacity: 0.45; }
+    }
+    .gti-section-cta {
+      display: block;
+      margin: 3em auto 1em;
+      max-width: 580px;
+      padding: 1.2em 1.8em;
+      background: rgba(255,179,71,0.04);
+      border: 1px solid rgba(255,179,71,0.28);
+      border-radius: 4px;
+      color: #FFB347;
+      text-decoration: none;
+      font-family: 'Inter Tight',sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-align: center;
+      transition: all .3s cubic-bezier(.34,1.56,.64,1);
+      position: relative;
+      overflow: hidden;
+    }
+    .gti-section-cta::before {
+      content: ''; position: absolute; left: -100%; top: 0; height: 100%; width: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,179,71,0.12), transparent);
+      transition: left .6s;
+    }
+    .gti-section-cta:hover::before { left: 100%; }
+    .gti-section-cta:hover {
+      background: rgba(255,179,71,0.1);
+      border-color: #FFB347;
+      color: #FFD580;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255,179,71,0.18);
+    }
+    .gti-section-cta::after {
+      content: '  →';
+      display: inline-block;
+      margin-left: 4px;
+      transition: transform .3s;
+    }
+    .gti-section-cta:hover::after { transform: translateX(6px); }
+    .gti-back-top {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      z-index: 9997;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(10,9,8,0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,179,71,0.3);
+      color: #FFB347;
+      cursor: pointer;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity .4s, transform .4s, border-color .25s;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    }
+    .gti-back-top.show { opacity: 1; transform: translateY(0); }
+    .gti-back-top:hover { border-color: #FFB347; color: #FFD580; }
+    @media (max-width: 900px) {
+      .deep-nav { padding: 10px 12px; gap: 6px; }
+      .deep-nav a { padding: 6px 10px; font-size: 9.5px; letter-spacing: 1.4px; }
+      .deep-nav a.lang { margin-left: 2px; }
+    }
+    @media (max-width: 720px) {
+      .gti-back-top { bottom: 16px; right: 16px; width: 38px; height: 38px; }
+    }
+    @media (max-width: 480px) {
+      .deep-nav { padding: 8px; gap: 5px; }
+      .deep-nav a { padding: 5px 8px; font-size: 9px; letter-spacing: 1px; border-radius: 16px; }
+      .deep-nav .dot { display: none; }
+    }
+  </style>
 """
 
 
