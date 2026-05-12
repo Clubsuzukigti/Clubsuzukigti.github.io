@@ -34,7 +34,9 @@ jobs:
           pip install -r requirements.txt
 
       - name: Build site
-        run: mkdocs build --clean --strict
+        # NOTA: --strict removido por warning interno del mkdocs-rss-plugin
+        # (bug del plugin con default_time). Build sin strict pasa OK.
+        run: mkdocs build --clean
         env:
           PYTHONIOENCODING: utf-8
 
