@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.4.3';  /* revert: brand S override quedaba al lado de la cursiva, no encima */
+const VERSION = 'v1.5.0';  /* brand S override via busqueda DOM (text=S + bg rojo + top-left) */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 

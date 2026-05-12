@@ -706,6 +706,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 
 
+
 <!-- gti-overlay-injected -->
 <!-- Styles inyectados via JS porque el bundle hace document.documentElement.replaceWith() y borra el head original -->
 <script>
@@ -917,25 +918,22 @@ document.addEventListener('DOMContentLoaded', async function() {
     '  html body .gti-s-logo { width: 16px !important; height: 16px !important; opacity: 0.55 !important; }',
     '  html body .gti-s-logo.pos-3 { display: none !important; }',
     '}',
-    /* === Sobreescribe la "S" cursiva del brand-box con el logo antiguo === */
-    'html body .gti-brand-s-override {',
-    '  position: fixed !important;',
-    '  top: 38px !important; left: 38px !important;',
-    '  width: 56px !important; height: 56px !important;',
-    '  z-index: 9999 !important;',
-    '  pointer-events: none !important;',
+    /* === Reemplazo del contenido del element del S brand (inyectado por JS) === */
+    'html body .gti-brand-s-fill {',
+    '  display: block !important;',
+    '  position: absolute !important;',
+    '  top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;',
+    '  width: 100% !important; height: 100% !important;',
     '  background-color: #FFFFFF !important;',
     '  -webkit-mask-image: url("/assets/img/siluetas/suzuki-s-logo.svg") !important;',
     '  mask-image: url("/assets/img/siluetas/suzuki-s-logo.svg") !important;',
-    '  -webkit-mask-size: contain !important;',
-    '  mask-size: contain !important;',
+    '  -webkit-mask-size: 88% auto !important;',
+    '  mask-size: 88% auto !important;',
     '  -webkit-mask-repeat: no-repeat !important;',
     '  mask-repeat: no-repeat !important;',
     '  -webkit-mask-position: center !important;',
     '  mask-position: center !important;',
-    '}',
-    '@media (max-width: 720px) {',
-    '  html body .gti-brand-s-override { top: 24px !important; left: 24px !important; width: 42px !important; height: 42px !important; }',
+    '  pointer-events: none !important;',
     '}'
   ].join('\n');
 
@@ -1038,11 +1036,47 @@ document.addEventListener('DOMContentLoaded', async function() {
     return true;
   }
 
-  function injectBrandSOverride() {
-    if (document.getElementById('gtiBrandSOverride')) return true;
+  /* Busca el elemento real del bundle que contiene la "S" cursiva del brand box.
+     Heuristica: hoja DOM cuyo textContent EXACTO es "S", ubicada en cuadrante top-left,
+     con un fondo rojo (parent inmediato o ancestro cercano). Reemplaza su contenido
+     con el logo Suzuki antiguo en blanco via mask-image. */
+  function replaceBrandS() {
+    if (document.querySelector('[data-gti-brand-replaced]')) return true;
     if (!document.body) return false;
-    document.body.insertAdjacentHTML('afterbegin', brandOverrideHTML);
-    return true;
+    var candidates = document.body.querySelectorAll('*');
+    for (var i = 0; i < candidates.length; i++) {
+      var el = candidates[i];
+      if (el.children.length > 0) continue;
+      var text = (el.textContent || '').trim();
+      if (text !== 'S') continue;
+      var rect = el.getBoundingClientRect();
+      if (rect.top > 350 || rect.left > 500) continue;
+      if (rect.width < 14 || rect.width > 250) continue;
+      /* verificar que un ancestro tenga fondo rojo (brand box) */
+      var hasRedAncestor = false;
+      var p = el;
+      for (var depth = 0; depth < 6 && p; depth++) {
+        var bg = window.getComputedStyle(p).backgroundColor;
+        var m = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+        if (m) {
+          var r = +m[1], g = +m[2], b = +m[3];
+          if (r > 150 && g < 80 && b < 80) { hasRedAncestor = true; break; }
+        }
+        p = p.parentElement;
+      }
+      if (!hasRedAncestor) continue;
+      /* MATCH — reemplazar contenido */
+      el.textContent = '';
+      var cs = window.getComputedStyle(el);
+      if (cs.position === 'static') el.style.position = 'relative';
+      var fill = document.createElement('span');
+      fill.className = 'gti-brand-s-fill';
+      fill.setAttribute('aria-hidden', 'true');
+      el.appendChild(fill);
+      el.setAttribute('data-gti-brand-replaced', 'true');
+      return true;
+    }
+    return false;
   }
 
   function ensure() {
@@ -1066,6 +1100,8 @@ document.addEventListener('DOMContentLoaded', async function() {
     injectHeroBg();
     // 4b. Logos Suzuki "S" antiguos (4 instancias en el hero)
     injectSLogos();
+    // 4c. Reemplazo del S cursivo del brand box (busqueda DOM real)
+    replaceBrandS();
     // 5. Section CTAs
     Object.keys(CTAS).forEach(function(k) {
       injectSectionCTA(k, CTAS[k].label, CTAS[k].href);
