@@ -1,6 +1,30 @@
+---
+title: Comunidad mundial
+description: 800K+ entusiastas verificados en 24+ países · 40+ grupos Facebook · 30+ canales YouTube · 14 foros activos
+---
+
 # Comunidad mundial Suzuki GTi
 
-Más de **800,000 miembros** en grupos verificados de Facebook, foros internacionales y canales YouTube en **24+ países**. Aquí está el mapa completo.
+<div class="gti-quote" markdown>
+*No estamos solos. En 24 países, hay alguien arreglando el mismo motor que tú esta noche.*
+
+<cite>— MAPA DE LA COMUNIDAD · 2026</cite>
+</div>
+
+Más de **800,000 miembros** verificados en grupos de Facebook, foros internacionales y canales YouTube en 24+ países. Cuando un Swift GTi se descompone en cualquier parte del mundo, hay un foro o un grupo donde alguien ya resolvió ese problema.
+
+<hr class="gti-rule">
+
+## La comunidad en cifras {#cifras}
+
+<div class="gti-stat"><span class="num">800K+</span><span class="lbl">MIEMBROS VERIFICADOS</span></div>
+<div class="gti-stat"><span class="num">40+</span><span class="lbl">GRUPOS FACEBOOK</span></div>
+<div class="gti-stat"><span class="num">30+</span><span class="lbl">CANALES YOUTUBE</span></div>
+<div class="gti-stat"><span class="num">14</span><span class="lbl">FOROS INTERNACIONALES</span></div>
+<div class="gti-stat"><span class="num">24+</span><span class="lbl">PAÍSES CON PRESENCIA ACTIVA</span></div>
+<div class="gti-stat"><span class="num">430K</span><span class="lbl">PAKISTÁN · MERCADO MÁS GRANDE</span></div>
+
+<hr class="gti-rule">
 
 <div class="card-grid" markdown>
 
@@ -34,7 +58,7 @@ Grupo principal con Topics organizados: anuncios, compra-venta, reparaciones, bu
 
 </div>
 
----
+<hr class="gti-rule">
 
 ## 🏆 Top 10 grupos Facebook (verificados con member count real)
 
@@ -53,7 +77,7 @@ Grupo principal con Topics organizados: anuncios, compra-venta, reparaciones, bu
 
 [Lista completa 40+ grupos por país →](facebook.md)
 
----
+<hr class="gti-rule">
 
 ## 🎬 Canales YouTube destacados
 
@@ -77,7 +101,7 @@ Grupo principal con Topics organizados: anuncios, compra-venta, reparaciones, bu
 
 [Lista completa 30+ videos →](youtube.md)
 
----
+<hr class="gti-rule">
 
 ## 🏛 Foros internacionales activos
 
@@ -100,7 +124,7 @@ Grupo principal con Topics organizados: anuncios, compra-venta, reparaciones, bu
 
 [Foros completos detallados →](foros.md)
 
----
+<hr class="gti-rule">
 
 ## 🌎 Mapa geográfico de la comunidad
 
@@ -128,7 +152,7 @@ Grupo principal con Topics organizados: anuncios, compra-venta, reparaciones, bu
 
 **Total verificado: 800,000+ entusiastas worldwide**
 
----
+<hr class="gti-rule">
 
 ## 👑 Admins conocidos del club (para outreach)
 

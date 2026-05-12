@@ -1,11 +1,33 @@
-# Reparaciones — Suzuki Swift GTi
+---
+title: Reparaciones
+description: Guías de reparación basadas en manual SF413 oficial + TSBs Suzuki + experiencia acumulada del club
+---
 
-Guías de reparación y mantenimiento basadas en el manual oficial Suzuki, TSBs (Technical Service Bulletins) y la experiencia acumulada del club.
+# Reparaciones
+
+<div class="gti-quote" markdown>
+Los autos se rompen. El conocimiento de cómo arreglarlos también — si nadie lo escribe.
+
+<cite>— ARCHIVO DEL TALLER · CLUB SUZUKI GTi</cite>
+</div>
+
+Guías de reparación y mantenimiento basadas en el manual oficial Suzuki SF413, los TSBs (Technical Service Bulletins) oficiales y la experiencia acumulada del club durante 8 años manteniendo vivos a estos autos.
 
 !!! warning "Lee primero"
     Trabajar en un Swift GTi requiere herramientas básicas + paciencia. Estas guías son referencia, no reemplazan el criterio del mecánico. Ante duda crítica (frenos, seguridad), consulta a un profesional.
 
-## Por sistema
+<hr class="gti-rule">
+
+## El taller en números {#cifras}
+
+<div class="gti-stat"><span class="num">10</span><span class="lbl">PROBLEMAS COMUNES DOCUMENTADOS</span></div>
+<div class="gti-stat"><span class="num">5</span><span class="lbl">SISTEMAS · MOTOR · ELÉCTRICO · TRANS · FRENOS · CARROCERÍA</span></div>
+<div class="gti-stat"><span class="num">9</span><span class="lbl">TORQUES CRÍTICOS DOCUMENTADOS</span></div>
+<div class="gti-stat"><span class="num">9</span><span class="lbl">CÓDIGOS DIAGNÓSTICO ECM</span></div>
+
+<hr class="gti-rule">
+
+## Por sistema {#sistemas}
 
 <div class="card-grid" markdown>
 
@@ -46,9 +68,9 @@ Puntos críticos de óxido (rocker panels, floor pans, control arm mounts), repa
 
 </div>
 
----
+<hr class="gti-rule">
 
-## Especificaciones rápidas (TSB Oficial Suzuki G13B)
+## Especificaciones rápidas — TSB Oficial Suzuki G13B {#tsb}
 
 ### Tiempo de encendido
 **12° ± 6° BTDC @ 800 rpm** en ralentí (DOHC G13B GTi)
@@ -79,9 +101,9 @@ Gap **0.7-0.8 mm** · Torque **25-30 N·m**
 ### Transmisión manual
 **Aceite GL-4 ONLY** — GL-5 destruye los synchros con sus aditivos sulfurosos
 
----
+<hr class="gti-rule">
 
-## Torques de apriete principales
+## Torques de apriete principales {#torques}
 
 | Componente | N·m | lb-ft |
 |---|---|---|
@@ -97,9 +119,9 @@ Gap **0.7-0.8 mm** · Torque **25-30 N·m**
 
 [Tabla completa de torques →](motor-g13b.md#torques)
 
----
+<hr class="gti-rule">
 
-## Códigos de diagnóstico ECM
+## Códigos de diagnóstico ECM {#diagnostico}
 
 | Código | Sistema | Probable falla |
 |---|---|---|
@@ -113,11 +135,9 @@ Gap **0.7-0.8 mm** · Torque **25-30 N·m**
 | 42 | CAS | Sin señal sensor ángulo cigüeñal |
 | ON continuo | ECM | Falla interna ECM |
 
-[Procedimiento completo de diagnóstico →](electrico.md#diagnostico)
+<hr class="gti-rule">
 
----
-
-## Top 10 problemas más frecuentes en el club
+## Top 10 problemas más frecuentes en el club {#top-10}
 
 1. **Crunch en 2da/3ra** → Synchros desgastados (cambiar + usar GL-4)
 2. **No arranca / no chispa** → CAS sensor en distribuidor (entrehierro 0.2-0.3mm)

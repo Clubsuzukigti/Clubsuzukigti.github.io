@@ -1,9 +1,32 @@
+---
+title: Telegram del Club
+description: Chat en tiempo real, compra-venta, SOS reparaciones, eventos · Topics organizados
+---
+
 # Telegram del Club
+
+<div class="gti-quote" markdown>
+*El taller virtual del club. Cuando se rompe algo a las 11 PM en la carretera, alguien responde.*
+
+<cite>— COMUNIDAD EN TIEMPO REAL</cite>
+</div>
 
 Nuestro grupo principal de comunicación en tiempo real. Charla en español universal, eventos, compra-venta urgente, SOS reparaciones.
 
-!!! info "Estado"
-    El grupo Telegram se creará en los próximos días. Este espacio mostrará el link de invitación una vez configurado.
+!!! info "Estado actual"
+    El grupo Telegram se creará en los próximos días. Este espacio mostrará el link de invitación una vez configurado. Mientras tanto, escríbenos por [Contacto](../contacto.md) y te avisaremos cuando abra.
+
+<hr class="gti-rule">
+
+## Por qué Telegram y no Discord/WhatsApp {#por-que-telegram}
+
+- **Topics:** organización por temas dentro de un solo grupo (no necesitas múltiples chats)
+- **Búsqueda potente:** encuentras lo que se discutió hace 6 meses
+- **Canal broadcast separado** para Manuales (descarga sin distracciones)
+- **Cross-platform:** móvil, desktop, web — sincronizado
+- **Sin algoritmo:** ves todo en orden cronológico, no en orden "engagement"
+
+<hr class="gti-rule">
 
 ## Estructura propuesta del grupo
 

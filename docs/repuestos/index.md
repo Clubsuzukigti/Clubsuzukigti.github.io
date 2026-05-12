@@ -1,8 +1,30 @@
-# Repuestos — Suzuki Swift GTi
+---
+title: Repuestos
+description: Catálogo mundial de fuentes verificadas — EPC online, eBay, premium worldwide, LatAm marketplaces
+---
 
-Catálogo mundial de fuentes de repuestos para el Swift GTi / Cultus GTi / Forsa GTi. Información verificada y actualizada por la comunidad.
+# Repuestos
 
-## Tipos de fuentes
+<div class="gti-quote" markdown>
+*Cada repuesto OEM que se descontinúa es una pieza menos para mantener vivos a estos autos. El que tú salves hoy puede ser el último que ruede mañana.*
+
+<cite>— ARCHIVO DE REPUESTOS · CLUB MUNDIAL</cite>
+</div>
+
+Catálogo mundial de fuentes de repuestos para el Swift GTi / Cultus GTi / Forsa GTi / Swift GT. Información verificada y actualizada por la comunidad. Cuando Suzuki dejó de fabricar, otros continuaron.
+
+<hr class="gti-rule">
+
+## Red mundial en cifras {#cifras}
+
+<div class="gti-stat"><span class="num">25+</span><span class="lbl">VENDEDORES PREMIUM WORLDWIDE</span></div>
+<div class="gti-stat"><span class="num">4</span><span class="lbl">CATÁLOGOS EPC GRATIS · PARTSOUQ · AMAYAMA · 7ZAP · MEGAZIP</span></div>
+<div class="gti-stat"><span class="num">10+</span><span class="lbl">MARKETPLACES LATAM</span></div>
+<div class="gti-stat"><span class="num">33</span><span class="lbl">AÑOS · CULTUS PAKISTÁN STOCK MASIVO</span></div>
+
+<hr class="gti-rule">
+
+## Tipos de fuentes {#fuentes}
 
 <div class="card-grid" markdown>
 
@@ -36,7 +58,7 @@ MercadoLibre Colombia/Argentina/Chile/Ecuador, Mundo Repuestos Chile, vendedores
 
 </div>
 
----
+<hr class="gti-rule">
 
 ## 🥇 Top fuentes recomendadas (por prioridad)
 
@@ -65,7 +87,7 @@ MercadoLibre Colombia/Argentina/Chile/Ecuador, Mundo Repuestos Chile, vendedores
 - **[NDEStore](https://www.ndestore.com/collections/suzuki-cultus-3-cylinder)**
 - Foro **[PakWheels](https://www.pakwheels.com/forums/t/cultus-g13b-swap/1765591)**
 
----
+<hr class="gti-rule">
 
 ## 💰 Precios comparativa (referencia 2026)
 
@@ -94,7 +116,7 @@ MercadoLibre Colombia/Argentina/Chile/Ecuador, Mundo Repuestos Chile, vendedores
 | 🇬🇧 UK importado | £400-700 (~$500-880) |
 | 🇦🇺 AU importado | AU $700-1100 |
 
----
+<hr class="gti-rule">
 
 ## 🎯 Recomendación estratégica por región
 

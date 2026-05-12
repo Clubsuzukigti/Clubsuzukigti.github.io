@@ -1,11 +1,33 @@
-# Modificaciones — Suzuki Swift GTi
+---
+title: Modificaciones
+description: Recetas probadas — de bolt-on económico a turbo builds 376 whp documentados
+---
 
-Recetas de modificación probadas por la comunidad mundial. Desde bolt-on económico hasta builds turbo de **376 whp** documentados.
+# Modificaciones
 
-!!! tip "Filosofía del G13B"
-    El G13B viene de fábrica con **bielas, pistones y cigüeñal forjados** — soporta hasta **9,000 rpm con internals stock**. Eso lo hace una plataforma ideal para modificar sin necesidad de abrir el motor en la mayoría de niveles.
+<div class="gti-quote" markdown>
+El G13B tiene *bielas, pistones y cigüeñal forjados de fábrica*. Suzuki nunca lo documentó como motor de competición. Pero la comunidad mundial sí.
 
-## Por categoría
+<cite>— FILOSOFÍA DEL G13B</cite>
+</div>
+
+Recetas de modificación probadas por la comunidad mundial. Desde bolt-on económico hasta builds turbo de **376 whp** documentados en dyno.
+
+!!! tip "Por qué este motor es especial"
+    Soporta hasta **9,000 rpm con internals stock**. Eso lo hace una plataforma ideal para modificar sin necesidad de abrir el motor en la mayoría de niveles.
+
+<hr class="gti-rule">
+
+## Mods en cifras {#cifras}
+
+<div class="gti-stat"><span class="num">165</span><span class="lbl">HP · BUILD N/A MÁXIMO DOCUMENTADO</span></div>
+<div class="gti-stat"><span class="num">376</span><span class="lbl">WHP · BUILD TURBO MÁXIMO</span></div>
+<div class="gti-stat"><span class="num">9,000</span><span class="lbl">RPM · INTERNALS STOCK</span></div>
+<div class="gti-stat"><span class="num">5</span><span class="lbl">CATEGORÍAS · N/A · TURBO · SWAPS · CHASIS · ECU</span></div>
+
+<hr class="gti-rule">
+
+## Por categoría {#categorias}
 
 <div class="card-grid" markdown>
 
@@ -46,7 +68,7 @@ MegaSquirt MS2/MS3X, Haltech (con KB G13B oficial), AEM, Microtech. Conversión 
 
 </div>
 
----
+<hr class="gti-rule">
 
 ## Receta progresiva N/A (sin turbo)
 
@@ -90,7 +112,7 @@ Ejemplo documentado:
 - Custom 280-300° cams
 - **165 hp @ 8500 rpm safe revs**
 
----
+<hr class="gti-rule">
 
 ## Builds turbo documentados
 
@@ -104,7 +126,7 @@ Ejemplo documentado:
 
 [Detalle completo turbo builds →](turbo.md)
 
----
+<hr class="gti-rule">
 
 ## Niveles de boost según internals
 
@@ -115,7 +137,7 @@ Ejemplo documentado:
 | 15+ | 250-300+ | ECU standalone obligatorio, bielas forjadas Pauter, head gasket reforzado |
 | 300+ | 300-400 | Pistones forjados baja CR, head gasket caro, ECU programable |
 
----
+<hr class="gti-rule">
 
 ## Drivetrain — LSD options
 
@@ -130,7 +152,7 @@ Ejemplo documentado:
 **Embrague stock GTi:** Exedy 190mm, 18 splines, 225mm PCD  
 **Flywheel aligerado:** RSX Racing Solutions 2.8 kg (vs ~6 kg stock)
 
----
+<hr class="gti-rule">
 
 ## Reglas de oro (aprende de los errores ajenos)
 
