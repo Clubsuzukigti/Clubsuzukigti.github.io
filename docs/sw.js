@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.6.0';  /* agrega swift-front-half SVG en el espacio sobre seccion archivo */
+const VERSION = 'v1.6.1';  /* archivo-illust mas grande (340px) y subida (-440px) para centrar en zona crema */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 
