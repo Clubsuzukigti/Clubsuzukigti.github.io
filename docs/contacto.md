@@ -19,7 +19,7 @@ Si tienes información valiosa para el archivo (manuales antiguos, fotos histór
 
 ### Opción A — Pull Request en GitHub
 Si sabes Git: forkea el repo, crea tu rama, envía PR.
-- Repo: [github.com/Clubsuzukigti/suzukigti.github.io](https://github.com/Clubsuzukigti/suzukigti.github.io)
+- Repo: [github.com/Clubsuzukigti/Clubsuzukigti.github.io](https://github.com/Clubsuzukigti/Clubsuzukigti.github.io)
 - Guía: ver `CONTRIBUTING.md` del repo
 
 ### Opción B — Telegram
@@ -64,4 +64,4 @@ Si quieres ayudar a mantener el sitio (no requiere saber código necesariamente 
 - **Cookies:** solo las técnicas necesarias para preferencia de idioma + tema oscuro/claro
 - Analítica privacy-friendly (sin datos identificables) puede activarse en el futuro
 
-Política completa en [PRIVACY.md del repo](https://github.com/Clubsuzukigti/suzukigti.github.io/blob/main/PRIVACY.md).
+Política completa en [PRIVACY.md del repo](https://github.com/Clubsuzukigti/Clubsuzukigti.github.io/blob/main/PRIVACY.md).

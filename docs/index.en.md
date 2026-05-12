@@ -134,7 +134,7 @@ Real-time chat, garage photos, urgent buy-sell, SOS repairs.
 ### 🏛 GitHub Discussions
 Technical questions that deserve to be permanently archived and searchable.
 
-[Go to forum →](https://github.com/Clubsuzukigti/suzukigti.github.io/discussions){ .md-button }
+[Go to forum →](https://github.com/Clubsuzukigti/Clubsuzukigti.github.io/discussions){ .md-button }
 </div>
 
 <div class="card" markdown>
@@ -152,4 +152,4 @@ Main page with news, events and community posts.
     This archive was born in 2026 and will grow with community contributions. If you have manuals, photos, repair tutorials or parts information — [share your knowledge](contacto.md) so it survives another 30 years.
 
 [Learn about the project](historia/){ .md-button .md-button--primary }
-[View source code](https://github.com/Clubsuzukigti/suzukigti.github.io){ .md-button }
+[View source code](https://github.com/Clubsuzukigti/Clubsuzukigti.github.io){ .md-button }

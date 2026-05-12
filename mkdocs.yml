@@ -1,16 +1,16 @@
 # ============================================================
 #  SUZUKI GTi CAR CLUB - Configuración MkDocs Material
 #  Sitio: https://suzukigti.github.io
-#  Repo:  https://github.com/Clubsuzukigti/suzukigti.github.io
+#  Repo:  https://github.com/Clubsuzukigti/Clubsuzukigti.github.io
 # ============================================================
 
 site_name: Suzuki GTi Car Club
-site_url: https://suzukigti.github.io
+site_url: https://clubsuzukigti.github.io
 site_description: Preservando el legado del Suzuki Swift GTi — archivo técnico, repuestos y comunidad mundial
 site_author: Club Suzuki GTi
 
-repo_name: Clubsuzukigti/suzukigti.github.io
-repo_url: https://github.com/Clubsuzukigti/suzukigti.github.io
+repo_name: Clubsuzukigti/Clubsuzukigti.github.io
+repo_url: https://github.com/Clubsuzukigti/Clubsuzukigti.github.io
 edit_uri: edit/main/docs/
 
 copyright: |

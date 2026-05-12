@@ -152,7 +152,7 @@ Chat en tiempo real, fotos del taller, compra-venta urgente, SOS reparaciones.
 ### 🏛 GitHub Discussions
 Preguntas técnicas que merecen quedar archivadas y buscables para siempre.
 
-[Ir al foro →](https://github.com/Clubsuzukigti/suzukigti.github.io/discussions){ .md-button }
+[Ir al foro →](https://github.com/Clubsuzukigti/Clubsuzukigti.github.io/discussions){ .md-button }
 </div>
 
 <div class="card" markdown>
@@ -170,4 +170,4 @@ Página principal con noticias, eventos y posts de la comunidad latinoamericana.
     Este archivo nació en 2026 y crecerá con aportes de la comunidad. Si tienes manuales, fotos, tutoriales de reparación o información de repuestos — [comparte tu conocimiento](contacto/) para que sobreviva otros 30 años.
 
 [Conoce el proyecto](historia/){ .md-button .md-button--primary }
-[Ver código fuente](https://github.com/Clubsuzukigti/suzukigti.github.io){ .md-button }
+[Ver código fuente](https://github.com/Clubsuzukigti/Clubsuzukigti.github.io){ .md-button }

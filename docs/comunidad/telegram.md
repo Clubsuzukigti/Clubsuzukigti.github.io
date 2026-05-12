@@ -56,7 +56,7 @@ Una vez aprobado, recibes acceso completo a todos los topics + canal de Manuales
 
 ## Alternativa: GitHub Discussions
 
-Para preguntas técnicas que merezcan quedar **archivadas y buscables permanentemente**, usamos el [foro GitHub Discussions](https://github.com/Clubsuzukigti/suzukigti.github.io/discussions) del proyecto.
+Para preguntas técnicas que merezcan quedar **archivadas y buscables permanentemente**, usamos el [foro GitHub Discussions](https://github.com/Clubsuzukigti/Clubsuzukigti.github.io/discussions) del proyecto.
 
 **Cuándo usar GitHub Discussions vs Telegram:**
 

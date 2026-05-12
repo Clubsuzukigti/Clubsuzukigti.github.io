@@ -1,6 +1,6 @@
 # Suzuki GTi Car Club — Sitio Web
 
-[![Deploy](https://github.com/Clubsuzukigti/suzukigti.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/Clubsuzukigti/suzukigti.github.io/actions/workflows/deploy.yml)
+[![Deploy](https://github.com/Clubsuzukigti/Clubsuzukigti.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/Clubsuzukigti/Clubsuzukigti.github.io/actions/workflows/deploy.yml)
 
 **Sitio en vivo:** https://suzukigti.github.io
 
