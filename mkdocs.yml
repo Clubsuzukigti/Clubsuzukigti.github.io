@@ -212,6 +212,8 @@ extra_javascript: []
 #  NAVIGATION
 # ============================================================
 nav:
+  # Home (/) usa template home-redirect.html → redirige a /landing/ (bundle premium Claude Design).
+  # El backup del MkDocs home clásico vive en inicio-clasico.md.
   - Inicio: index.md
   - Historia:
       - historia/index.md
