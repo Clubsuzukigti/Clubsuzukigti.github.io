@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.6.3';  /* archivo-illust bajada (-475px) para centrar entre textos */
+const VERSION = 'v1.7.0';  /* agrega swift-rear-detail en zona libre seccion colab (espejo, 425px) */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 

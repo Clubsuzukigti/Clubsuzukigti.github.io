@@ -319,6 +319,28 @@ def build_injection(locale):
     '@media (max-width: 720px) {{',
     '  html body .gti-archivo-illust {{ width: 250px !important; height: 250px !important; top: -325px !important; left: 50% !important; transform: translateX(-50%) scaleX(-1) rotate(2deg) !important; opacity: 0.55 !important; }}',
     '}}',
+    /* === Ilustracion swift-rear-detail en seccion colab (zona oscura, derecha) === */
+    'html body .gti-colab-illust {{',
+    '  position: absolute !important;',
+    '  top: 18% !important; right: 5% !important;',
+    '  width: 425px !important; height: 425px !important;',
+    '  z-index: 2 !important;',
+    '  pointer-events: none !important;',
+    '  background-color: #F5EFE0 !important;',
+    '  -webkit-mask-image: url("/assets/img/siluetas/swift-rear-detail.svg") !important;',
+    '  mask-image: url("/assets/img/siluetas/swift-rear-detail.svg") !important;',
+    '  -webkit-mask-size: contain !important;',
+    '  mask-size: contain !important;',
+    '  -webkit-mask-repeat: no-repeat !important;',
+    '  mask-repeat: no-repeat !important;',
+    '  -webkit-mask-position: center !important;',
+    '  mask-position: center !important;',
+    '  opacity: 0.42 !important;',
+    '  transform: scaleX(-1) rotate(2deg) !important;',
+    '}}',
+    '@media (max-width: 720px) {{',
+    '  html body .gti-colab-illust {{ width: 250px !important; height: 250px !important; top: auto !important; bottom: 8% !important; right: 50% !important; transform: translateX(50%) scaleX(-1) rotate(2deg) !important; opacity: 0.32 !important; }}',
+    '}}',
     /* === Reemplazo del contenido del element del S brand (inyectado por JS) === */
     'html body .gti-brand-s-fill {{',
     '  display: block !important;',
@@ -509,6 +531,14 @@ def build_injection(locale):
       var cs = window.getComputedStyle(arch);
       if (cs.position === 'static') arch.style.position = 'relative';
       arch.insertAdjacentHTML('afterbegin', '<div class="gti-archivo-illust" aria-hidden="true"></div>');
+    }}
+    // 4e. Ilustracion swift-rear-detail en seccion colab
+    var colab = document.getElementById('colab');
+    if (colab && !colab.querySelector('.gti-colab-illust')) {{
+      var ccs = window.getComputedStyle(colab);
+      if (ccs.position === 'static') colab.style.position = 'relative';
+      if (ccs.overflow === 'visible') colab.style.overflow = 'hidden';
+      colab.insertAdjacentHTML('afterbegin', '<div class="gti-colab-illust" aria-hidden="true"></div>');
     }}
     // 5. Section CTAs
     Object.keys(CTAS).forEach(function(k) {{
