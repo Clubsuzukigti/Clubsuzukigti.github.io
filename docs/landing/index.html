@@ -705,6 +705,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 
 
+
 <!-- gti-overlay-injected -->
 <!-- Styles inyectados via JS porque el bundle hace document.documentElement.replaceWith() y borra el head original -->
 <script>
@@ -1065,8 +1066,6 @@ document.addEventListener('DOMContentLoaded', async function() {
     injectHeroBg();
     // 4b. Logos Suzuki "S" antiguos (4 instancias en el hero)
     injectSLogos();
-    // 4c. Overlay sobre la "S" cursiva del brand box (esquina superior izquierda)
-    injectBrandSOverride();
     // 5. Section CTAs
     Object.keys(CTAS).forEach(function(k) {
       injectSectionCTA(k, CTAS[k].label, CTAS[k].href);

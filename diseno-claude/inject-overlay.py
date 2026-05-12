@@ -446,8 +446,6 @@ def build_injection(locale):
     injectHeroBg();
     // 4b. Logos Suzuki "S" antiguos (4 instancias en el hero)
     injectSLogos();
-    // 4c. Overlay sobre la "S" cursiva del brand box (esquina superior izquierda)
-    injectBrandSOverride();
     // 5. Section CTAs
     Object.keys(CTAS).forEach(function(k) {{
       injectSectionCTA(k, CTAS[k].label, CTAS[k].href);
