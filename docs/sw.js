@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.8.4';  /* gate audio en gestos REALES (click/touch/keydown) - scroll no cuenta para Chrome */
+const VERSION = 'v1.8.5';  /* tic en todos los botones/links nativos + cleanup logger heights */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 
