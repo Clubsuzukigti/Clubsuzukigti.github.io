@@ -424,39 +424,6 @@ def build_injection(locale):
       if (!closeSnd) {{ closeSnd = new Audio('/assets/sound/garage-close.mp3'); closeSnd.preload = 'auto'; closeSnd.volume = 0.32; closeSnd.load(); }}
     }}
 
-    function _scheduleTic(ctx) {{
-      var t = ctx.currentTime;
-      var osc = ctx.createOscillator();
-      var gain = ctx.createGain();
-      osc.type = 'triangle';
-      osc.frequency.setValueAtTime(2400, t);
-      osc.frequency.exponentialRampToValueAtTime(1100, t + 0.04);
-      gain.gain.setValueAtTime(0.0001, t);
-      gain.gain.exponentialRampToValueAtTime(0.22, t + 0.005);
-      gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.06);
-      osc.connect(gain).connect(ctx.destination);
-      osc.start(t);
-      osc.stop(t + 0.08);
-    }}
-
-    function playTic() {{
-      console.log('[GTi audio] tic called, muted=', muted);
-      if (muted) return;
-      var ctx = initContext();
-      console.log('[GTi audio] ctx=', ctx, 'state=', ctx && ctx.state);
-      if (!ctx) return;
-      if (ctx.state === 'suspended') {{
-        var p = ctx.resume();
-        if (p && p.then) p.then(function() {{
-          console.log('[GTi audio] ctx resumed, scheduling tic');
-          _scheduleTic(ctx);
-        }});
-        else _scheduleTic(ctx);
-      }} else {{
-        _scheduleTic(ctx);
-      }}
-    }}
-
     function playOpen() {{
       console.log('[GTi audio] open called, muted=', muted, 'already=', openPlayed, 'gesture=', userGestureSeen);
       if (muted || openPlayed || !userGestureSeen) return;
@@ -532,7 +499,6 @@ def build_injection(locale):
 
     return {{
       preload: preloadShutters,
-      tic: playTic,
       open: playOpen,
       close: playClose,
       isMuted: function() {{ return muted; }},
@@ -608,24 +574,14 @@ def build_injection(locale):
       mute.addEventListener('click', function(ev) {{
         ev.preventDefault();
         GTiAudio.toggleMuted();
-        if (!GTiAudio.isMuted()) {{
-          GTiAudio.tic();
-          GTiAudio.markGesture();
-        }}
+        if (!GTiAudio.isMuted()) GTiAudio.markGesture();
       }});
     }}
 
-    /* Tic en TODOS los botones/links del sitio + gestos REALES */
-    if (!document.__gtiTicWired) {{
-      document.__gtiTicWired = true;
-      document.addEventListener('click', function(ev) {{
-        GTiAudio.markGesture();
-        var t = ev.target.closest('a, button, [role="button"], .deep-nav, .gti-section-cta, .gti-back-top');
-        if (!t) return;
-        /* excluir mute toggle (no tic propio) y elementos sin accion real */
-        if (t.classList && t.classList.contains('gti-mute-toggle')) return;
-        GTiAudio.tic();
-      }}, true);
+    /* Listener global de gestos REALES para destrabar autoplay (sin tics) */
+    if (!document.__gtiGestureWired) {{
+      document.__gtiGestureWired = true;
+      document.addEventListener('click', function() {{ GTiAudio.markGesture(); }}, true);
       document.addEventListener('touchend', function() {{ GTiAudio.markGesture(); }}, true);
       document.addEventListener('keydown', function() {{ GTiAudio.markGesture(); }}, true);
     }}

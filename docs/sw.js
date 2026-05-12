@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.8.6';  /* warmup AudioContext + auto-reload al detectar SW nueva (fix SW stale) */
+const VERSION = 'v1.9.0';  /* SW ya NO cachea HTML (siempre red) + tics removidos (sonaban a synth pobre) */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 
@@ -67,24 +67,8 @@ self.addEventListener('fetch', (event) => {
   const isStatic = STATIC_EXTENSIONS.some(ext => url.pathname.endsWith(ext));
 
   if (isHTML) {
-    // Network-first for HTML
-    event.respondWith(
-      fetch(req)
-        .then((response) => {
-          // Cache successful HTML responses
-          if (response.ok) {
-            const clone = response.clone();
-            caches.open(RUNTIME_CACHE).then((cache) => cache.put(req, clone));
-          }
-          return response;
-        })
-        .catch(() => {
-          // Network failed: try cache, then offline page
-          return caches.match(req).then((cached) => {
-            return cached || caches.match('/offline.html');
-          });
-        })
-    );
+    // HTML NUNCA se cachea: red directa siempre, sin interceptar
+    return;
   } else if (isStatic) {
     // Cache-first for static assets
     event.respondWith(
