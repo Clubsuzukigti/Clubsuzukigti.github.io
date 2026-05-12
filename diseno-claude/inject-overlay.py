@@ -322,7 +322,7 @@ def build_injection(locale):
     /* === Ilustracion swift-rear-detail en seccion colab (zona oscura, derecha) === */
     'html body .gti-colab-illust {{',
     '  position: absolute !important;',
-    '  top: calc(18% + 570px) !important; right: -3% !important;',
+    '  top: calc(18% + 570px) !important; right: 3% !important;',
     '  width: 425px !important; height: 425px !important;',
     '  z-index: 2 !important;',
     '  pointer-events: none !important;',

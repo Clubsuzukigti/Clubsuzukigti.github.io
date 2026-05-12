@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.7.5';  /* colab-illust bajada +80px mas (490 -> 570) */
+const VERSION = 'v1.7.6';  /* colab-illust corrida a la izquierda (right -3% -> 3%) */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 
