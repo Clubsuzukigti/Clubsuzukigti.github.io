@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.1.0';  /* siluetas GTi integradas: hero watermark, dividers, footer mark, accents */
+const VERSION = 'v1.1.1';  /* siluetas con opacidad visible (era invisible por mix-blend-mode + opacity baja) */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 
