@@ -112,6 +112,20 @@ plugins:
       enabled: true
       strict: false
       locale: es
+  - rss:
+      match_path: blog/.*
+      date_from_meta:
+        as_creation: date
+      categories:
+        - tags
+      feeds_filename: feed_blog.xml
+      length: 20
+      pretty_print: true
+      use_material_blog: false
+      url_parameters:
+        utm_source: "feed"
+        utm_medium: "rss"
+      enabled: true
   - glightbox:
       touchNavigation: true
       loop: false

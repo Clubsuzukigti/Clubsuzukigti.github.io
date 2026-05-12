@@ -4,6 +4,8 @@ description: Bitácora del club · restauraciones · road trips · investigacion
 hide:
   - toc
 ---
+<link rel="alternate" type="application/rss+xml" title="Suzuki GTi Car Club — Blog (RSS)" href="/feed_rss_created.xml">
+<link rel="alternate" type="application/feed+json" title="Suzuki GTi Car Club — Blog (JSON Feed)" href="/feed_json_created.json">
 
 # Blog
 
@@ -36,6 +38,15 @@ Si tienes historia, fotos, restauración documentada, o cualquier contenido larg
 
 [Enviar por Telegram →](../comunidad/telegram.md){ .md-button .md-button--primary }
 [Escribir al equipo →](../contacto.md){ .md-button }
+
+<hr class="gti-rule">
+
+## Sigue el blog {#feeds}
+
+Los posts del blog se publicarán como **feed RSS y JSON** para que puedas suscribirte:
+
+- [📡 RSS Feed](/feed_rss_created.xml) — para apps tipo Feedly, NetNewsWire, Inoreader
+- [🔗 JSON Feed](/feed_json_created.json) — formato moderno alternativo
 
 <hr class="gti-rule">
 
