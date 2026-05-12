@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="'Playfair Display', Georgia, serif">
+  <!-- Garage nocturno background -->
+  <defs>
+    <radialGradient id="bulb" cx="85%" cy="20%" r="40%">
+      <stop offset="0%" stop-color="#FFB347" stop-opacity="0.45"/>
+      <stop offset="50%" stop-color="#FFB347" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#FFB347" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shutter" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8B8680"/>
+      <stop offset="40%" stop-color="#3A2B1E"/>
+      <stop offset="100%" stop-color="#0A0908"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Base dark -->
+  <rect width="1200" height="630" fill="#0A0908"/>
+
+  <!-- Tungsten glow -->
+  <rect width="1200" height="630" fill="url(#bulb)"/>
+
+  <!-- Persiana corrugada arriba -->
+  <rect x="0" y="0" width="1200" height="60" fill="url(#shutter)"/>
+  <line x1="0" y1="12" x2="1200" y2="12" stroke="#0A0908" stroke-width="1" opacity="0.4"/>
+  <line x1="0" y1="24" x2="1200" y2="24" stroke="#0A0908" stroke-width="1" opacity="0.4"/>
+  <line x1="0" y1="36" x2="1200" y2="36" stroke="#0A0908" stroke-width="1" opacity="0.4"/>
+  <line x1="0" y1="48" x2="1200" y2="48" stroke="#0A0908" stroke-width="1" opacity="0.4"/>
+
+  <!-- Linea roja Suzuki -->
+  <rect x="0" y="60" width="1200" height="3" fill="#E20A17"/>
+
+  <!-- Bombilla colgante -->
+  <line x1="1020" y1="63" x2="1020" y2="148" stroke="#3A2B1E" stroke-width="1.5"/>
+  <circle cx="1020" cy="170" r="32" fill="#FFB347" opacity="0.2"/>
+  <circle cx="1020" cy="170" r="18" fill="#FFB347"/>
+  <circle cx="1014" cy="164" r="5" fill="#FFD580" opacity="0.7"/>
+
+  <!-- S monogram logo (red square) -->
+  <rect x="80" y="100" width="120" height="120" fill="#E20A17" rx="2"/>
+  <text x="140" y="200" fill="#F5EFE0" font-family="Georgia, serif" font-style="italic" font-weight="900" font-size="110" text-anchor="middle">S</text>
+
+  <!-- Eyebrow -->
+  <text x="80" y="280" fill="#FFB347" font-family="'Inter Tight', sans-serif" font-size="18" font-weight="500" letter-spacing="6">ARCHIVO TÉCNICO · REPUESTOS · COMUNIDAD MUNDIAL</text>
+
+  <!-- Main headline (serif italic editorial) -->
+  <text x="80" y="360" fill="#F5EFE0" font-size="68" font-weight="900" letter-spacing="-1.5">Preservando el legado</text>
+  <text x="80" y="430" fill="#F5EFE0" font-size="68" font-weight="900" letter-spacing="-1.5">del</text>
+  <text x="252" y="430" fill="#E20A17" font-size="68" font-weight="900" font-style="italic">Suzuki Swift GTi</text>
+
+  <!-- Subline -->
+  <text x="80" y="495" fill="#F5EFE0" opacity="0.7" font-family="'JetBrains Mono', monospace" font-size="22" letter-spacing="1">G13B DOHC 16V · 1989-1994 · 24 países · 800K+ miembros</text>
+
+  <!-- URL bottom -->
+  <text x="80" y="570" fill="#FFB347" font-family="'Inter Tight', sans-serif" font-size="20" font-weight="600" letter-spacing="3">CLUBSUZUKIGTI.GITHUB.IO</text>
+
+  <!-- Footer right: club info -->
+  <text x="1120" y="570" fill="#F5EFE0" opacity="0.5" font-family="'JetBrains Mono', monospace" font-size="14" text-anchor="end" letter-spacing="1">EST. 2017 · QUETZALTENANGO · GT</text>
+
+  <!-- Red bottom bar (Suzuki accent) -->
+  <rect x="0" y="615" width="1200" height="15" fill="#E20A17"/>
+</svg>
