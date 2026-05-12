@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.8.0';  /* audio: persiana metalica open/close + tics sintetizados en pills + mute toggle */
+const VERSION = 'v1.8.1';  /* expone GTiAudio en window para debug + invalida cache previo */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 

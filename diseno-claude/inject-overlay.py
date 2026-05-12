@@ -492,6 +492,8 @@ def build_injection(locale):
       onFirstInteraction: markInteracted
     }};
   }})();
+  /* expongo para debug en consola */
+  try {{ window.GTiAudio = GTiAudio; }} catch(e){{}}
 
   var CTAS = {ctas_js};
   var BACK_LABEL = "{back_to_top}";

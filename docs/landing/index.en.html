@@ -721,6 +721,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 
 
+
 <!-- gti-overlay-injected -->
 <!-- Styles inyectados via JS porque el bundle hace document.documentElement.replaceWith() y borra el head original -->
 <script>
@@ -1127,6 +1128,8 @@ document.addEventListener('DOMContentLoaded', async function() {
       onFirstInteraction: markInteracted
     };
   })();
+  /* expongo para debug en consola */
+  try { window.GTiAudio = GTiAudio; } catch(e){}
 
   var CTAS = {"archivo":{label:"Explore the full archive",href:"/en/manuales/"},"motor":{label:"Full G13B technical specifications",href:"/en/reparaciones/motor-g13b/"},"garage":{label:"See the full club garage",href:"/en/garage/"},"comunidad":{label:"Join the community",href:"/en/comunidad/"},"colab":{label:"Discover the technical archive",href:"/en/manuales/"}};
   var BACK_LABEL = "Back to top";
