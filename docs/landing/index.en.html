@@ -713,6 +713,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 
 
+
 <!-- gti-overlay-injected -->
 <!-- Styles inyectados via JS porque el bundle hace document.documentElement.replaceWith() y borra el head original -->
 <script>
@@ -949,7 +950,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     /* === Ilustracion swift-rear-detail en seccion colab (zona oscura, derecha) === */
     'html body .gti-colab-illust {',
     '  position: absolute !important;',
-    '  top: 18% !important; right: 5% !important;',
+    '  top: calc(18% + 425px) !important; right: 5% !important;',
     '  width: 425px !important; height: 425px !important;',
     '  z-index: 2 !important;',
     '  pointer-events: none !important;',

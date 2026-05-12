@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.7.1';  /* TEMP logger de heights/ids de todas las secciones a consola */
+const VERSION = 'v1.7.2';  /* colab-illust bajada una vez su tamaño (calc 18% + 425px) */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 
