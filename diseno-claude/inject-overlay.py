@@ -238,21 +238,26 @@ def build_injection(locale):
     '}}',
     'html body a.gti-section-cta:hover::after {{ transform: translateX(8px) !important; }}',
     /* === Silueta sol naciente — SOLO en el header/hero, contenida === */
+    /* mask-image en vez de background-image: permite teñir el SVG via background-color */
     'html body .gti-hero-bg {{',
     '  position: absolute !important;',
     '  top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;',
     '  width: 100% !important; height: 100% !important;',
     '  z-index: 0 !important;',
     '  pointer-events: none !important;',
-    '  opacity: 0.18 !important;',
-    '  background-image: url("/assets/img/siluetas/swift-rising-sun.svg") !important;',
-    '  background-size: contain !important;',
-    '  background-repeat: no-repeat !important;',
-    '  background-position: right center !important;',
-    '  overflow: hidden !important;',
+    '  opacity: 0.32 !important;',
+    '  background-color: #FFB347 !important;',
+    '  -webkit-mask-image: url("/assets/img/siluetas/swift-rising-sun.svg") !important;',
+    '  mask-image: url("/assets/img/siluetas/swift-rising-sun.svg") !important;',
+    '  -webkit-mask-size: contain !important;',
+    '  mask-size: contain !important;',
+    '  -webkit-mask-repeat: no-repeat !important;',
+    '  mask-repeat: no-repeat !important;',
+    '  -webkit-mask-position: right center !important;',
+    '  mask-position: right center !important;',
     '}}',
     '@media (max-width: 720px) {{',
-    '  html body .gti-hero-bg {{ background-position: center center !important; background-size: cover !important; opacity: 0.14 !important; }}',
+    '  html body .gti-hero-bg {{ -webkit-mask-position: center center !important; mask-position: center center !important; -webkit-mask-size: 140% !important; mask-size: 140% !important; opacity: 0.24 !important; }}',
     '}}'
   ].join('\\n');
 

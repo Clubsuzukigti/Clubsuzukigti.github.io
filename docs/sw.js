@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.3.0';  /* reset siluetas: solo sol naciente como fondo del header, contenida */
+const VERSION = 'v1.3.1';  /* mask-image + amber para que silueta sea visible sobre dark hero */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 
