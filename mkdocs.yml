@@ -65,22 +65,11 @@ theme:
     - announce.dismiss
 
   palette:
-    # Modo claro
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
+    # Modo único "Garage Nocturno" — unificado con la landing premium
+    # No hay toggle; el sitio entero vive en dark mode editorial
+    - scheme: slate
       primary: custom
       accent: custom
-      toggle:
-        icon: material/brightness-7
-        name: Cambiar a modo oscuro
-    # Modo oscuro
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: custom
-      accent: custom
-      toggle:
-        icon: material/brightness-4
-        name: Cambiar a modo claro
 
 # ============================================================
 #  PLUGINS
@@ -203,8 +192,9 @@ extra:
       - manage
 
 extra_css:
-  - assets/css/colors.css
-  - assets/css/branding.css
+  - assets/css/landing-theme.css  # F2: unifica todas las páginas internas con la landing premium
+  - assets/css/colors.css         # legacy — mantiene vars compatibilidad
+  - assets/css/branding.css       # legacy — selectores específicos hero clásico
 
 extra_javascript: []
 

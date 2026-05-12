@@ -1,0 +1,607 @@
+/* ============================================================
+   LANDING THEME — Unifica MkDocs Material con la landing premium
+   Paleta dark garage + tipografía editorial
+   Aplicado a TODAS las páginas internas (historia, manuales, etc.)
+   ============================================================ */
+
+/* ---- Fuentes premium del landing ---- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700;1,900&family=Inter+Tight:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Caveat:wght@500;700&display=swap');
+
+/* ---- Variables de marca (unificadas con bundle Claude Design) ---- */
+:root {
+  /* Brand oficial */
+  --gti-red:          #E20A17;
+  --gti-blue:         #003399;
+  --gti-cyan:         #00A4D7;
+
+  /* Atmósfera garage */
+  --gti-bg:           #0A0908;   /* Negro motor profundo */
+  --gti-bg-soft:      #14110F;   /* Variante para cards */
+  --gti-cream:        #F5EFE0;   /* Crema papel envejecido */
+  --gti-cream-soft:   #E8DFC8;
+  --gti-amber:        #FFB347;   /* Bombilla tungsteno */
+  --gti-amber-glow:   rgba(255,179,71,0.18);
+  --gti-leather:      #3A2B1E;
+  --gti-oak:          #6B4423;
+  --gti-steel:        #8B8680;
+
+  /* Fuentes */
+  --font-display:     'Playfair Display', 'GT Sectra', Georgia, serif;
+  --font-body:        'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:        'JetBrains Mono', 'GT America Mono', ui-monospace, monospace;
+  --font-hand:        'Caveat', 'Kalam', cursive;
+}
+
+/* ============================================================
+   OVERRIDE MATERIAL THEME — modo único "Garage Nocturno"
+   ============================================================ */
+
+[data-md-color-scheme="default"],
+[data-md-color-scheme="slate"] {
+  /* Backgrounds */
+  --md-default-bg-color:          var(--gti-bg);
+  --md-default-bg-color--light:   var(--gti-bg-soft);
+  --md-default-bg-color--lighter: #1C1815;
+  --md-default-bg-color--lightest:#221E1A;
+
+  /* Foreground */
+  --md-default-fg-color:          var(--gti-cream);
+  --md-default-fg-color--light:   rgba(245,239,224,0.78);
+  --md-default-fg-color--lighter: rgba(245,239,224,0.55);
+  --md-default-fg-color--lightest:rgba(245,239,224,0.28);
+
+  /* Primary (header) */
+  --md-primary-fg-color:          var(--gti-bg);
+  --md-primary-fg-color--light:   #14110F;
+  --md-primary-fg-color--dark:    #050403;
+  --md-primary-bg-color:          var(--gti-cream);
+  --md-primary-bg-color--light:   rgba(245,239,224,0.7);
+
+  /* Accent */
+  --md-accent-fg-color:           var(--gti-amber);
+  --md-accent-fg-color--transparent: var(--gti-amber-glow);
+  --md-accent-bg-color:           var(--gti-bg);
+
+  /* Tipografía */
+  --md-typeset-color:             var(--gti-cream);
+  --md-typeset-a-color:           var(--gti-amber);
+  --md-typeset-mark-color:        rgba(226,10,23,0.25);
+  --md-typeset-del-color:         rgba(245,239,224,0.45);
+  --md-typeset-ins-color:         rgba(0,164,215,0.4);
+  --md-typeset-kbd-color:         #1C1815;
+  --md-typeset-kbd-accent-color:  #2A241F;
+  --md-typeset-kbd-border-color:  #3A2B1E;
+  --md-typeset-table-color:       var(--gti-cream);
+
+  /* Code */
+  --md-code-fg-color:             var(--gti-cream);
+  --md-code-bg-color:             #0F0D0B;
+  --md-code-hl-color:             var(--gti-amber-glow);
+  --md-code-hl-number-color:      var(--gti-red);
+  --md-code-hl-special-color:     var(--gti-amber);
+  --md-code-hl-function-color:    var(--gti-cyan);
+  --md-code-hl-constant-color:    var(--gti-red);
+  --md-code-hl-keyword-color:     var(--gti-amber);
+  --md-code-hl-string-color:      #B5D58A;
+
+  /* Footer */
+  --md-footer-bg-color:           #050403;
+  --md-footer-bg-color--dark:     #000;
+  --md-footer-fg-color:           var(--gti-cream);
+  --md-footer-fg-color--light:    rgba(245,239,224,0.6);
+  --md-footer-fg-color--lighter:  rgba(245,239,224,0.4);
+
+  /* Admonitions: warm tone */
+  --md-admonition-fg-color:       var(--gti-cream);
+  --md-admonition-bg-color:       rgba(255,179,71,0.06);
+
+  /* Shadows */
+  --md-shadow-z1: 0 4px 12px rgba(0,0,0,0.5);
+  --md-shadow-z2: 0 8px 24px rgba(0,0,0,0.6);
+  --md-shadow-z3: 0 16px 48px rgba(0,0,0,0.7);
+
+  /* Font assignments */
+  --md-text-font: 'Inter Tight', system-ui, sans-serif;
+  --md-code-font: 'JetBrains Mono', monospace;
+}
+
+/* ============================================================
+   TIPOGRAFÍA — Editorial garage
+   ============================================================ */
+
+body, .md-typeset {
+  font-family: var(--font-body);
+  font-feature-settings: 'kern','liga','ss01';
+  -webkit-font-smoothing: antialiased;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--gti-cream);
+  margin-top: 1.8em;
+  margin-bottom: 0.6em;
+}
+
+.md-typeset h1 {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+}
+
+.md-typeset h1::before {
+  content: '— ';
+  color: var(--gti-red);
+  font-weight: 400;
+}
+
+.md-typeset h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  line-height: 1.15;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.md-typeset h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--gti-amber);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.md-typeset h4 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: var(--gti-amber);
+  margin-top: 1.8em;
+}
+
+.md-typeset p,
+.md-typeset li {
+  line-height: 1.7;
+}
+
+.md-typeset strong { color: var(--gti-cream); font-weight: 700; }
+.md-typeset em { color: rgba(255,179,71,0.95); font-style: italic; }
+
+.md-typeset code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: rgba(255,179,71,0.08);
+  padding: 0.18em 0.45em;
+  border-radius: 3px;
+  border: 1px solid rgba(255,179,71,0.15);
+}
+
+.md-typeset pre code {
+  background: transparent;
+  border: none;
+}
+
+.md-typeset blockquote {
+  border-left: 3px solid var(--gti-red);
+  padding-left: 1.2em;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15em;
+  color: rgba(245,239,224,0.88);
+}
+
+.md-typeset a {
+  color: var(--gti-amber);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(255,179,71,0.4);
+  transition: color .2s, border-color .2s;
+}
+.md-typeset a:hover {
+  color: #FFD580;
+  border-bottom-color: var(--gti-amber);
+}
+
+/* ============================================================
+   HEADER — minimal con persiana decorativa
+   ============================================================ */
+
+.md-header {
+  background-color: var(--gti-bg);
+  border-bottom: 1px solid rgba(255,179,71,0.15);
+  box-shadow: 0 1px 0 rgba(255,179,71,0.05);
+}
+
+.md-header::before {
+  /* Persiana decorativa de metal corrugado */
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(180deg,
+    var(--gti-steel) 0%, #6B6660 30%,
+    var(--gti-leather) 60%, var(--gti-bg) 100%);
+  opacity: 0.6;
+}
+
+.md-header__title {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+}
+
+.md-header__topic .md-ellipsis {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.md-tabs {
+  background: var(--gti-bg);
+  border-bottom: 1px solid rgba(255,179,71,0.08);
+}
+
+.md-tabs__link {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  opacity: 0.7;
+  transition: opacity .2s, color .2s;
+}
+.md-tabs__link:hover,
+.md-tabs__link--active {
+  opacity: 1;
+  color: var(--gti-amber);
+}
+
+/* Search */
+.md-search__input {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,179,71,0.15);
+  color: var(--gti-cream);
+  font-family: var(--font-body);
+}
+.md-search__input::placeholder {
+  color: rgba(245,239,224,0.4);
+}
+
+/* ============================================================
+   SIDEBAR / NAV
+   ============================================================ */
+
+.md-nav {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+}
+.md-nav__title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--gti-amber);
+}
+.md-nav__link {
+  color: rgba(245,239,224,0.72);
+  transition: color .15s;
+}
+.md-nav__link:hover,
+.md-nav__link--active {
+  color: var(--gti-amber);
+}
+
+/* ============================================================
+   CONTENIDO — bombilla decorativa en cada página interna
+   ============================================================ */
+
+.md-main__inner {
+  position: relative;
+}
+
+.md-content {
+  background: var(--gti-bg);
+}
+
+.md-content article.md-content__inner::before {
+  /* Bombilla colgante decorativa esquina superior derecha */
+  content: '';
+  position: absolute;
+  top: 8px;
+  right: 24px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--gti-amber);
+  box-shadow: 0 0 24px 4px var(--gti-amber-glow), 0 0 8px var(--gti-amber);
+  animation: bulb-flicker 7s ease-in-out infinite;
+  z-index: 1;
+}
+
+.md-content article.md-content__inner::after {
+  /* Cable de la bombilla */
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: 30px;
+  width: 1px;
+  height: 100px;
+  background: rgba(58,43,30,0.6);
+}
+
+@keyframes bulb-flicker {
+  0%,90%,100% { opacity: 1; }
+  93%,97%     { opacity: 0.4; }
+  95%         { opacity: 0.85; }
+}
+
+/* ============================================================
+   TABLES — editorial con hairlines
+   ============================================================ */
+
+.md-typeset table:not([class]) {
+  border-radius: 0;
+  border: 1px solid rgba(255,179,71,0.15);
+  background: var(--gti-bg-soft);
+  overflow: hidden;
+  font-size: 0.85rem;
+}
+
+.md-typeset table:not([class]) th {
+  background: rgba(226,10,23,0.08);
+  color: var(--gti-amber);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255,179,71,0.3);
+}
+
+.md-typeset table:not([class]) td {
+  border-bottom: 1px solid rgba(255,179,71,0.08);
+  color: rgba(245,239,224,0.92);
+}
+
+.md-typeset table:not([class]) tr:hover td {
+  background: rgba(255,179,71,0.03);
+}
+
+/* ============================================================
+   ADMONITIONS — warm leather notes
+   ============================================================ */
+
+.md-typeset .admonition,
+.md-typeset details {
+  background: var(--gti-bg-soft);
+  border: 1px solid rgba(255,179,71,0.18);
+  border-left: 3px solid var(--gti-amber);
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.md-typeset .admonition-title,
+.md-typeset summary {
+  background: rgba(255,179,71,0.06);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: var(--gti-amber);
+}
+
+.md-typeset .admonition.note { border-left-color: var(--gti-cyan); }
+.md-typeset .admonition.warning { border-left-color: var(--gti-red); }
+.md-typeset .admonition.tip { border-left-color: var(--gti-amber); }
+
+/* ============================================================
+   BUTTONS — placa metálica grabada
+   ============================================================ */
+
+.md-typeset .md-button {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: rgba(255,179,71,0.06);
+  color: var(--gti-amber);
+  border: 1px solid var(--gti-amber);
+  border-radius: 2px;
+  padding: 0.7em 1.4em;
+  transition: all .25s;
+  position: relative;
+}
+.md-typeset .md-button:hover {
+  background: var(--gti-amber);
+  color: var(--gti-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--gti-amber-glow);
+}
+.md-typeset .md-button--primary {
+  background: var(--gti-red);
+  color: var(--gti-cream);
+  border-color: var(--gti-red);
+}
+.md-typeset .md-button--primary:hover {
+  background: #FF1F2C;
+  border-color: #FF1F2C;
+  color: var(--gti-cream);
+  box-shadow: 0 8px 20px rgba(226,10,23,0.4);
+}
+
+/* ============================================================
+   FOOTER — placa "Sitio creado por Automatiza.ia"
+   ============================================================ */
+
+.md-footer {
+  background: #050403;
+  border-top: 1px solid rgba(255,179,71,0.1);
+}
+
+.md-footer-meta {
+  background: #000;
+  font-family: var(--font-body);
+}
+
+.md-footer-meta__inner {
+  padding: 1.2em 0.8em;
+}
+
+.md-footer-copyright {
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  color: rgba(245,239,224,0.5);
+}
+.md-footer-copyright a {
+  color: var(--gti-amber);
+  border-bottom: none;
+}
+
+/* Inyectar firma Automatiza.ia tras copyright */
+.md-footer-copyright::after {
+  content: ' · Sitio creado por ';
+  color: rgba(245,239,224,0.4);
+}
+.md-footer-copyright:has(+ *)::after { content: ''; }
+
+/* Firma como link tras el meta */
+.md-footer-meta__inner::after {
+  content: 'Automatiza.ia •';
+  display: inline-block;
+  margin-left: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: rgba(245,239,224,0.55);
+}
+
+/* Social icons */
+.md-footer-social {
+  padding-top: 0.6em;
+}
+.md-social__link svg {
+  fill: var(--gti-cream);
+  opacity: 0.55;
+  transition: opacity .2s, fill .2s;
+}
+.md-social__link:hover svg {
+  fill: var(--gti-amber);
+  opacity: 1;
+}
+
+/* ============================================================
+   ANNOUNCE BAR (si está activo)
+   ============================================================ */
+.md-banner {
+  background: var(--gti-red);
+  color: var(--gti-cream);
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+/* ============================================================
+   COMPONENTES CUSTOM REUTILIZABLES
+   Para usar en páginas internas (F3)
+   ============================================================ */
+
+/* Stat card editorial */
+.gti-stat {
+  display: inline-block;
+  padding: 1em 1.4em;
+  border-left: 2px solid var(--gti-amber);
+  margin: 0.4em 0.8em 0.4em 0;
+}
+.gti-stat .num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--gti-cream);
+}
+.gti-stat .lbl {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(245,239,224,0.6);
+  margin-top: 0.4em;
+  display: block;
+}
+
+/* Hairline divider blueprint */
+.gti-rule {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gti-amber-glow) 20%, var(--gti-amber-glow) 80%, transparent);
+  margin: 3em 0;
+}
+
+/* Quote display */
+.gti-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.3;
+  color: var(--gti-cream);
+  border-left: 3px solid var(--gti-red);
+  padding-left: 1.2em;
+  margin: 2em 0;
+}
+.gti-quote cite {
+  display: block;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gti-amber);
+  margin-top: 0.8em;
+  opacity: 0.7;
+}
+
+/* Handwritten note */
+.gti-note-hand {
+  font-family: var(--font-hand);
+  font-size: 1.15rem;
+  color: var(--gti-amber);
+}
+
+/* Pegboard texture container */
+.gti-pegboard {
+  background:
+    radial-gradient(circle 1.5px at 18px 18px, rgba(255,179,71,0.12) 1px, transparent 1.5px);
+  background-size: 36px 36px;
+  background-color: var(--gti-bg-soft);
+  padding: 2em;
+  border-radius: 6px;
+  border: 1px solid rgba(255,179,71,0.08);
+}
+
+/* ============================================================
+   RESPONSIVE & POLISH
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .md-typeset h1 { font-size: 2rem; }
+  .md-typeset h2 { font-size: 1.4rem; }
+  .md-content article.md-content__inner::before { right: 12px; top: 4px; }
+}
+
+/* Scrollbar dark */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--gti-bg); }
+::-webkit-scrollbar-thumb { background: rgba(255,179,71,0.2); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gti-amber); }
+
+/* Selection */
+::selection { background: var(--gti-red); color: var(--gti-cream); }
