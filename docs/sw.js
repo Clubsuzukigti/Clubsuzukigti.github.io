@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.5.1';  /* sol naciente con esquinas sup. redondeadas (radius 55% del lado menor) */
+const VERSION = 'v1.5.3';  /* abort: restaurado sol naciente rectangular - representa bandera JDM */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 
