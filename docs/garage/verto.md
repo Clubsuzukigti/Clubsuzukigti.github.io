@@ -1,9 +1,35 @@
-# Verto — Convertible G13B (Build único)
+---
+title: Verto — Convertible G13B
+description: Build único en Centroamérica · Geo Metro/Sprint/Firefly convertible + swap completo a Swift GTi spec G13B DOHC
+---
+
+# Verto — Convertible G13B (build único)
+
+<div class="gti-quote" markdown>
+*Suzuki nunca produjo de fábrica un GTi convertible con G13B DOHC. El "Verto" lo hace de todos modos. Posiblemente el único de su tipo en Guatemala.*
+
+<cite>— BUILD · QUETZALTENANGO · CENTROAMÉRICA</cite>
+</div>
 
 !!! info "Estado del proyecto"
     Build en proceso de documentación. Fotos y detalles se irán agregando.
 
-## Ficha técnica
+<hr class="gti-rule">
+
+<hr class="gti-rule">
+
+## El build en cifras {#cifras}
+
+<div class="gti-stat"><span class="num">G13B</span><span class="lbl">DOHC 16V · MOTOR SWIFT GTi</span></div>
+<div class="gti-stat"><span class="num">2DR</span><span class="lbl">CONVERTIBLE BASE GEO/SPRINT/FIREFLY</span></div>
+<div class="gti-stat"><span class="num">&lt;5</span><span class="lbl">SIMILARES EN CENTROAMÉRICA</span></div>
+<div class="gti-stat"><span class="num">XELA</span><span class="lbl">QUETZALTENANGO · GUATEMALA</span></div>
+
+<hr class="gti-rule">
+
+<hr class="gti-rule">
+
+## Ficha técnica {#ficha}
 
 | Spec | Detalle |
 |---|---|
@@ -13,6 +39,8 @@
 | **Conversión completa** | Body + drivetrain + interior |
 | **Ubicación** | Quetzaltenango (Xela), Guatemala |
 | **Estado** | En restauración + tuning |
+
+<hr class="gti-rule">
 
 ## Por qué este build es único
 
@@ -28,12 +56,18 @@ El "Verto" es por tanto un build **manual no-factory** — un Geo/Sprint/Firefly
 
 [Investigación completa de convertibles G13B worldwide →](../historia/convertibles.md)
 
+<hr class="gti-rule">
+
 ## Historia del Verto
 
-### Antes de Xela
+#<hr class="gti-rule">
+
+## Antes de Xela
 Importado del exterior. Llegó como base convertible para conversión completa.
 
-### En Xela — Proceso de restauración
+#<hr class="gti-rule">
+
+## En Xela — Proceso de restauración
 - Pintando bumper
 - Pintando calipers
 - Tapizando butacas
@@ -41,8 +75,12 @@ Importado del exterior. Llegó como base convertible para conversión completa.
 - Sistema de refrigeración trabajado (radiador 2-row típico del swap G13B)
 - Alternador específico para la conversión
 
-### Estado actual
+#<hr class="gti-rule">
+
+## Estado actual
 Auto funcional y arrancando. En fase final de detalles + documentación para registro completo.
+
+<hr class="gti-rule">
 
 ## Builds similares en el mundo
 
@@ -55,6 +93,8 @@ Para referencia comparativa, otras conversiones documentadas:
 5. **"1991 Chevrolet Sprint Convertible → Swift GTi"** — única conversión Sprint documentada
 6. **"Racers Customs and Collision"** — shop profesional con seamless fender/bumper
 
+<hr class="gti-rule">
+
 ## Documentación en proceso
 
 - [ ] Galería fotos antes/durante/después
@@ -65,11 +105,15 @@ Para referencia comparativa, otras conversiones documentadas:
 - [ ] Video YouTube del arrancado
 - [ ] Specs finales: peso, dimensiones, comportamiento
 
+<hr class="gti-rule">
+
 ## Galería
 
 *Fotos se agregarán progresivamente. Por ahora, ver [carpeta original del club](#).*
 
 ---
+
+<hr class="gti-rule">
 
 ## Owner / Contacto
 

@@ -1,9 +1,19 @@
 ---
 title: Contacto
-description: Cómo contactar al Club Suzuki GTi
+description: Cómo contactar al Club Suzuki GTi · Telegram · email · GitHub · admins
 ---
 
 # Contacto
+
+<div class="gti-quote" markdown>
+*Cuatro vías de contacto. Una sola dirección de respuesta. Si tu pregunta es técnica, Telegram es más rápido. Si es legal o institucional, escribe.*
+
+<cite>— CONTACTO · CLUB SUZUKI GTi</cite>
+</div>
+
+<hr class="gti-rule">
+
+<hr class="gti-rule">
 
 ## Para miembros del club
 
@@ -12,6 +22,8 @@ La vía principal es el **[grupo Telegram](comunidad/telegram.md)**. Una vez den
 - Comprar/vender repuestos
 - Coordinar eventos
 - Compartir tu build
+
+<hr class="gti-rule">
 
 ## Para contribuir contenido
 
@@ -28,12 +40,16 @@ Postea en el grupo principal y un admin convertirá tu aporte en página del sit
 ### Opción C — Email directo
 **ferpezlro@gmail.com** — admin principal del proyecto
 
+<hr class="gti-rule">
+
 ## Para prensa, medios, otros clubs
 
 Si representas un medio especializado, otro club de Suzuki, o quieres colaborar institucionalmente:
 
 - 📧 **Email:** ferpezlro@gmail.com
 - 📘 **Facebook:** [Suzuki Lifestyle](https://www.facebook.com/suzukilifestyle)
+
+<hr class="gti-rule">
 
 ## Para temas legales / derechos de autor
 
@@ -46,6 +62,8 @@ Si representas a Suzuki Motor Corp o tienes preocupaciones de derechos:
 - **Email:** ferpezlro@gmail.com
 - Responderemos en 48 horas hábiles
 - Retiraremos contenido específico si se solicita formalmente
+
+<hr class="gti-rule">
 
 ## Para hacer mantenimiento del sitio
 
