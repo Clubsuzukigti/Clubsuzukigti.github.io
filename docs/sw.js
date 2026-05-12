@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.3.2';  /* hero-bg en body absolute 100vh - cubre primer viewport siempre */
+const VERSION = 'v1.3.3';  /* hero-bg fixed con fade por scroll - visible solo en primer viewport */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 

@@ -237,15 +237,14 @@ def build_injection(locale):
     '  transition: transform .3s !important;',
     '}}',
     'html body a.gti-section-cta:hover::after {{ transform: translateX(8px) !important; }}',
-    /* === Silueta sol naciente — fondo del hero (primer viewport) === */
-    /* position: absolute en body → cubre solo el primer viewport, scroll lo deja atras */
+    /* === Silueta sol naciente — visible solo en el hero (fixed con fade por scroll) === */
     'html body .gti-hero-bg {{',
-    '  position: absolute !important;',
+    '  position: fixed !important;',
     '  top: 0 !important; left: 0 !important;',
     '  width: 100% !important; height: 100vh !important;',
-    '  z-index: 0 !important;',
+    '  z-index: 1 !important;',
     '  pointer-events: none !important;',
-    '  opacity: 0.38 !important;',
+    '  opacity: 0.42 !important;',
     '  background-color: #FFB347 !important;',
     '  -webkit-mask-image: url("/assets/img/siluetas/swift-rising-sun.svg") !important;',
     '  mask-image: url("/assets/img/siluetas/swift-rising-sun.svg") !important;',
@@ -255,9 +254,11 @@ def build_injection(locale):
     '  mask-repeat: no-repeat !important;',
     '  -webkit-mask-position: right 4% center !important;',
     '  mask-position: right 4% center !important;',
+    '  transition: opacity .4s ease !important;',
     '}}',
+    'html body .gti-hero-bg.hidden {{ opacity: 0 !important; }}',
     '@media (max-width: 720px) {{',
-    '  html body .gti-hero-bg {{ -webkit-mask-position: center center !important; mask-position: center center !important; -webkit-mask-size: 92% auto !important; mask-size: 92% auto !important; opacity: 0.3 !important; }}',
+    '  html body .gti-hero-bg {{ -webkit-mask-position: center center !important; mask-position: center center !important; -webkit-mask-size: 92% auto !important; mask-size: 92% auto !important; opacity: 0.32 !important; }}',
     '}}'
   ].join('\\n');
 
@@ -298,6 +299,7 @@ def build_injection(locale):
     var bar = document.getElementById('gtiProgress');
     var back = document.getElementById('gtiBackTop');
 
+    var heroBg = document.getElementById('gtiHeroBg');
     function onScroll() {{
       var doc = document.documentElement;
       var scrolled = doc.scrollTop || document.body.scrollTop;
@@ -309,6 +311,11 @@ def build_injection(locale):
       }}
       if (back) {{
         if (scrolled > 600) back.classList.add('show'); else back.classList.remove('show');
+      }}
+      if (heroBg) {{
+        /* fade out al pasar 80% del primer viewport */
+        if (scrolled > window.innerHeight * 0.8) heroBg.classList.add('hidden');
+        else heroBg.classList.remove('hidden');
       }}
     }}
     window.addEventListener('scroll', onScroll, {{ passive: true }});
