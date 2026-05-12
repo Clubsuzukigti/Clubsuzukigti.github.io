@@ -1,0 +1,192 @@
+/* ============================================================
+   BRANDING - Suzuki GTi Car Club
+   Hero, banners, tarjetas custom
+   ============================================================ */
+
+/* Hero principal del landing */
+.hero {
+  position: relative;
+  margin: -1.5rem -0.8rem 2rem;
+  padding: 4rem 2rem 5rem;
+  background:
+    linear-gradient(135deg,
+      rgba(15, 37, 71, 0.92) 0%,
+      rgba(26, 58, 107, 0.88) 40%,
+      rgba(230, 0, 18, 0.85) 100%
+    );
+  color: #fff;
+  border-radius: 0 0 16px 16px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin: 0 0 0.5rem;
+  color: #fff !important;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+}
+
+.hero .tagline {
+  font-size: 1.25rem;
+  font-weight: 300;
+  opacity: 0.95;
+  margin: 0 auto 2rem;
+  max-width: 700px;
+}
+
+.hero .cta-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.hero .cta {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--suzuki-blue-dark) !important;
+  font-weight: 700;
+  text-decoration: none !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: none !important;
+}
+
+.hero .cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  border: none !important;
+}
+
+.hero .cta.cta-outline {
+  background: transparent;
+  color: #fff !important;
+  border: 2px solid #fff !important;
+}
+
+.hero .cta.cta-outline:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Grid de tarjetas (para landing) */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.card {
+  background: rgba(26, 58, 107, 0.04);
+  border: 1px solid rgba(26, 58, 107, 0.12);
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  border-color: var(--suzuki-red);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--suzuki-blue-dark);
+  font-weight: 700;
+}
+
+[data-md-color-scheme="slate"] .card {
+  background: rgba(0, 164, 215, 0.05);
+  border-color: rgba(0, 164, 215, 0.2);
+}
+
+[data-md-color-scheme="slate"] .card h3 {
+  color: var(--suzuki-cyan);
+}
+
+/* Logo header un poco más grande */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 2.2rem;
+  width: auto;
+}
+
+/* Stats banner (números grandes en landing) */
+.stats-banner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--suzuki-blue-dark) 0%, var(--suzuki-blue) 100%);
+  color: #fff;
+  border-radius: 10px;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.stat .number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--suzuki-cyan);
+  line-height: 1;
+}
+
+.stat .label {
+  display: block;
+  font-size: 0.85rem;
+  margin-top: 0.4rem;
+  opacity: 0.85;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .hero {
+    padding: 3rem 1rem 4rem;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero .tagline {
+    font-size: 1rem;
+  }
+  .stats-banner {
+    padding: 1.5rem 1rem;
+  }
+  .stat .number {
+    font-size: 2rem;
+  }
+}
+
+/* "Acceso miembros" badge */
+.badge-members {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: var(--suzuki-red);
+  color: #fff;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+}
+
+/* Tabla con highlight estilo Suzuki */
+.md-typeset table:not([class]) {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.md-typeset table:not([class]) th {
+  background: var(--suzuki-blue-dark);
+  color: #fff;
+}

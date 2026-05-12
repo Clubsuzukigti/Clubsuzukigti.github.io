@@ -1,0 +1,138 @@
+/* ============================================================
+   PALETA SUZUKI GTi CAR CLUB
+   Inspirada en logo Suzuki Sport vintage + Suzuki Racing red+blue
+   ============================================================ */
+
+:root {
+  /* Primarios */
+  --suzuki-red:       #E60012;   /* Logo Suzuki oficial */
+  --suzuki-blue:      #1A3A6B;   /* Sport vintage azul */
+  --suzuki-cyan:      #00A4D7;   /* Sport vintage cian */
+
+  /* Variantes */
+  --suzuki-red-dark:  #B30010;
+  --suzuki-red-light: #FF3344;
+  --suzuki-blue-dark: #0F2547;
+  --suzuki-blue-light:#2B5A9E;
+
+  /* Neutros */
+  --suzuki-cream:     #F8F4E8;   /* Para fondo en modo oscuro - inspirado en logo crema */
+  --suzuki-charcoal:  #1A1A1A;
+  --suzuki-gray:      #6B6B6B;
+}
+
+/* ============================================================
+   MODO CLARO - usa azul oscuro como principal + rojo como acento
+   ============================================================ */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:           var(--suzuki-blue);
+  --md-primary-fg-color--light:    var(--suzuki-blue-light);
+  --md-primary-fg-color--dark:     var(--suzuki-blue-dark);
+  --md-primary-bg-color:           #ffffff;
+  --md-primary-bg-color--light:    rgba(255, 255, 255, 0.7);
+
+  --md-accent-fg-color:            var(--suzuki-red);
+  --md-accent-fg-color--transparent: rgba(230, 0, 18, 0.1);
+  --md-accent-bg-color:            #ffffff;
+  --md-accent-bg-color--light:     rgba(255, 255, 255, 0.7);
+
+  /* Tipografía */
+  --md-typeset-color:              #2c2c2c;
+  --md-typeset-a-color:            var(--suzuki-red);
+}
+
+/* ============================================================
+   MODO OSCURO - fondo oscuro estilo "garage" + acentos suzuki
+   ============================================================ */
+[data-md-color-scheme="slate"] {
+  --md-hue: 220;  /* Tinte azulado al fondo oscuro */
+
+  --md-primary-fg-color:           var(--suzuki-cyan);
+  --md-primary-fg-color--light:    #33B5DE;
+  --md-primary-fg-color--dark:     #0083AC;
+
+  --md-accent-fg-color:            var(--suzuki-red-light);
+  --md-accent-fg-color--transparent: rgba(255, 51, 68, 0.15);
+
+  --md-typeset-a-color:            var(--suzuki-cyan);
+}
+
+/* ============================================================
+   COMPONENTES PERSONALIZADOS
+   ============================================================ */
+
+/* Header con sombra azul Suzuki */
+.md-header {
+  background: linear-gradient(135deg, var(--suzuki-blue-dark) 0%, var(--suzuki-blue) 50%, var(--suzuki-cyan) 100%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Tabs */
+.md-tabs {
+  background: var(--suzuki-blue-dark);
+}
+
+/* Botones de acción (admonitions) */
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  border-color: var(--suzuki-cyan);
+}
+
+.md-typeset .admonition.warning,
+.md-typeset details.warning {
+  border-color: var(--suzuki-red);
+}
+
+.md-typeset .admonition.tip,
+.md-typeset details.tip,
+.md-typeset .admonition.success,
+.md-typeset details.success {
+  border-color: var(--suzuki-blue);
+}
+
+/* Enlaces */
+.md-typeset a {
+  color: var(--suzuki-red);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.md-typeset a:hover {
+  border-bottom-color: var(--suzuki-red);
+}
+
+[data-md-color-scheme="slate"] .md-typeset a {
+  color: var(--suzuki-cyan);
+}
+[data-md-color-scheme="slate"] .md-typeset a:hover {
+  border-bottom-color: var(--suzuki-cyan);
+}
+
+/* Botón "Editar página" */
+.md-content__button {
+  color: var(--suzuki-red);
+}
+
+/* Footer */
+.md-footer {
+  background: var(--suzuki-charcoal);
+  color: var(--suzuki-cream);
+}
+
+.md-footer-meta {
+  background: #000;
+}
+
+/* Code blocks - más oscuro y técnico */
+.md-typeset code {
+  background-color: rgba(26, 58, 107, 0.08);
+  color: var(--suzuki-blue-dark);
+  border-radius: 3px;
+  padding: 0.1em 0.3em;
+}
+
+[data-md-color-scheme="slate"] .md-typeset code {
+  background-color: rgba(0, 164, 215, 0.15);
+  color: var(--suzuki-cyan);
+}

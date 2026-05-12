@@ -1,0 +1,258 @@
+# ============================================================
+#  SUZUKI GTi CAR CLUB - Configuración MkDocs Material
+#  Sitio: https://suzukigti.github.io
+#  Repo:  https://github.com/Clubsuzukigti/suzukigti.github.io
+# ============================================================
+
+site_name: Suzuki GTi Car Club
+site_url: https://suzukigti.github.io
+site_description: Preservando el legado del Suzuki Swift GTi — archivo técnico, repuestos y comunidad mundial
+site_author: Club Suzuki GTi
+
+repo_name: Clubsuzukigti/suzukigti.github.io
+repo_url: https://github.com/Clubsuzukigti/suzukigti.github.io
+edit_uri: edit/main/docs/
+
+copyright: |
+  &copy; 2026 Suzuki GTi Car Club —
+  <a href="#__consent">Cookies</a> ·
+  Contenido bajo
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>
+
+# ============================================================
+#  TEMA
+# ============================================================
+theme:
+  name: material
+  custom_dir: overrides
+  language: es
+  logo: assets/img/logo-azul-original.jpg
+  favicon: assets/img/logo-azul-small.jpg
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+  features:
+    # Navegación
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    # Búsqueda
+    - search.suggest
+    - search.highlight
+    - search.share
+    # Header
+    - header.autohide
+    # Contenido
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - content.tooltips
+    - content.action.edit
+    - content.action.view
+    # Anuncios
+    - announce.dismiss
+
+  palette:
+    # Modo claro
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Cambiar a modo oscuro
+    # Modo oscuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
+
+# ============================================================
+#  PLUGINS
+# ============================================================
+plugins:
+  - search:
+      lang:
+        - es
+        - en
+  - i18n:
+      docs_structure: suffix
+      reconfigure_material: true
+      reconfigure_search: true
+      fallback_to_default: true
+      languages:
+        - locale: es
+          default: true
+          name: Español
+          build: true
+          site_name: Suzuki GTi Car Club
+        - locale: en
+          name: English
+          build: true
+          site_name: Suzuki GTi Car Club
+          nav_translations:
+            Inicio: Home
+            Historia: History
+            Reparaciones: Repairs
+            Modificaciones: Modifications
+            Manuales: Manuals
+            Repuestos: Parts
+            Garage del Club: Club Garage
+            Comunidad: Community
+            Blog: Blog
+            Contacto: Contact
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      auto_caption: false
+      caption_position: bottom
+
+# ============================================================
+#  EXTENSIONES MARKDOWN
+# ============================================================
+markdown_extensions:
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: "#"
+      toc_depth: 4
+
+  # PyMdown
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# ============================================================
+#  EXTRAS
+# ============================================================
+extra:
+  generator: false  # ocultar "Made with Material for MkDocs"
+
+  social:
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/suzukilifestyle
+      name: Suzuki Lifestyle en Facebook
+    - icon: fontawesome/brands/youtube
+      link: "#"
+      name: Canal de YouTube
+    - icon: fontawesome/brands/telegram
+      link: "#"
+      name: Grupo de Telegram
+    - icon: fontawesome/brands/github
+      link: https://github.com/Clubsuzukigti
+
+  consent:
+    title: Cookies y privacidad
+    description: >-
+      Usamos cookies para reconocer visitas repetidas y mejorar la experiencia.
+      Aceptando contribuyes a que sigamos preservando este legado.
+    actions:
+      - accept
+      - reject
+      - manage
+
+extra_css:
+  - assets/css/colors.css
+  - assets/css/branding.css
+
+extra_javascript: []
+
+# ============================================================
+#  NAVIGATION
+# ============================================================
+nav:
+  - Inicio: index.md
+  - Historia:
+      - historia/index.md
+      - Suzuki Swift GTi (MK2): historia/swift-gti-mk2.md
+      - Cultus GTi JDM: historia/cultus-gti-jdm.md
+      - Cultus GT-i 4WD (AF34S): historia/cultus-4wd-af34s.md
+      - Forsa GTi / Swift GT: historia/variantes-mundiales.md
+      - Convertibles G13B: historia/convertibles.md
+  - Reparaciones:
+      - reparaciones/index.md
+      - Motor G13B: reparaciones/motor-g13b.md
+      - Sistema eléctrico: reparaciones/electrico.md
+      - Transmisión: reparaciones/transmision.md
+      - Frenos y suspensión: reparaciones/frenos-suspension.md
+      - Carrocería y óxido: reparaciones/carroceria.md
+  - Modificaciones:
+      - modificaciones/index.md
+      - N/A (aspirado): modificaciones/aspirado.md
+      - Turbo builds: modificaciones/turbo.md
+      - Engine swaps: modificaciones/engine-swaps.md
+      - Suspensión / Frenos: modificaciones/suspension-frenos.md
+      - ECU standalone: modificaciones/ecu.md
+  - Manuales:
+      - manuales/index.md
+      - Servicio SF413 GTi: manuales/sf413-gti.md
+      - Suplementarios: manuales/suplementarios.md
+      - TSB oficiales: manuales/tsb.md
+  - Repuestos:
+      - repuestos/index.md
+      - Vendedores mundiales: repuestos/vendedores-mundiales.md
+      - eBay por país: repuestos/ebay-global.md
+      - LatAm marketplaces: repuestos/latam.md
+      - Catálogos EPC online: repuestos/epc-online.md
+  - Garage del Club:
+      - garage/index.md
+      - Verto (Convertible): garage/verto.md
+  - Comunidad:
+      - comunidad/index.md
+      - Grupos Facebook: comunidad/facebook.md
+      - YouTube channels: comunidad/youtube.md
+      - Foros internacionales: comunidad/foros.md
+      - Telegram: comunidad/telegram.md
+  - Blog: blog/index.md
+  - Contacto: contacto.md
