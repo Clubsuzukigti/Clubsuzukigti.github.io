@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.2.0';  /* siluetas reemplazadas por arte real Swift GTi MK3 (webp optimizado) */
+const VERSION = 'v1.3.0';  /* reset siluetas: solo sol naciente como fondo del header, contenida */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 
