@@ -286,6 +286,14 @@ def build_injection(locale):
     tries++;
     if (ensure() || tries > 100) clearInterval(iv);
   }}, 200);
+
+  // PWA Service Worker registration (offline-first support)
+  if ('serviceWorker' in navigator) {{
+    window.addEventListener('load', function() {{
+      navigator.serviceWorker.register('/sw.js', {{ scope: '/' }})
+        .catch(function(err) {{ console.warn('[GTi] SW registration:', err); }});
+    }});
+  }}
 }})();
 </script>
 """

@@ -6,6 +6,34 @@
 -#}
 {% extends "base.html" %}
 
+{% block extrahead %}
+  {{ super() }}
+  <script>
+    // PWA Service Worker registration
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' })
+          .then(function(reg) {
+            // Listen for new SW available
+            reg.addEventListener('updatefound', function() {
+              var newSW = reg.installing;
+              if (!newSW) return;
+              newSW.addEventListener('statechange', function() {
+                if (newSW.state === 'installed' && navigator.serviceWorker.controller) {
+                  // New version ready; activate next time
+                }
+              });
+            });
+          })
+          .catch(function(err) {
+            // SW registration failed — non-blocking
+            console.warn('[GTi] SW registration failed:', err);
+          });
+      });
+    }
+  </script>
+{% endblock %}
+
 {% block content %}
   {%- set is_home = page and page.is_homepage -%}
   {%- set is_404 = page and page.url.startswith('404') -%}
