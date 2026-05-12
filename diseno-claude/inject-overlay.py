@@ -300,7 +300,7 @@ def build_injection(locale):
     /* === Ilustracion swift-front-half en seccion archivo (zona crema) === */
     'html body .gti-archivo-illust {{',
     '  position: absolute !important;',
-    '  top: -475px !important; left: 3% !important;',
+    '  top: -385px !important; left: 3% !important;',
     '  width: 425px !important; height: 425px !important;',
     '  z-index: 2 !important;',
     '  pointer-events: none !important;',
