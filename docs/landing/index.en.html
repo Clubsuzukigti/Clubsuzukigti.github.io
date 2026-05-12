@@ -696,6 +696,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 
 
+
 <!-- gti-overlay-injected -->
 <!-- Styles inyectados via JS porque el bundle hace document.documentElement.replaceWith() y borra el head original -->
 <script>
@@ -885,10 +886,14 @@ document.addEventListener('DOMContentLoaded', async function() {
     '  background: linear-gradient(90deg, transparent, rgba(255,179,71,0.35), transparent) !important;',
     '}',
     'html body .gti-divider svg {',
-    '  width: 120px !important; height: auto !important;',
-    '  color: #FFB347 !important;',
-    '  opacity: 0.85 !important;',
+    '  width: 130px !important; height: auto !important;',
+    '  color: #E20A17 !important;',
+    '  opacity: 0.9 !important;',
     '  flex-shrink: 0 !important;',
+    '  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.15)) !important;',
+    '}',
+    'html body .gti-divider::before, html body .gti-divider::after {',
+    '  background: linear-gradient(90deg, transparent, rgba(226,10,23,0.45), transparent) !important;',
     '}',
     /* Footer mark — silueta trasera "alejándose" */
     'html body .gti-footer-mark {',
@@ -906,16 +911,17 @@ document.addEventListener('DOMContentLoaded', async function() {
     'html body .gti-footer-mark:hover { opacity: 0.85 !important; }',
     'html body .gti-footer-mark svg {',
     '  width: 100% !important; height: auto !important;',
-    '  color: #F5EFE0 !important;',
-    '  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5)) !important;',
+    '  color: #E20A17 !important;',
+    '  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.18)) !important;',
     '}',
     'html body .gti-footer-mark .gti-footer-mark-caption {',
     "  font-family: 'Inter Tight','Inter',sans-serif !important;",
     '  font-size: 10px !important;',
-    '  font-weight: 500 !important;',
-    '  letter-spacing: 3px !important;',
+    '  font-weight: 600 !important;',
+    '  letter-spacing: 3.5px !important;',
     '  text-transform: uppercase !important;',
-    '  color: rgba(245,239,224,0.55) !important;',
+    '  color: rgba(44,24,16,0.65) !important;',
+    '  mix-blend-mode: difference !important;',
     '}',
     /* Deep-nav: silueta lateral micro reemplazando el dot */
     'html body div.deep-nav .gti-nav-silhouette {',
@@ -932,12 +938,12 @@ document.addEventListener('DOMContentLoaded', async function() {
     /* Section accents — silueta frontal/trasera flotante como ornamento */
     'html body .gti-section-accent {',
     '  position: absolute !important;',
-    '  width: 220px !important; height: auto !important;',
-    '  opacity: 0.28 !important;',
+    '  width: 240px !important; height: auto !important;',
+    '  opacity: 0.32 !important;',
     '  pointer-events: none !important;',
-    '  color: #FFB347 !important;',
+    '  color: #E20A17 !important;',
     '  z-index: 1 !important;',
-    '  filter: drop-shadow(0 0 12px rgba(255,179,71,0.15)) !important;',
+    '  mix-blend-mode: multiply !important;',
     '}',
     'html body .gti-section-accent.left { left: 4% !important; top: 14% !important; transform: rotate(-6deg) !important; }',
     'html body .gti-section-accent.right { right: 4% !important; bottom: 10% !important; transform: rotate(4deg) !important; }',
