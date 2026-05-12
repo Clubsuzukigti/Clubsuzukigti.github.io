@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.1.2';  /* siluetas en rojo GTi para contraste sobre fondos cream y dark */
+const VERSION = 'v1.2.0';  /* siluetas reemplazadas por arte real Swift GTi MK3 (webp optimizado) */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 

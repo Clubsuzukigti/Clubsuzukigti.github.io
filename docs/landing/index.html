@@ -697,6 +697,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 
 
+
 <!-- gti-overlay-injected -->
 <!-- Styles inyectados via JS porque el bundle hace document.documentElement.replaceWith() y borra el head original -->
 <script>
@@ -848,33 +849,33 @@ document.addEventListener('DOMContentLoaded', async function() {
     '  transition: transform .3s !important;',
     '}',
     'html body a.gti-section-cta:hover::after { transform: translateX(8px) !important; }',
-    /* === SILUETAS DEL GTi — identidad visual sutil === */
-    /* Watermark hero: sol naciente JDM gigante fijo, opacity bajísima */
+    /* === SILUETAS DEL GTi — arte real Swift GTi MK3 1989-1994 === */
+    /* Watermark hero: sol naciente JDM + 3/4 del GTi */
     'html body .gti-watermark-hero {',
     '  position: fixed !important;',
     '  top: 50% !important; right: -6% !important;',
     '  transform: translateY(-50%) !important;',
-    '  width: 92vmin !important; height: 92vmin !important;',
-    '  max-width: 980px !important; max-height: 980px !important;',
+    '  width: 80vmin !important; height: 80vmin !important;',
+    '  max-width: 880px !important; max-height: 880px !important;',
     '  pointer-events: none !important;',
     '  z-index: 1 !important;',
-    '  opacity: 0.22 !important;',
-    '  background-image: url("/assets/img/siluetas/gti-rising-sun.svg") !important;',
+    '  opacity: 0.28 !important;',
+    '  background-image: url("/assets/img/siluetas/swift-rising-sun.webp") !important;',
     '  background-size: contain !important;',
     '  background-repeat: no-repeat !important;',
     '  background-position: center !important;',
     '  transition: opacity 1.4s ease !important;',
     '}',
     '@media (max-width: 720px) {',
-    '  html body .gti-watermark-hero { right: -22% !important; width: 130vmin !important; height: 130vmin !important; opacity: 0.18 !important; }',
+    '  html body .gti-watermark-hero { right: -28% !important; top: 38% !important; width: 130vmin !important; height: 130vmin !important; opacity: 0.22 !important; }',
     '}',
-    /* Sección dividers — silueta lateral pequeña entre bloques */
+    /* Dividers — silueta lateral filled blanco con mix-blend para adaptar a bg */
     'html body .gti-divider {',
     '  display: flex !important; align-items: center !important; justify-content: center !important;',
     '  gap: 22px !important;',
-    '  margin: 4em auto 3em !important;',
-    '  max-width: 720px !important;',
-    '  opacity: 0.85 !important;',
+    '  margin: 4.5em auto 3.5em !important;',
+    '  max-width: 760px !important;',
+    '  padding: 0 24px !important;',
     '  pointer-events: none !important;',
     '  position: relative !important;',
     '  z-index: 5 !important;',
@@ -883,36 +884,32 @@ document.addEventListener('DOMContentLoaded', async function() {
     '  content: "" !important;',
     '  flex: 1 !important;',
     '  height: 1px !important;',
-    '  background: linear-gradient(90deg, transparent, rgba(255,179,71,0.35), transparent) !important;',
+    '  background: linear-gradient(90deg, transparent, rgba(226,10,23,0.5), transparent) !important;',
     '}',
-    'html body .gti-divider svg {',
-    '  width: 130px !important; height: auto !important;',
-    '  color: #E20A17 !important;',
-    '  opacity: 0.9 !important;',
+    'html body .gti-divider img {',
+    '  width: 150px !important; height: auto !important;',
+    '  opacity: 0.85 !important;',
     '  flex-shrink: 0 !important;',
-    '  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.15)) !important;',
+    '  mix-blend-mode: difference !important;',
+    '  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.25)) !important;',
     '}',
-    'html body .gti-divider::before, html body .gti-divider::after {',
-    '  background: linear-gradient(90deg, transparent, rgba(226,10,23,0.45), transparent) !important;',
-    '}',
-    /* Footer mark — silueta trasera "alejándose" */
+    /* Footer mark — silueta trasera real "alejándose" */
     'html body .gti-footer-mark {',
     '  display: flex !important; flex-direction: column !important;',
-    '  align-items: center !important; gap: 12px !important;',
+    '  align-items: center !important; gap: 14px !important;',
     '  margin: 5em auto 3em !important;',
     '  padding: 0 24px !important;',
-    '  max-width: 380px !important;',
+    '  max-width: 320px !important;',
     '  pointer-events: none !important;',
-    '  opacity: 0.75 !important;',
     '  position: relative !important;',
     '  z-index: 5 !important;',
     '  transition: opacity .6s ease !important;',
     '}',
-    'html body .gti-footer-mark:hover { opacity: 0.85 !important; }',
-    'html body .gti-footer-mark svg {',
+    'html body .gti-footer-mark img {',
     '  width: 100% !important; height: auto !important;',
-    '  color: #E20A17 !important;',
-    '  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.18)) !important;',
+    '  opacity: 0.78 !important;',
+    '  mix-blend-mode: multiply !important;',
+    '  filter: drop-shadow(0 4px 14px rgba(0,0,0,0.18)) !important;',
     '}',
     'html body .gti-footer-mark .gti-footer-mark-caption {',
     "  font-family: 'Inter Tight','Inter',sans-serif !important;",
@@ -920,35 +917,35 @@ document.addEventListener('DOMContentLoaded', async function() {
     '  font-weight: 600 !important;',
     '  letter-spacing: 3.5px !important;',
     '  text-transform: uppercase !important;',
-    '  color: rgba(44,24,16,0.65) !important;',
-    '  mix-blend-mode: difference !important;',
+    '  color: rgba(44,24,16,0.7) !important;',
     '}',
-    /* Deep-nav: silueta lateral micro reemplazando el dot */
-    'html body div.deep-nav .gti-nav-silhouette {',
-    '  width: 28px !important; height: 11px !important;',
-    '  margin-right: 6px !important;',
-    '  color: #FFB347 !important;',
+    /* Deep-nav: silueta lateral mini */
+    'html body div.deep-nav img.gti-nav-silhouette {',
+    '  width: 36px !important; height: auto !important;',
+    '  margin-right: 8px !important;',
     '  flex-shrink: 0 !important;',
-    '  opacity: 0.9 !important;',
-    '  filter: drop-shadow(0 0 4px rgba(255,179,71,0.5)) !important;',
+    '  opacity: 0.95 !important;',
+    '  filter: drop-shadow(0 0 6px rgba(255,179,71,0.55)) !important;',
     '}',
     '@media (max-width: 480px) {',
-    '  html body div.deep-nav .gti-nav-silhouette { display: none !important; }',
+    '  html body div.deep-nav img.gti-nav-silhouette { display: none !important; }',
     '}',
-    /* Section accents — silueta frontal/trasera flotante como ornamento */
+    /* Section accents — siluetas reales rotadas, blend para integrarse al fondo */
     'html body .gti-section-accent {',
     '  position: absolute !important;',
-    '  width: 240px !important; height: auto !important;',
-    '  opacity: 0.32 !important;',
     '  pointer-events: none !important;',
-    '  color: #E20A17 !important;',
     '  z-index: 1 !important;',
+    '  opacity: 0.42 !important;',
     '  mix-blend-mode: multiply !important;',
+    '  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.12)) !important;',
     '}',
-    'html body .gti-section-accent.left { left: 4% !important; top: 14% !important; transform: rotate(-6deg) !important; }',
-    'html body .gti-section-accent.right { right: 4% !important; bottom: 10% !important; transform: rotate(4deg) !important; }',
+    'html body .gti-section-accent img { width: 100% !important; height: auto !important; display: block !important; }',
+    'html body .gti-section-accent.front-lineart { width: 220px !important; right: 5% !important; top: 8% !important; transform: rotate(-4deg) !important; }',
+    'html body .gti-section-accent.split-front-rear { width: 280px !important; left: 4% !important; bottom: 8% !important; transform: rotate(3deg) !important; }',
+    'html body .gti-section-accent.front-detail-poster { width: 200px !important; right: 6% !important; bottom: 10% !important; transform: rotate(2deg) !important; opacity: 0.55 !important; mix-blend-mode: lighten !important; }',
+    'html body .gti-section-accent.front-half { width: 200px !important; left: 5% !important; top: 12% !important; transform: rotate(-3deg) !important; }',
     '@media (max-width: 900px) {',
-    '  html body .gti-section-accent { width: 140px !important; opacity: 0.2 !important; }',
+    '  html body .gti-section-accent.front-lineart, html body .gti-section-accent.split-front-rear, html body .gti-section-accent.front-detail-poster, html body .gti-section-accent.front-half { width: 130px !important; opacity: 0.3 !important; }',
     '}'
   ].join('\n');
 
@@ -974,13 +971,8 @@ document.addEventListener('DOMContentLoaded', async function() {
   var CTAS = {"archivo":{label:"Explorar archivo completo",href:"/manuales/"},"motor":{label:"Especificaciones técnicas G13B completas",href:"/reparaciones/motor-g13b/"},"garage":{label:"Ver garage completo del club",href:"/garage/"},"comunidad":{label:"Unirse a la comunidad",href:"/comunidad/"},"colab":{label:"Conocer el archivo técnico",href:"/manuales/"}};
   var BACK_LABEL = "Volver al inicio";
 
-  /* Silueta lateral en formato inline para deep-nav (no requiere fetch externo) */
-  var SIL_SIDE_MINI = '<svg class="gti-nav-silhouette" viewBox="0 0 540 200" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-    '<path d="M 38 148 L 38 138 Q 42 122 62 118 L 110 110 Q 130 70 168 58 L 230 50 L 340 50 Q 372 52 392 70 L 414 96 L 470 104 Q 498 108 504 126 L 504 148"/>' +
-    '<path d="M 168 58 L 192 96 M 260 50 L 260 96 M 340 50 L 326 96"/>' +
-    '<circle cx="132" cy="160" r="26"/>' +
-    '<circle cx="425" cy="160" r="26"/>' +
-    '</svg>';
+  /* Silueta lateral filled blanco (arte real Swift GTi MK3) */
+  var SIL_SIDE_MINI = '<img class="gti-nav-silhouette" src="/assets/img/siluetas/swift-side-fill.webp" alt="" aria-hidden="true">';
 
   var navHTML = '<div id="deepNav" class="deep-nav">' +
     SIL_SIDE_MINI +
@@ -992,45 +984,30 @@ document.addEventListener('DOMContentLoaded', async function() {
   var backTopHTML = '<button class="gti-back-top" id="gtiBackTop" aria-label="' + BACK_LABEL + '">↑</button>';
   var watermarkHTML = '<div class="gti-watermark-hero" id="gtiWatermarkHero" aria-hidden="true"></div>';
 
-  /* Footer mark con silueta trasera "alejándose" + caption */
+  /* Footer mark con silueta trasera real (rear-detail) + caption */
   var footerMarkHTML = '<div class="gti-footer-mark" aria-hidden="true">' +
-    '<svg viewBox="0 0 320 220" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">' +
-    '<path d="M 92 28 L 228 28 Q 250 32 254 50 L 262 84"/>' +
-    '<path d="M 58 84 L 66 50 Q 70 32 92 28"/>' +
-    '<path d="M 66 84 L 254 84" stroke-width="1.8" opacity="0.7"/>' +
-    '<rect x="124" y="22" width="72" height="6" rx="2" stroke-width="1.8"/>' +
-    '<path d="M 58 84 L 42 100 L 42 138 L 278 138 L 278 100 L 262 84"/>' +
-    '<rect x="50" y="104" width="62" height="26" rx="3" stroke-width="2.2"/>' +
-    '<rect x="208" y="104" width="62" height="26" rx="3" stroke-width="2.2"/>' +
-    '<rect x="138" y="112" width="44" height="10" rx="1.5" stroke-width="1.4" opacity="0.6"/>' +
-    '<path d="M 42 138 L 30 168 L 30 184 Q 30 196 44 198 L 276 198 Q 290 196 290 184 L 290 168 L 278 138"/>' +
-    '<path d="M 56 158 L 264 158" stroke-width="1.4" opacity="0.5"/>' +
-    '<rect x="124" y="166" width="72" height="20" rx="1.5" stroke-width="1.6" opacity="0.7"/>' +
-    '<ellipse cx="244" cy="200" rx="14" ry="6" stroke-width="2"/>' +
-    '</svg>' +
+    '<img src="/assets/img/siluetas/swift-rear-detail.webp" alt="">' +
     '<span class="gti-footer-mark-caption">Hasta la próxima vuelta</span>' +
     '</div>';
 
-  /* Divider con silueta lateral */
+  /* Divider con silueta lateral real (side-fill) */
   var dividerHTML = '<div class="gti-divider" aria-hidden="true">' +
-    '<svg viewBox="0 0 540 200" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">' +
-    '<path d="M 38 148 L 38 138 Q 42 122 62 118 L 110 110 Q 130 70 168 58 L 230 50 L 340 50 Q 372 52 392 70 L 414 96 L 470 104 Q 498 108 504 126 L 504 148"/>' +
-    '<path d="M 168 58 L 192 96 M 260 50 L 260 96 M 340 50 L 326 96"/>' +
-    '<circle cx="132" cy="160" r="26" stroke-width="3"/>' +
-    '<circle cx="425" cy="160" r="26" stroke-width="3"/>' +
-    '</svg>' +
+    '<img src="/assets/img/siluetas/swift-side-fill.webp" alt="">' +
     '</div>';
 
-  /* Accent ornamental — silueta frontal o trasera flotante para secciones específicas */
-  function makeAccent(kind, side) {
-    var paths = kind === 'front'
-      ? '<path d="M 90 30 L 230 30 Q 252 32 256 46 L 264 78"/><path d="M 56 78 L 64 46 Q 68 32 90 30"/><path d="M 56 78 L 40 96 L 40 130 L 280 130 L 280 96 L 264 78"/><rect x="52" y="100" width="62" height="22" rx="3"/><rect x="206" y="100" width="62" height="22" rx="3"/><rect x="124" y="108" width="72" height="14" rx="1.5"/><path d="M 40 130 L 30 160 L 30 178 Q 30 190 44 192 L 276 192 Q 290 190 290 178 L 290 160 L 280 130"/>'
-      : '<path d="M 92 28 L 228 28 Q 250 32 254 50 L 262 84"/><path d="M 58 84 L 66 50 Q 70 32 92 28"/><rect x="124" y="22" width="72" height="6" rx="2"/><path d="M 58 84 L 42 100 L 42 138 L 278 138 L 278 100 L 262 84"/><rect x="50" y="104" width="62" height="26" rx="3"/><rect x="208" y="104" width="62" height="26" rx="3"/><path d="M 42 138 L 30 168 L 30 184 Q 30 196 44 198 L 276 198 Q 290 196 290 184 L 290 168 L 278 138"/>';
-    var vb = kind === 'front' ? '0 0 320 220' : '0 0 320 220';
-    return '<div class="gti-section-accent ' + side + '" aria-hidden="true">' +
-      '<svg viewBox="' + vb + '" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">' +
-      paths +
-      '</svg></div>';
+  /* Accent ornamental — arte real Swift GTi por sección */
+  /* variant: front-lineart | split-front-rear | front-detail-poster | front-half */
+  function makeAccent(variant) {
+    var srcMap = {
+      'front-lineart':        '/assets/img/siluetas/swift-front-lineart.webp',
+      'split-front-rear':     '/assets/img/siluetas/Suzukiswiftgti1992.webp',
+      'front-detail-poster':  '/assets/img/siluetas/swift-front-detail.webp',
+      'front-half':           '/assets/img/siluetas/swift-front-half.webp'
+    };
+    var src = srcMap[variant] || srcMap['front-lineart'];
+    return '<div class="gti-section-accent ' + variant + '" aria-hidden="true">' +
+      '<img src="' + src + '" alt="">' +
+      '</div>';
   }
 
   function attachListeners() {
@@ -1073,13 +1050,14 @@ document.addEventListener('DOMContentLoaded', async function() {
     return true;
   }
 
-  function injectAccent(sectionId, kind, side) {
+  function injectAccent(sectionId, variant) {
     var sec = document.getElementById(sectionId);
     if (!sec) return false;
     if (sec.querySelector('.gti-section-accent')) return true;
     var cs = window.getComputedStyle(sec);
     if (cs.position === 'static') sec.style.position = 'relative';
-    sec.insertAdjacentHTML('afterbegin', makeAccent(kind, side));
+    if (cs.overflow === 'visible') sec.style.overflow = 'hidden';
+    sec.insertAdjacentHTML('afterbegin', makeAccent(variant));
     return true;
   }
 
@@ -1116,10 +1094,12 @@ document.addEventListener('DOMContentLoaded', async function() {
     Object.keys(CTAS).forEach(function(k) {
       injectSectionCTA(k, CTAS[k].label, CTAS[k].href);
     });
-    // 6. Section accents (siluetas frontal/trasera flotantes en secciones temáticas)
-    injectAccent('motor', 'front', 'right');
-    injectAccent('garage', 'rear', 'left');
-    injectAccent('comunidad', 'front', 'left');
+    // 6. Section accents (arte real Swift GTi MK3 por sección)
+    injectAccent('motor', 'front-lineart');         // frontal completo en specs/motor
+    injectAccent('garage', 'split-front-rear');     // split front+rear en garage
+    injectAccent('comunidad', 'front-detail-poster'); // poster "SWIFT 1.3 GTi" en comunidad
+    injectAccent('archivo', 'front-half');          // half-front dramatico en archivo
+    injectAccent('colab', 'front-half');            // half-front en colab
     // 7. Dividers entre secciones principales
     injectDividerBefore('motor');
     injectDividerBefore('garage');
