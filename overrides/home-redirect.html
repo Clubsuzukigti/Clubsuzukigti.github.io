@@ -9,8 +9,14 @@
   <meta charset="utf-8">
   <title>{{ page.title }}</title>
   <meta name="description" content="{{ page.meta.description or config.site_description }}">
-  <meta http-equiv="refresh" content="0; url={{ base_url }}/landing/">
-  <link rel="canonical" href="{{ page.canonical_url | replace('index.html', 'landing/') }}">
+  {%- set lang = config.theme.language or 'es' -%}
+  {%- if lang == 'en' -%}
+    {%- set target = '/en/landing/' -%}
+  {%- else -%}
+    {%- set target = '/landing/' -%}
+  {%- endif -%}
+  <meta http-equiv="refresh" content="0; url={{ target }}">
+  <link rel="canonical" href="https://clubsuzukigti.github.io{{ target }}">
   <style>
     html, body { margin:0; padding:0; background:#0A0908; color:#F5EFE0;
       font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -20,12 +26,12 @@
     @keyframes dots { 0%{content:'·'} 25%{content:'· ·'} 50%{content:'· · ·'} 75%{content:'· · · ·'} 100%{content:'·'} }
     a { color: #FFB347; text-decoration: none; border-bottom: 1px solid #FFB347; }
   </style>
-  <script>window.location.replace('{{ base_url }}/landing/');</script>
+  <script>window.location.replace('{{ target }}');</script>
 </head>
 <body>
-  <div class="loader">Abriendo el garage</div>
+  <div class="loader">{% if lang == 'en' %}Opening the garage{% else %}Abriendo el garage{% endif %}</div>
   <noscript>
-    <p>Si no eres redirigido automáticamente, <a href="{{ base_url }}/landing/">haz click aquí</a>.</p>
+    <p>{% if lang == 'en' %}If you are not redirected, <a href="{{ target }}">click here</a>.{% else %}Si no eres redirigido automáticamente, <a href="{{ target }}">haz click aquí</a>.{% endif %}</p>
   </noscript>
 </body>
 </html>
