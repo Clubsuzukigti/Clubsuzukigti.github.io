@@ -700,6 +700,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 
 
+
 <!-- gti-overlay-injected -->
 <!-- Styles inyectados via JS porque el bundle hace document.documentElement.replaceWith() y borra el head original -->
 <script>
@@ -851,27 +852,27 @@ document.addEventListener('DOMContentLoaded', async function() {
     '  transition: transform .3s !important;',
     '}',
     'html body a.gti-section-cta:hover::after { transform: translateX(8px) !important; }',
-    /* === Silueta sol naciente — SOLO en el header/hero, contenida === */
-    /* mask-image en vez de background-image: permite teñir el SVG via background-color */
+    /* === Silueta sol naciente — fondo del hero (primer viewport) === */
+    /* position: absolute en body → cubre solo el primer viewport, scroll lo deja atras */
     'html body .gti-hero-bg {',
     '  position: absolute !important;',
-    '  top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;',
-    '  width: 100% !important; height: 100% !important;',
+    '  top: 0 !important; left: 0 !important;',
+    '  width: 100% !important; height: 100vh !important;',
     '  z-index: 0 !important;',
     '  pointer-events: none !important;',
-    '  opacity: 0.32 !important;',
+    '  opacity: 0.38 !important;',
     '  background-color: #FFB347 !important;',
     '  -webkit-mask-image: url("/assets/img/siluetas/swift-rising-sun.svg") !important;',
     '  mask-image: url("/assets/img/siluetas/swift-rising-sun.svg") !important;',
-    '  -webkit-mask-size: contain !important;',
-    '  mask-size: contain !important;',
+    '  -webkit-mask-size: 56% auto !important;',
+    '  mask-size: 56% auto !important;',
     '  -webkit-mask-repeat: no-repeat !important;',
     '  mask-repeat: no-repeat !important;',
-    '  -webkit-mask-position: right center !important;',
-    '  mask-position: right center !important;',
+    '  -webkit-mask-position: right 4% center !important;',
+    '  mask-position: right 4% center !important;',
     '}',
     '@media (max-width: 720px) {',
-    '  html body .gti-hero-bg { -webkit-mask-position: center center !important; mask-position: center center !important; -webkit-mask-size: 140% !important; mask-size: 140% !important; opacity: 0.24 !important; }',
+    '  html body .gti-hero-bg { -webkit-mask-position: center center !important; mask-position: center center !important; -webkit-mask-size: 92% auto !important; mask-size: 92% auto !important; opacity: 0.3 !important; }',
     '}'
   ].join('\n');
 
@@ -947,27 +948,11 @@ document.addEventListener('DOMContentLoaded', async function() {
     return true;
   }
 
-  /* Detecta el contenedor del header/hero del bundle.
-     Estrategia: <header>, primer <section> que no sea uno con id conocido (motor/garage/...),
-     o el primer hijo del main/body antes de la primera section identificada. */
-  function findHeroContainer() {
-    var h = document.querySelector('header');
-    if (h && h.offsetHeight > 100) return h;
-    var allSections = Array.from(document.querySelectorAll('section'));
-    var identifiedIds = ['archivo','motor','garage','comunidad','colab','blog'];
-    var first = allSections.find(function(s) { return !identifiedIds.includes(s.id); });
-    if (first) return first;
-    return allSections[0] || null;
-  }
-
   function injectHeroBg() {
-    var hero = findHeroContainer();
-    if (!hero) return false;
-    if (hero.querySelector('#gtiHeroBg')) return true;
-    var cs = window.getComputedStyle(hero);
-    if (cs.position === 'static') hero.style.position = 'relative';
-    if (cs.overflow === 'visible') hero.style.overflow = 'hidden';
-    hero.insertAdjacentHTML('afterbegin', heroBgHTML);
+    if (document.getElementById('gtiHeroBg')) return true;
+    if (!document.body) return false;
+    /* position: absolute relativo al body. Cubre solo primer viewport (100vh). */
+    document.body.insertAdjacentHTML('afterbegin', heroBgHTML);
     return true;
   }
 

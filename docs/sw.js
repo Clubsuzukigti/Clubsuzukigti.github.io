@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.3.1';  /* mask-image + amber para que silueta sea visible sobre dark hero */
+const VERSION = 'v1.3.2';  /* hero-bg en body absolute 100vh - cubre primer viewport siempre */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 
