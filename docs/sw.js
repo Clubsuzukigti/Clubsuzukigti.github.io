@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.9.2';  /* splash con animacion persiana metalica enrollandose sincronizada con audio */
+const VERSION = 'v1.9.3';  /* splash en cada carga (no sessionStorage) - ritual completo siempre */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 

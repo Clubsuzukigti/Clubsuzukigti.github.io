@@ -758,8 +758,8 @@ def build_injection(locale):
       document.body.insertAdjacentHTML('beforeend', muteBtnHTML);
       GTiAudio.preload();
     }}
-    // 3c. Splash "Entrar al garage" - solo una vez por sesion
-    if (!document.getElementById('gtiEnterSplash') && sessionStorage.getItem('gti-entered') !== '1') {{
+    // 3c. Splash "Entrar al garage" - en cada carga (ritual completo siempre)
+    if (!document.getElementById('gtiEnterSplash')) {{
       document.body.insertAdjacentHTML('beforeend', enterSplashHTML);
       var splash = document.getElementById('gtiEnterSplash');
       var entered = false;
@@ -769,7 +769,6 @@ def build_injection(locale):
         GTiAudio.markGesture();
         /* animacion sincronizada con audio: 3.6s rolling up */
         splash.classList.add('rolling-up');
-        sessionStorage.setItem('gti-entered', '1');
         /* remueve del DOM despues que termina (3.8s audio + buffer) */
         setTimeout(function() {{ if (splash.parentNode) splash.parentNode.removeChild(splash); }}, 4000);
       }}
