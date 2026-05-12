@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.9.3';  /* splash en cada carga (no sessionStorage) - ritual completo siempre */
+const VERSION = 'v1.9.4';  /* splash con front-lineart 240px + lineas persiana 3x mas anchas */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 
