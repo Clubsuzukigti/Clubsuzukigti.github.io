@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.9.0';  /* SW ya NO cachea HTML (siempre red) + tics removidos (sonaban a synth pobre) */
+const VERSION = 'v1.9.1';  /* splash "Entrar al garage" - desbloquea audio en primer click */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 

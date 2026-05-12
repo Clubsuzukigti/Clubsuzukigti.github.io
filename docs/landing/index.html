@@ -728,6 +728,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 
 
+
 <!-- gti-overlay-injected -->
 <!-- Styles inyectados via JS porque el bundle hace document.documentElement.replaceWith() y borra el head original -->
 <script>
@@ -983,6 +984,72 @@ document.addEventListener('DOMContentLoaded', async function() {
     '@media (max-width: 720px) {',
     '  html body .gti-colab-illust { width: 250px !important; height: 250px !important; top: auto !important; bottom: 8% !important; right: 50% !important; transform: translateX(50%) scaleX(-1) rotate(2deg) !important; opacity: 0.32 !important; }',
     '}',
+    /* === Splash "Entrar al garage" (desbloquea audio en primer click) === */
+    'html body .gti-enter-splash {',
+    '  position: fixed !important;',
+    '  inset: 0 !important;',
+    '  z-index: 99999 !important;',
+    '  background: rgba(10,9,8,0.94) !important;',
+    '  backdrop-filter: blur(22px) saturate(140%) !important;',
+    '  -webkit-backdrop-filter: blur(22px) saturate(140%) !important;',
+    '  display: flex !important;',
+    '  flex-direction: column !important;',
+    '  align-items: center !important;',
+    '  justify-content: center !important;',
+    '  cursor: pointer !important;',
+    '  transition: opacity .9s ease !important;',
+    "  font-family: 'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,sans-serif !important;",
+    '  color: #F5EFE0 !important;',
+    '  text-align: center !important;',
+    '  padding: 24px !important;',
+    '  border: none !important;',
+    '  width: 100% !important;',
+    '  height: 100% !important;',
+    '}',
+    'html body .gti-enter-splash.fade-out { opacity: 0 !important; pointer-events: none !important; }',
+    'html body .gti-enter-splash .gti-enter-icon {',
+    '  width: 120px !important; height: 120px !important;',
+    '  margin-bottom: 32px !important;',
+    '  background-color: #FFB347 !important;',
+    '  -webkit-mask-image: url("/assets/img/siluetas/swift-rising-sun.svg") !important;',
+    '  mask-image: url("/assets/img/siluetas/swift-rising-sun.svg") !important;',
+    '  -webkit-mask-size: contain !important;',
+    '  mask-size: contain !important;',
+    '  -webkit-mask-repeat: no-repeat !important;',
+    '  mask-repeat: no-repeat !important;',
+    '  -webkit-mask-position: center !important;',
+    '  mask-position: center !important;',
+    '  animation: gti-enter-glow 2.4s ease-in-out infinite !important;',
+    '}',
+    '@keyframes gti-enter-glow { 0%,100% { opacity: 0.72; transform: scale(1); } 50% { opacity: 1; transform: scale(1.04); } }',
+    'html body .gti-enter-splash h2 {',
+    "  font-family: 'Playfair Display','Georgia',serif !important;",
+    '  font-size: clamp(28px, 5vw, 44px) !important;',
+    '  font-weight: 700 !important;',
+    '  letter-spacing: 6px !important;',
+    '  margin: 0 0 12px !important;',
+    '  color: #F5EFE0 !important;',
+    '}',
+    'html body .gti-enter-splash p {',
+    '  font-size: 11px !important;',
+    '  letter-spacing: 3.5px !important;',
+    '  opacity: 0.62 !important;',
+    '  text-transform: uppercase !important;',
+    '  margin: 0 !important;',
+    '  font-weight: 500 !important;',
+    '}',
+    'html body .gti-enter-splash .gti-enter-pulse {',
+    '  margin-top: 36px !important;',
+    '  font-size: 20px !important;',
+    '  color: #E20A17 !important;',
+    '  animation: gti-enter-arrow 1.4s ease-in-out infinite !important;',
+    '  font-family: monospace !important;',
+    '}',
+    '@keyframes gti-enter-arrow { 0%,100% { transform: translateY(0); opacity: 0.85; } 50% { transform: translateY(6px); opacity: 1; } }',
+    '@media (max-width: 720px) {',
+    '  html body .gti-enter-splash .gti-enter-icon { width: 88px !important; height: 88px !important; margin-bottom: 24px !important; }',
+    '  html body .gti-enter-splash h2 { letter-spacing: 4px !important; }',
+    '}',
     /* === Mute toggle (sistema de audio) === */
     'html body .gti-mute-toggle {',
     '  position: fixed !important;',
@@ -1165,6 +1232,12 @@ document.addEventListener('DOMContentLoaded', async function() {
   var backTopHTML = '<button class="gti-back-top" id="gtiBackTop" aria-label="' + BACK_LABEL + '">↑</button>';
   var heroBgHTML = '<div class="gti-hero-bg" id="gtiHeroBg" aria-hidden="true"></div>';
   var muteBtnHTML = '<button class="gti-mute-toggle" id="gtiMuteToggle" aria-label="Silenciar sonidos">🔊</button>';
+  var enterSplashHTML = '<div id="gtiEnterSplash" class="gti-enter-splash" role="button" tabindex="0" aria-label="Entrar al garage">' +
+    '<div class="gti-enter-icon" aria-hidden="true"></div>' +
+    '<h2>ENTRAR AL GARAGE</h2>' +
+    '<p>Click para abrir las puertas</p>' +
+    '<div class="gti-enter-pulse" aria-hidden="true">▼</div>' +
+    '</div>';
   var sLogosHTML = '<div class="gti-s-logo pos-1" aria-hidden="true"></div>' +
                    '<div class="gti-s-logo pos-2" aria-hidden="true"></div>' +
                    '<div class="gti-s-logo pos-3" aria-hidden="true"></div>' +
@@ -1320,6 +1393,24 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (!document.getElementById('gtiMuteToggle')) {
       document.body.insertAdjacentHTML('beforeend', muteBtnHTML);
       GTiAudio.preload();
+    }
+    // 3c. Splash "Entrar al garage" - solo una vez por sesion
+    if (!document.getElementById('gtiEnterSplash') && sessionStorage.getItem('gti-entered') !== '1') {
+      document.body.insertAdjacentHTML('beforeend', enterSplashHTML);
+      var splash = document.getElementById('gtiEnterSplash');
+      var entered = false;
+      function _enter() {
+        if (entered) return;
+        entered = true;
+        GTiAudio.markGesture();
+        splash.classList.add('fade-out');
+        sessionStorage.setItem('gti-entered', '1');
+        setTimeout(function() { if (splash.parentNode) splash.parentNode.removeChild(splash); }, 950);
+      }
+      splash.addEventListener('click', _enter);
+      splash.addEventListener('keydown', function(ev) {
+        if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); _enter(); }
+      });
     }
     // 4. Hero background (sol naciente — SOLO dentro del header/hero, no fixed)
     injectHeroBg();
