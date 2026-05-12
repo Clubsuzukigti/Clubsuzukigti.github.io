@@ -408,7 +408,8 @@ def build_injection(locale):
     var audioCtx = null;
     var openSnd = null, closeSnd = null;
     var openPlayed = false, closePlayed = false;
-    var firstInteractionDone = false;
+    var userGestureSeen = false;  /* solo true tras click/tap/keydown REAL (no scroll) */
+    var pendingClose = false;     /* close pendiente esperando user gesture */
 
     function initContext() {{
       if (audioCtx) return audioCtx;
@@ -419,8 +420,8 @@ def build_injection(locale):
     }}
 
     function preloadShutters() {{
-      if (!openSnd) {{ openSnd = new Audio('/assets/sound/garage-open.mp3'); openSnd.preload = 'auto'; openSnd.volume = 0.32; }}
-      if (!closeSnd) {{ closeSnd = new Audio('/assets/sound/garage-close.mp3'); closeSnd.preload = 'auto'; closeSnd.volume = 0.32; }}
+      if (!openSnd) {{ openSnd = new Audio('/assets/sound/garage-open.mp3'); openSnd.preload = 'auto'; openSnd.volume = 0.32; openSnd.load(); }}
+      if (!closeSnd) {{ closeSnd = new Audio('/assets/sound/garage-close.mp3'); closeSnd.preload = 'auto'; closeSnd.volume = 0.32; closeSnd.load(); }}
     }}
 
     function _scheduleTic(ctx) {{
@@ -457,23 +458,33 @@ def build_injection(locale):
     }}
 
     function playOpen() {{
-      console.log('[GTi audio] open called, muted=', muted, 'already=', openPlayed);
-      if (muted || openPlayed) return;
+      console.log('[GTi audio] open called, muted=', muted, 'already=', openPlayed, 'gesture=', userGestureSeen);
+      if (muted || openPlayed || !userGestureSeen) return;
       preloadShutters();
       var p = openSnd.play();
-      if (p && p.then) p.then(function() {{ console.log('[GTi audio] open PLAYING'); }})
-                       .catch(function(err) {{ console.warn('[GTi audio] open FAILED:', err.name, err.message); }});
-      openPlayed = true;
+      if (p && p.then) p.then(function() {{
+        console.log('[GTi audio] open PLAYING');
+        openPlayed = true;
+      }}).catch(function(err) {{
+        console.warn('[GTi audio] open FAILED:', err.name, err.message);
+        /* NO marca openPlayed para reintentar en siguiente gesto */
+      }});
+      else openPlayed = true;
     }}
 
     function playClose() {{
-      console.log('[GTi audio] close called, muted=', muted, 'already=', closePlayed);
+      console.log('[GTi audio] close called, muted=', muted, 'already=', closePlayed, 'gesture=', userGestureSeen);
       if (muted || closePlayed) return;
+      if (!userGestureSeen) {{ pendingClose = true; return; }}  /* difiere hasta proximo click */
       preloadShutters();
       var p = closeSnd.play();
-      if (p && p.then) p.then(function() {{ console.log('[GTi audio] close PLAYING'); }})
-                       .catch(function(err) {{ console.warn('[GTi audio] close FAILED:', err.name, err.message); }});
-      closePlayed = true;
+      if (p && p.then) p.then(function() {{
+        console.log('[GTi audio] close PLAYING');
+        closePlayed = true;
+      }}).catch(function(err) {{
+        console.warn('[GTi audio] close FAILED:', err.name, err.message);
+      }});
+      else closePlayed = true;
     }}
 
     function setMuted(v) {{
@@ -491,11 +502,10 @@ def build_injection(locale):
       }}
     }}
 
-    function markInteracted() {{
-      if (firstInteractionDone) return;
-      firstInteractionDone = true;
-      /* primer scroll/click: dispara el sonido de "abrir garage" SINCRONO para conservar user gesture */
+    function markGesture() {{
+      userGestureSeen = true;
       playOpen();
+      if (pendingClose) {{ pendingClose = false; playClose(); }}
     }}
 
     return {{
@@ -506,7 +516,7 @@ def build_injection(locale):
       isMuted: function() {{ return muted; }},
       setMuted: setMuted,
       toggleMuted: function() {{ setMuted(!muted); }},
-      onFirstInteraction: markInteracted
+      markGesture: markGesture
     }};
   }})();
   /* expongo para debug en consola */
@@ -555,10 +565,8 @@ def build_injection(locale):
         heroBg.classList.toggle('hidden', hide);
         document.querySelectorAll('.gti-s-logo').forEach(function(el) {{ el.classList.toggle('hidden', hide); }});
       }}
-      /* Audio: dispara cierre de persiana cuando llega al final */
+      /* Audio: solicita cierre de persiana cuando llega al final (se diferira si no hay gesture aun) */
       if (pct > 96) GTiAudio.close();
-      /* primera interaccion: scroll cuenta */
-      GTiAudio.onFirstInteraction();
     }}
     window.addEventListener('scroll', onScroll, {{ passive: true }});
     onScroll();
@@ -578,22 +586,23 @@ def build_injection(locale):
       mute.addEventListener('click', function(ev) {{
         ev.preventDefault();
         GTiAudio.toggleMuted();
-        /* tic explicito al boton para feedback inmediato */
         if (!GTiAudio.isMuted()) {{
           GTiAudio.tic();
-          GTiAudio.onFirstInteraction();
+          GTiAudio.markGesture();
         }}
       }});
     }}
 
-    /* Tic en clicks: pills de deep-nav + section CTAs + back-to-top */
+    /* Tic en clicks + listener global de gestures REALES (click/touch/keydown) */
     if (!document.body.__gtiTicWired) {{
       document.body.__gtiTicWired = true;
       document.addEventListener('click', function(ev) {{
-        var t = ev.target.closest('.deep-nav a, .gti-section-cta, .gti-back-top');
-        if (t) GTiAudio.tic();
-        GTiAudio.onFirstInteraction();
+        GTiAudio.markGesture();
+        var t = ev.target.closest('.deep-nav a, .gti-section-cta, .gti-back-top, .gti-mute-toggle');
+        if (t && !t.classList.contains('gti-mute-toggle')) GTiAudio.tic();
       }}, true);
+      document.addEventListener('touchend', function() {{ GTiAudio.markGesture(); }}, true);
+      document.addEventListener('keydown', function() {{ GTiAudio.markGesture(); }}, true);
     }}
   }}
 
