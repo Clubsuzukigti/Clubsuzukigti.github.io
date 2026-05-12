@@ -693,6 +693,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 
 
+
 <!-- gti-overlay-injected -->
 <!-- Styles inyectados via JS porque el bundle hace document.documentElement.replaceWith() y borra el head original -->
 <script>
@@ -797,7 +798,53 @@ document.addEventListener('DOMContentLoaded', async function() {
     '  html body div.deep-nav { padding: 8px !important; gap: 5px !important; }',
     '  html body div.deep-nav a { padding: 5px 8px !important; font-size: 9px !important; letter-spacing: 1px !important; border-radius: 16px !important; }',
     '  html body div.deep-nav .dot { display: none !important; }',
-    '}'
+    '}',
+    /* === SECTION CTAs (.gti-section-cta) — bordes de seccion en bundle === */
+    'html body a.gti-section-cta {',
+    '  display: block !important;',
+    '  margin: 3em auto 2em !important;',
+    '  max-width: 580px !important;',
+    '  padding: 1.4em 2em !important;',
+    '  background: rgba(255,179,71,0.04) !important;',
+    '  border: 1px solid rgba(255,179,71,0.35) !important;',
+    '  border-radius: 4px !important;',
+    '  color: #FFB347 !important;',
+    '  text-decoration: none !important;',
+    "  font-family: 'Inter Tight',sans-serif !important;",
+    '  font-size: 0.78rem !important;',
+    '  font-weight: 600 !important;',
+    '  letter-spacing: 2.5px !important;',
+    '  text-transform: uppercase !important;',
+    '  text-align: center !important;',
+    '  transition: all .3s cubic-bezier(.34,1.56,.64,1) !important;',
+    '  position: relative !important;',
+    '  overflow: hidden !important;',
+    '  cursor: pointer !important;',
+    '}',
+    'html body a.gti-section-cta::before {',
+    '  content: "" !important;',
+    '  position: absolute !important;',
+    '  left: -100% !important; top: 0 !important;',
+    '  height: 100% !important; width: 100% !important;',
+    '  background: linear-gradient(90deg, transparent, rgba(255,179,71,0.14), transparent) !important;',
+    '  transition: left .6s !important;',
+    '  pointer-events: none !important;',
+    '}',
+    'html body a.gti-section-cta:hover::before { left: 100% !important; }',
+    'html body a.gti-section-cta:hover {',
+    '  background: rgba(255,179,71,0.12) !important;',
+    '  border-color: #FFB347 !important;',
+    '  color: #FFD580 !important;',
+    '  transform: translateY(-2px) !important;',
+    '  box-shadow: 0 8px 24px rgba(255,179,71,0.22) !important;',
+    '}',
+    'html body a.gti-section-cta::after {',
+    '  content: " \u2192" !important;',
+    '  display: inline-block !important;',
+    '  margin-left: 6px !important;',
+    '  transition: transform .3s !important;',
+    '}',
+    'html body a.gti-section-cta:hover::after { transform: translateX(8px) !important; }'
   ].join('\n');
 
   /* Inyecta los estilos en el <head> ACTUAL (re-llamable cada vez que documentElement cambia) */
