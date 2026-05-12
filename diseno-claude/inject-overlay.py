@@ -341,29 +341,36 @@ def build_injection(locale):
     '@media (max-width: 720px) {{',
     '  html body .gti-colab-illust {{ width: 250px !important; height: 250px !important; top: auto !important; bottom: 8% !important; right: 50% !important; transform: translateX(50%) scaleX(-1) rotate(2deg) !important; opacity: 0.32 !important; }}',
     '}}',
-    /* === Splash "Entrar al garage" (desbloquea audio en primer click) === */
+    /* === Splash "Entrar al garage" estilo persiana metalica (desbloquea audio + visual) === */
     'html body .gti-enter-splash {{',
     '  position: fixed !important;',
-    '  inset: 0 !important;',
+    '  top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;',
     '  z-index: 99999 !important;',
-    '  background: rgba(10,9,8,0.94) !important;',
-    '  backdrop-filter: blur(22px) saturate(140%) !important;',
-    '  -webkit-backdrop-filter: blur(22px) saturate(140%) !important;',
+    '  background: repeating-linear-gradient(0deg, rgba(255,255,255,0.025) 0px, rgba(255,255,255,0.025) 3px, transparent 3px, transparent 8px), linear-gradient(180deg, #0A0908 0%, #1A1612 45%, #0A0908 100%) !important;',
     '  display: flex !important;',
     '  flex-direction: column !important;',
     '  align-items: center !important;',
     '  justify-content: center !important;',
     '  cursor: pointer !important;',
-    '  transition: opacity .9s ease !important;',
+    '  transition: transform 3.6s cubic-bezier(0.28, 0.0, 0.18, 1.0), opacity .35s ease 3.4s !important;',
     "  font-family: 'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,sans-serif !important;",
     '  color: #F5EFE0 !important;',
     '  text-align: center !important;',
     '  padding: 24px !important;',
     '  border: none !important;',
-    '  width: 100% !important;',
-    '  height: 100% !important;',
+    '  box-shadow: inset 0 -2px 8px rgba(0,0,0,0.6), inset 0 2px 8px rgba(255,179,71,0.08) !important;',
+    '  overflow: hidden !important;',
     '}}',
-    'html body .gti-enter-splash.fade-out {{ opacity: 0 !important; pointer-events: none !important; }}',
+    'html body .gti-enter-splash::before {{',
+    '  content: "" !important;',
+    '  position: absolute !important;',
+    '  top: 0 !important; left: 0 !important; right: 0 !important;',
+    '  height: 12px !important;',
+    '  background: linear-gradient(180deg, #FFB347 0%, rgba(255,179,71,0.4) 60%, transparent 100%) !important;',
+    '  opacity: 0.4 !important;',
+    '  pointer-events: none !important;',
+    '}}',
+    'html body .gti-enter-splash.rolling-up {{ transform: translateY(-105%) !important; opacity: 0.95 !important; pointer-events: none !important; }}',
     'html body .gti-enter-splash .gti-enter-icon {{',
     '  width: 120px !important; height: 120px !important;',
     '  margin-bottom: 32px !important;',
@@ -760,9 +767,11 @@ def build_injection(locale):
         if (entered) return;
         entered = true;
         GTiAudio.markGesture();
-        splash.classList.add('fade-out');
+        /* animacion sincronizada con audio: 3.6s rolling up */
+        splash.classList.add('rolling-up');
         sessionStorage.setItem('gti-entered', '1');
-        setTimeout(function() {{ if (splash.parentNode) splash.parentNode.removeChild(splash); }}, 950);
+        /* remueve del DOM despues que termina (3.8s audio + buffer) */
+        setTimeout(function() {{ if (splash.parentNode) splash.parentNode.removeChild(splash); }}, 4000);
       }}
       splash.addEventListener('click', _enter);
       splash.addEventListener('keydown', function(ev) {{

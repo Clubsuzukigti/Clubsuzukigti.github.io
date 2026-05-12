@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.9.1';  /* splash "Entrar al garage" - desbloquea audio en primer click */
+const VERSION = 'v1.9.2';  /* splash con animacion persiana metalica enrollandose sincronizada con audio */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 
