@@ -703,6 +703,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 
 
+
 <!-- gti-overlay-injected -->
 <!-- Styles inyectados via JS porque el bundle hace document.documentElement.replaceWith() y borra el head original -->
 <script>
@@ -877,12 +878,13 @@ document.addEventListener('DOMContentLoaded', async function() {
     '@media (max-width: 720px) {',
     '  html body .gti-hero-bg { -webkit-mask-position: center center !important; mask-position: center center !important; -webkit-mask-size: 92% auto !important; mask-size: 92% auto !important; opacity: 0.32 !important; }',
     '}',
-    /* === 4 logos Suzuki "S" antiguo flotantes en el hero === */
+    /* === 4 logos Suzuki "S" antiguo - pequeños, rojos GTi, con flotacion === */
     'html body .gti-s-logo {',
     '  position: fixed !important;',
     '  z-index: 1 !important;',
     '  pointer-events: none !important;',
-    '  background-color: #FFB347 !important;',
+    '  width: 22px !important; height: 22px !important;',
+    '  background-color: #E20A17 !important;',
     '  -webkit-mask-image: url("/assets/img/siluetas/suzuki-s-logo.svg") !important;',
     '  mask-image: url("/assets/img/siluetas/suzuki-s-logo.svg") !important;',
     '  -webkit-mask-size: contain !important;',
@@ -891,19 +893,27 @@ document.addEventListener('DOMContentLoaded', async function() {
     '  mask-repeat: no-repeat !important;',
     '  -webkit-mask-position: center !important;',
     '  mask-position: center !important;',
-    '  transition: opacity .4s ease, transform .8s ease !important;',
+    '  opacity: 0.65 !important;',
+    '  transition: opacity .4s ease !important;',
+    '  filter: drop-shadow(0 0 6px rgba(226,10,23,0.35)) !important;',
     '}',
     'html body .gti-s-logo.hidden { opacity: 0 !important; }',
-    /* 4 posiciones: superior-izq, medio-izq, superior-der (cerca sol), inferior-der */
-    'html body .gti-s-logo.pos-1 { top: 8% !important; left: 6% !important; width: 68px !important; height: 68px !important; opacity: 0.32 !important; transform: rotate(-8deg) !important; }',
-    'html body .gti-s-logo.pos-2 { top: 38% !important; left: 3% !important; width: 44px !important; height: 44px !important; opacity: 0.22 !important; transform: rotate(6deg) !important; }',
-    'html body .gti-s-logo.pos-3 { top: 14% !important; right: 8% !important; width: 56px !important; height: 56px !important; opacity: 0.28 !important; transform: rotate(4deg) !important; }',
-    'html body .gti-s-logo.pos-4 { bottom: 14% !important; right: 5% !important; width: 88px !important; height: 88px !important; opacity: 0.38 !important; transform: rotate(-3deg) !important; }',
+    /* 4 posiciones repartidas como los marcadores blancos del bundle */
+    'html body .gti-s-logo.pos-1 { top: 18% !important; left: 28% !important; animation: gti-s-float-a 6s ease-in-out infinite !important; }',
+    'html body .gti-s-logo.pos-2 { top: 12% !important; left: 56% !important; animation: gti-s-float-b 7s ease-in-out infinite -1.5s !important; }',
+    'html body .gti-s-logo.pos-3 { top: 34% !important; left: 12% !important; animation: gti-s-float-a 8s ease-in-out infinite -3s !important; }',
+    'html body .gti-s-logo.pos-4 { top: 22% !important; left: 72% !important; animation: gti-s-float-b 5.5s ease-in-out infinite -2s !important; }',
+    '@keyframes gti-s-float-a {',
+    '  0%, 100% { transform: translateY(0) rotate(-4deg); }',
+    '  50% { transform: translateY(-7px) rotate(3deg); }',
+    '}',
+    '@keyframes gti-s-float-b {',
+    '  0%, 100% { transform: translateY(0) rotate(5deg); }',
+    '  50% { transform: translateY(6px) rotate(-4deg); }',
+    '}',
     '@media (max-width: 720px) {',
-    '  html body .gti-s-logo.pos-1 { width: 44px !important; height: 44px !important; opacity: 0.25 !important; }',
-    '  html body .gti-s-logo.pos-2 { display: none !important; }',
-    '  html body .gti-s-logo.pos-3 { width: 36px !important; height: 36px !important; opacity: 0.22 !important; }',
-    '  html body .gti-s-logo.pos-4 { width: 56px !important; height: 56px !important; bottom: 22% !important; right: 6% !important; opacity: 0.3 !important; }',
+    '  html body .gti-s-logo { width: 16px !important; height: 16px !important; opacity: 0.55 !important; }',
+    '  html body .gti-s-logo.pos-3 { display: none !important; }',
     '}'
   ].join('\n');
 
