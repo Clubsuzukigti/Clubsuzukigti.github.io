@@ -423,12 +423,7 @@ def build_injection(locale):
       if (!closeSnd) {{ closeSnd = new Audio('/assets/sound/garage-close.mp3'); closeSnd.preload = 'auto'; closeSnd.volume = 0.32; }}
     }}
 
-    function playTic() {{
-      if (muted) return;
-      var ctx = initContext();
-      if (!ctx) return;
-      if (ctx.state === 'suspended') ctx.resume();
-      /* tic sintetizado: oscilador con envolvente corta */
+    function _scheduleTic(ctx) {{
       var t = ctx.currentTime;
       var osc = ctx.createOscillator();
       var gain = ctx.createGain();
@@ -441,6 +436,19 @@ def build_injection(locale):
       osc.connect(gain).connect(ctx.destination);
       osc.start(t);
       osc.stop(t + 0.08);
+    }}
+
+    function playTic() {{
+      if (muted) return;
+      var ctx = initContext();
+      if (!ctx) return;
+      if (ctx.state === 'suspended') {{
+        var p = ctx.resume();
+        if (p && p.then) p.then(function() {{ _scheduleTic(ctx); }});
+        else _scheduleTic(ctx);
+      }} else {{
+        _scheduleTic(ctx);
+      }}
     }}
 
     function playOpen() {{
@@ -477,8 +485,8 @@ def build_injection(locale):
     function markInteracted() {{
       if (firstInteractionDone) return;
       firstInteractionDone = true;
-      /* primer scroll/click: dispara el sonido de "abrir garage" */
-      setTimeout(playOpen, 80);
+      /* primer scroll/click: dispara el sonido de "abrir garage" SINCRONO para conservar user gesture */
+      playOpen();
     }}
 
     return {{

@@ -10,12 +10,11 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.8.1';  /* expone GTiAudio en window para debug + invalida cache previo */
+const VERSION = 'v1.8.2';  /* fix audio: resume() async + sync playOpen + offline.html removido de precache */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 
 const PRECACHE_URLS = [
-  '/offline.html',
   '/manifest.json',
   '/assets/img/favicon.svg',
   '/assets/img/logo-final.png',
