@@ -8,6 +8,8 @@ hide:
 
 <div class="hero" markdown>
 
+<img src="assets/img/logo-final.png" alt="Suzuki GTi Car Club" class="hero-logo">
+
 # SUZUKI GTi CAR CLUB
 
 <p class="tagline">Preservando el legado del Suzuki Swift GTi</p>
