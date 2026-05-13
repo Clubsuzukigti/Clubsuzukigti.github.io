@@ -10,7 +10,7 @@
  * señal pobre. Crítico para uso real del archivo.
  */
 
-const VERSION = 'v1.9.4';  /* splash con front-lineart 240px + lineas persiana 3x mas anchas */
+const VERSION = 'v2.1.0';  /* portón Images 2.0 reemplaza el splash nativo del bundle (single document) */
 const CACHE_NAME = `gti-cache-${VERSION}`;
 const RUNTIME_CACHE = `gti-runtime-${VERSION}`;
 

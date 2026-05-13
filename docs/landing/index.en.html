@@ -732,6 +732,12 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 
 
+
+
+
+
+
+
 <!-- gti-overlay-injected -->
 <!-- Styles inyectados via JS porque el bundle hace document.documentElement.replaceWith() y borra el head original -->
 <script>
@@ -987,16 +993,23 @@ document.addEventListener('DOMContentLoaded', async function() {
     '@media (max-width: 720px) {',
     '  html body .gti-colab-illust { width: 250px !important; height: 250px !important; top: auto !important; bottom: 8% !important; right: 50% !important; transform: translateX(50%) scaleX(-1) rotate(2deg) !important; opacity: 0.32 !important; }',
     '}',
-    /* === Splash "Entrar al garage" estilo persiana metalica (desbloquea audio + visual) === */
+    /* === Splash "Entrar al garage" — usa NUESTRA imagen de portón como background.
+           El texto "ENTRA AL GARAGE / CLICK PARA ABRIR" ya está horneado en la
+           imagen, por eso ocultamos icono / h2 / p / pulse del DOM original.
+           La animacion rolling-up + audio sincronizado por GTiAudio se conservan. === */
     'html body .gti-enter-splash {',
     '  position: fixed !important;',
     '  top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;',
     '  z-index: 99999 !important;',
-    '  background: repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 9px, transparent 9px, transparent 24px), linear-gradient(180deg, #0A0908 0%, #1A1612 45%, #0A0908 100%) !important;',
+    '  background-color: #0A0908 !important;',
+    '  background-image: url("/assets/img/hero/porton-2400.avif") !important;',
+    '  background-size: cover !important;',
+    '  background-position: center center !important;',
+    '  background-repeat: no-repeat !important;',
     '  display: flex !important;',
     '  flex-direction: column !important;',
     '  align-items: center !important;',
-    '  justify-content: center !important;',
+    '  justify-content: flex-end !important;',
     '  cursor: pointer !important;',
     '  transition: transform 3.6s cubic-bezier(0.28, 0.0, 0.18, 1.0), opacity .35s ease 3.4s !important;',
     "  font-family: 'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,sans-serif !important;",
@@ -1004,62 +1017,27 @@ document.addEventListener('DOMContentLoaded', async function() {
     '  text-align: center !important;',
     '  padding: 24px !important;',
     '  border: none !important;',
-    '  box-shadow: inset 0 -2px 8px rgba(0,0,0,0.6), inset 0 2px 8px rgba(255,179,71,0.08) !important;',
+    '  box-shadow: none !important;',
     '  overflow: hidden !important;',
+    '  transform-origin: center top !important;',
     '}',
-    'html body .gti-enter-splash::before {',
-    '  content: "" !important;',
-    '  position: absolute !important;',
-    '  top: 0 !important; left: 0 !important; right: 0 !important;',
-    '  height: 12px !important;',
-    '  background: linear-gradient(180deg, #FFB347 0%, rgba(255,179,71,0.4) 60%, transparent 100%) !important;',
-    '  opacity: 0.4 !important;',
-    '  pointer-events: none !important;',
-    '}',
+    'html body .gti-enter-splash::before { display: none !important; }',
     'html body .gti-enter-splash.rolling-up { transform: translateY(-105%) !important; opacity: 0.95 !important; pointer-events: none !important; }',
-    'html body .gti-enter-splash .gti-enter-icon {',
-    '  width: 240px !important; height: 240px !important;',
-    '  margin-bottom: 32px !important;',
-    '  background-color: #FFB347 !important;',
-    '  -webkit-mask-image: url("/assets/img/siluetas/swift-front-lineart.svg") !important;',
-    '  mask-image: url("/assets/img/siluetas/swift-front-lineart.svg") !important;',
-    '  -webkit-mask-size: contain !important;',
-    '  mask-size: contain !important;',
-    '  -webkit-mask-repeat: no-repeat !important;',
-    '  mask-repeat: no-repeat !important;',
-    '  -webkit-mask-position: center !important;',
-    '  mask-position: center !important;',
-    '  animation: gti-enter-glow 2.4s ease-in-out infinite !important;',
-    '}',
-    '@keyframes gti-enter-glow { 0%,100% { opacity: 0.72; transform: scale(1); } 50% { opacity: 1; transform: scale(1.04); } }',
-    'html body .gti-enter-splash h2 {',
-    "  font-family: 'Playfair Display','Georgia',serif !important;",
-    '  font-size: clamp(28px, 5vw, 44px) !important;',
-    '  font-weight: 700 !important;',
-    '  letter-spacing: 6px !important;',
-    '  margin: 0 0 12px !important;',
-    '  color: #F5EFE0 !important;',
-    '}',
-    'html body .gti-enter-splash p {',
-    '  font-size: 11px !important;',
-    '  letter-spacing: 3.5px !important;',
-    '  opacity: 0.62 !important;',
-    '  text-transform: uppercase !important;',
-    '  margin: 0 !important;',
-    '  font-weight: 500 !important;',
-    '}',
+    /* el icono SVG, h2, p y arrow ya no se necesitan — el texto está horneado en la imagen */
+    'html body .gti-enter-splash .gti-enter-icon { display: none !important; }',
+    'html body .gti-enter-splash h2 { display: none !important; }',
+    'html body .gti-enter-splash p { display: none !important; }',
     'html body .gti-enter-splash .gti-enter-pulse {',
-    '  margin-top: 36px !important;',
-    '  font-size: 20px !important;',
+    '  position: absolute !important;',
+    '  bottom: 14px !important; left: 50%; transform: translateX(-50%) !important;',
+    '  font-size: 18px !important;',
     '  color: #E20A17 !important;',
     '  animation: gti-enter-arrow 1.4s ease-in-out infinite !important;',
     '  font-family: monospace !important;',
+    '  opacity: 0.85 !important;',
+    '  text-shadow: 0 2px 8px rgba(0,0,0,0.7) !important;',
     '}',
-    '@keyframes gti-enter-arrow { 0%,100% { transform: translateY(0); opacity: 0.85; } 50% { transform: translateY(6px); opacity: 1; } }',
-    '@media (max-width: 720px) {',
-    '  html body .gti-enter-splash .gti-enter-icon { width: 180px !important; height: 180px !important; margin-bottom: 24px !important; }',
-    '  html body .gti-enter-splash h2 { letter-spacing: 4px !important; }',
-    '}',
+    '@keyframes gti-enter-arrow { 0%,100% { transform: translateX(-50%) translateY(0); opacity: 0.85; } 50% { transform: translateX(-50%) translateY(6px); opacity: 1; } }',
     /* === Mute toggle (sistema de audio) === */
     'html body .gti-mute-toggle {',
     '  position: fixed !important;',
@@ -1084,6 +1062,44 @@ document.addEventListener('DOMContentLoaded', async function() {
     '  html body .gti-mute-toggle { bottom: 16px !important; left: 16px !important; width: 38px !important; height: 38px !important; font-size: 15px !important; }',
     '}',
     /* === Reemplazo del contenido del element del S brand (inyectado por JS) === */
+    /* === Footer: ocultar persiana de slats + panel Automatiza.ia === */
+    'html body #footerShutter, html body #footer .footer-shutter { display: none !important; }',
+    'html body .gti-automatiza {',
+    '  max-width: 1280px !important;',
+    '  margin: 28px auto 0 !important;',
+    '  padding: 18px 22px !important;',
+    '  border-top: 1px solid rgba(245,239,224,0.10) !important;',
+    '  border-bottom: 1px solid rgba(245,239,224,0.10) !important;',
+    '  background: linear-gradient(90deg, rgba(255,179,71,0.05) 0%, rgba(245,239,224,0.02) 100%) !important;',
+    '  display: flex !important; align-items: center !important; gap: 14px !important; flex-wrap: wrap !important;',
+    '  font-size: 12.5px !important;',
+    '  color: rgba(245,239,224,0.78) !important;',
+    "  font-family: 'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,sans-serif !important;",
+    '  position: relative !important; z-index: 5 !important;',
+    '}',
+    'html body .gti-automatiza-mark {',
+    '  display: inline-flex !important; align-items: center !important; justify-content: center !important;',
+    '  width: 34px !important; height: 34px !important;',
+    '  border-radius: 10px !important;',
+    '  background: rgba(255,179,71,0.15) !important;',
+    '  color: #FFB347 !important;',
+    '  flex-shrink: 0 !important;',
+    '}',
+    'html body .gti-automatiza-text { flex: 1 !important; min-width: 240px !important; line-height: 1.5 !important; }',
+    'html body .gti-automatiza-text strong { color: #F5EFE0 !important; font-weight: 600 !important; letter-spacing: 0.01em !important; }',
+    'html body .gti-automatiza-text a {',
+    '  color: #FFB347 !important; text-decoration: none !important; font-weight: 600 !important;',
+    '  border-bottom: 1px solid rgba(255,179,71,0.4) !important;',
+    '  transition: color 200ms ease, border-color 200ms ease !important;',
+    '}',
+    'html body .gti-automatiza-text a:hover { color: #FFD580 !important; border-bottom-color: #FFB347 !important; }',
+    'html body .gti-automatiza-tag {',
+    '  display: inline-flex !important; align-items: center !important; gap: 6px !important;',
+    '  padding: 4px 10px !important; border-radius: 999px !important;',
+    '  background: rgba(255,179,71,0.12) !important; border: 1px solid rgba(255,179,71,0.28) !important;',
+    '  color: #FFB347 !important; font-size: 10.5px !important; font-weight: 600 !important;',
+    '  letter-spacing: 0.04em !important; text-transform: uppercase !important;',
+    '}',
     'html body .gti-brand-s-fill {',
     '  display: block !important;',
     '  position: absolute !important;',
@@ -1223,7 +1239,10 @@ document.addEventListener('DOMContentLoaded', async function() {
       isMuted: function() { return muted; },
       setMuted: setMuted,
       toggleMuted: function() { setMuted(!muted); },
-      markGesture: markGesture
+      markGesture: markGesture,
+      /* Marca el open como ya reproducido sin tocar audio — usado cuando
+         el portón externo ya disparó el sonido y queremos evitar duplicarlo. */
+      suppressOpen: function() { openPlayed = true; }
     };
   })();
   /* expongo para debug en consola */
@@ -1404,7 +1423,7 @@ document.addEventListener('DOMContentLoaded', async function() {
       document.body.insertAdjacentHTML('beforeend', muteBtnHTML);
       GTiAudio.preload();
     }
-    // 3c. Splash "Entrar al garage" - en cada carga (ritual completo siempre)
+    // 3c. Splash "Entrar al garage" - siempre se muestra (es el portón con nuestra imagen)
     if (!document.getElementById('gtiEnterSplash')) {
       document.body.insertAdjacentHTML('beforeend', enterSplashHTML);
       var splash = document.getElementById('gtiEnterSplash');
@@ -1448,6 +1467,36 @@ document.addEventListener('DOMContentLoaded', async function() {
     Object.keys(CTAS).forEach(function(k) {
       injectSectionCTA(k, CTAS[k].label, CTAS[k].href);
     });
+
+    // 6. Panel Automatiza.ia en el footer + remover persiana del footer
+    var _foot = document.getElementById('footer');
+    if (_foot) {
+      var _fs = document.getElementById('footerShutter');
+      if (_fs && _fs.parentNode) _fs.parentNode.removeChild(_fs);
+      var _fsAlt = _foot.querySelector('.footer-shutter');
+      if (_fsAlt && _fsAlt.parentNode) _fsAlt.parentNode.removeChild(_fsAlt);
+      if (!_foot.querySelector('.gti-automatiza')) {
+        var _ai = document.createElement('div');
+        _ai.className = 'gti-automatiza';
+        _ai.innerHTML = '<span class="gti-automatiza-mark" aria-hidden="true">' +
+          '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' +
+          '<path d="M12 2 L13.5 8.5 L20 10 L13.5 11.5 L12 18 L10.5 11.5 L4 10 L10.5 8.5 Z"/>' +
+          '<circle cx="18" cy="4" r="1.2"/><circle cx="5" cy="18" r="1"/>' +
+          '</svg></span>' +
+          '<div class="gti-automatiza-text">' +
+            '<span class="gti-automatiza-tag">IA · Investigación + Diseño inteligente</span><br>' +
+            'Sitio creado, optimizado y gestionado con inteligencia artificial avanzada por ' +
+            '<strong><a href="https://automatiza.ia" target="_blank" rel="noopener">Automatiza.ia</a></strong>' +
+            ' — agencia de investigación, diseño y automatización con IA para negocios reales.' +
+          '</div>';
+        var _innerFooter = _foot.querySelector('.footer-inner');
+        if (_innerFooter && _innerFooter.parentNode) {
+          _innerFooter.parentNode.insertBefore(_ai, _innerFooter.nextSibling);
+        } else {
+          _foot.appendChild(_ai);
+        }
+      }
+    }
 
     attachListeners();
     return true;
